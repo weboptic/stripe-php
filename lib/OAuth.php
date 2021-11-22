@@ -91,7 +91,8 @@ abstract class OAuth
               . 'https://dashboard.stripe.com/account/applications/settings, '
               . 'after registering your account as a platform. See '
               . 'https://stripe.com/docs/connect/standard-accounts for details, '
-              . 'or email support@stripe.com if you have any questions.';
+              . 'or contact support through https://support.stripe.com/contact '
+              . 'if you have any questions.';
 
             throw new Exception\AuthenticationException($msg);
         }

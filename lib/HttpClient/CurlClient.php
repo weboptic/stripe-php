@@ -563,7 +563,7 @@ class CurlClient implements ClientInterface, StreamingClientInterface
                 $msg = 'Unexpected error communicating with Stripe.  '
                  . 'If this problem persists,';
         }
-        $msg .= ' let us know at support@stripe.com.';
+        $msg .= ' let us know at https://support.stripe.com/contact';
 
         $msg .= "\n\n(Network error [errno {$errno}]: {$message})";
 

@@ -365,7 +365,8 @@ class ApiRequestor
             $msg = 'No API key provided.  (HINT: set your API key using '
               . '"Stripe::setApiKey(<API-KEY>)".  You can generate API keys from '
               . 'the Stripe web interface.  See https://stripe.com/api for '
-              . 'details, or email support@stripe.com if you have any questions.';
+              . 'details, or contact support through '
+              . 'https://support.stripe.com/contact if you have any questions.';
 
             throw new Exception\AuthenticationException($msg);
         }
