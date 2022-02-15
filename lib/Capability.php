@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * This is an object representing a capability for a Stripe account.

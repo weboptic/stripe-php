@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * This class exists so that the test suite is compatible with both

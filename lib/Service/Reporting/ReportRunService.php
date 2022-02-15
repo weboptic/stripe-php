@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Reporting;
+namespace StripePhp\Service\Reporting;
 
 class ReportRunService extends \Stripe\Service\AbstractService
 {

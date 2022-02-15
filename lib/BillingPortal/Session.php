@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\BillingPortal;
+namespace StripePhp\BillingPortal;
 
 /**
  * The Billing customer portal is a Stripe-hosted UI for subscription and billing

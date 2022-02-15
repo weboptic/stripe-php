@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Identity;
+namespace StripePhp\Identity;
 
 /**
  * A VerificationSession guides you through the process of collecting and verifying

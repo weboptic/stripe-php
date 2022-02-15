@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Reporting;
+namespace StripePhp\Reporting;
 
 /**
  * The Report Run object represents an instance of a report type generated with

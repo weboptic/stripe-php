@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * PaymentMethod objects represent your customer's payment instruments. They can be

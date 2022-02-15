@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Exception;
+namespace StripePhp\Exception;
 
 /**
  * RateLimitException is thrown in cases where an account is putting too much

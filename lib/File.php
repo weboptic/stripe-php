@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * This is an object representing a file hosted on Stripe's servers. The file may

@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Issuing;
+namespace StripePhp\Issuing;
 
 /**
  * An Issuing <code>Cardholder</code> object represents an individual or business

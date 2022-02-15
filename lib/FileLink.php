@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * To share the contents of a <code>File</code> object with non-Stripe users, you

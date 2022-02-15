@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * Stores representations of <a

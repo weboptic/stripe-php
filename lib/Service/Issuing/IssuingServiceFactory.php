@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Issuing;
+namespace StripePhp\Service\Issuing;
 
 /**
  * Service factory class for API resources in the Issuing namespace.

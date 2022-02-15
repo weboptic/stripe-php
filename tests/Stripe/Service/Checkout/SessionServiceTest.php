@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Service\Checkout;
+namespace StripePhp\Service\Checkout;
 
 /**
  * @internal

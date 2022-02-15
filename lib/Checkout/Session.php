@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Checkout;
+namespace StripePhp\Checkout;
 
 /**
  * A Checkout Session represents your customer's session as they pay for one-time

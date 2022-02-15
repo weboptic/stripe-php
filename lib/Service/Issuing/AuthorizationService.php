@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Issuing;
+namespace StripePhp\Service\Issuing;
 
 class AuthorizationService extends \Stripe\Service\AbstractService
 {

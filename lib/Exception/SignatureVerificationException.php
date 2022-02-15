@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Exception;
+namespace StripePhp\Exception;
 
 /**
  * SignatureVerificationException is thrown when the signature verification for

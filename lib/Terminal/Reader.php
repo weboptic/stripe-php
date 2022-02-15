@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Terminal;
+namespace StripePhp\Terminal;
 
 /**
  * A Reader represents a physical device for accepting payment details.

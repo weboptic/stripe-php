@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Issuing;
+namespace StripePhp\Issuing;
 
 /**
  * Any use of an <a href="https://stripe.com/docs/issuing">issued card</a> that

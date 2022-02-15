@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * Methods for managing a test HTTP server.

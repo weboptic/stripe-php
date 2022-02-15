@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Terminal;
+namespace StripePhp\Terminal;
 
 /**
  * @internal

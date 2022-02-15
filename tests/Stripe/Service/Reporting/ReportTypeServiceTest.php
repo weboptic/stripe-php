@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Service\Reporting;
+namespace StripePhp\Service\Reporting;
 
 /**
  * @internal

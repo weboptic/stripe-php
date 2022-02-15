@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Checkout;
+namespace StripePhp\Service\Checkout;
 
 class SessionService extends \Stripe\Service\AbstractService
 {

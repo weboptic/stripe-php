@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Sigma;
+namespace StripePhp\Service\Sigma;
 
 /**
  * Service factory class for API resources in the Sigma namespace.

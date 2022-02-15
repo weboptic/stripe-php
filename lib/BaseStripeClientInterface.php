@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * Interface for a Stripe client.

@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Reporting;
+namespace StripePhp\Service\Reporting;
 
 /**
  * Service factory class for API resources in the Reporting namespace.

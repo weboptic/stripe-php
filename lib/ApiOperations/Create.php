@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\ApiOperations;
+namespace StripePhp\ApiOperations;
 
 /**
  * Trait for creatable resources. Adds a `create()` static method to the class.

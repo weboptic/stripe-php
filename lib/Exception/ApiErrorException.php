@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Exception;
+namespace StripePhp\Exception;
 
 /**
  * Implements properties and methods common to all (non-SPL) Stripe exceptions.

@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Util;
+namespace StripePhp\Util;
 
 class ObjectTypes
 {

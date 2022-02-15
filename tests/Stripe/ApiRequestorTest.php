@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe;
+namespace StripePhp;
 
 use Stripe\HttpClient\CurlClient;
 

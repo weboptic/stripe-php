@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Radar;
+namespace StripePhp\Service\Radar;
 
 class EarlyFraudWarningService extends \Stripe\Service\AbstractService
 {

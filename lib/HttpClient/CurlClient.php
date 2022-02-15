@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\HttpClient;
+namespace StripePhp\HttpClient;
 
 use Stripe\Exception;
 use Stripe\Stripe;

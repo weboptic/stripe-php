@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Issuing;
+namespace StripePhp\Issuing;
 
 /**
  * You can <a href="https://stripe.com/docs/issuing/cards">create physical or

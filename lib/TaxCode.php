@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * <a href="https://stripe.com/docs/tax/tax-codes">Tax codes</a> classify goods and

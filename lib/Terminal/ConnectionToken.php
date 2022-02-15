@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Terminal;
+namespace StripePhp\Terminal;
 
 /**
  * A Connection Token is used by the Stripe Terminal SDK to connect to a reader.

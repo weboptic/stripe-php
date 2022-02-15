@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Exception\OAuth;
+namespace StripePhp\Exception\OAuth;
 
 /**
  * The base interface for all Stripe OAuth exceptions.

@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * @deprecated Bitcoin receivers are deprecated. Please use the sources API instead.

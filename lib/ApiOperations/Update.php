@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\ApiOperations;
+namespace StripePhp\ApiOperations;
 
 /**
  * Trait for updatable resources. Adds an `update()` static method and a

@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Identity;
+namespace StripePhp\Service\Identity;
 
 /**
  * Service factory class for API resources in the Identity namespace.

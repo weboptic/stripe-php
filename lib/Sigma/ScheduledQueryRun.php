@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Sigma;
+namespace StripePhp\Sigma;
 
 /**
  * If you have <a href="https://stripe.com/docs/sigma/scheduled-queries">scheduled

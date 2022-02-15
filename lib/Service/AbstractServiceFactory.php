@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Service;
+namespace StripePhp\Service;
 
 /**
  * Abstract base class for all service factories used to expose service

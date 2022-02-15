@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Radar;
+namespace StripePhp\Radar;
 
 /**
  * Value lists allow you to group values together which can then be referenced in

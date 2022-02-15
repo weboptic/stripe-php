@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\ApiOperations;
+namespace StripePhp\ApiOperations;
 
 /**
  * Trait for deletable resources. Adds a `delete()` method to the class.

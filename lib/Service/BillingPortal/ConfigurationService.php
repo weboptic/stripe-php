@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\BillingPortal;
+namespace StripePhp\Service\BillingPortal;
 
 class ConfigurationService extends \Stripe\Service\AbstractService
 {

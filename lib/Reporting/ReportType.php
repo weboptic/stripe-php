@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Reporting;
+namespace StripePhp\Reporting;
 
 /**
  * The Report Type resource corresponds to a particular type of report, such as the

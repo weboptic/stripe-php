@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\Terminal;
+namespace StripePhp\Service\Terminal;
 
 /**
  * Service factory class for API resources in the Terminal namespace.

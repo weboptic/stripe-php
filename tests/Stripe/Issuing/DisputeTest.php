@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Issuing;
+namespace StripePhp\Issuing;
 
 /**
  * @internal

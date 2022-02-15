@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Terminal;
+namespace StripePhp\Terminal;
 
 /**
  * A Location represents a grouping of readers.

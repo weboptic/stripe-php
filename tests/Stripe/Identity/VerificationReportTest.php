@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Identity;
+namespace StripePhp\Identity;
 
 /**
  * @internal

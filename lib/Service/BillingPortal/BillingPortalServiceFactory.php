@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service\BillingPortal;
+namespace StripePhp\Service\BillingPortal;
 
 /**
  * Service factory class for API resources in the BillingPortal namespace.

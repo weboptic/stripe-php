@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Util;
+namespace StripePhp\Util;
 
 /**
  * A very basic implementation of LoggerInterface that has just enough

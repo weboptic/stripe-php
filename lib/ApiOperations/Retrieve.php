@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\ApiOperations;
+namespace StripePhp\ApiOperations;
 
 /**
  * Trait for retrievable resources. Adds a `retrieve()` static method to the

@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Exception;
+namespace StripePhp\Exception;
 
 /**
  * CardException is thrown when a user enters a card that can't be charged for

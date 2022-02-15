@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Radar;
+namespace StripePhp\Radar;
 
 /**
  * An early fraud warning indicates that the card issuer has notified us that a

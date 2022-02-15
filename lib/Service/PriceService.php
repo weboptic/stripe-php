@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Service;
+namespace StripePhp\Service;
 
 class PriceService extends \Stripe\Service\AbstractService
 {

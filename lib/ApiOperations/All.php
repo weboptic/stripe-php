@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\ApiOperations;
+namespace StripePhp\ApiOperations;
 
 /**
  * Trait for listable resources. Adds a `all()` static method to the class.

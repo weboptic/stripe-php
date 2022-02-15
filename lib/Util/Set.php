@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Util;
+namespace StripePhp\Util;
 
 use ArrayIterator;
 use IteratorAggregate;

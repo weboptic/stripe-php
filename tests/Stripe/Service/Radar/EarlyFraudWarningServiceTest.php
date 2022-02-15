@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Service\Radar;
+namespace StripePhp\Service\Radar;
 
 /**
  * @internal

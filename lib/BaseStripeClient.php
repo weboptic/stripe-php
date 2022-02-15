@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe;
+namespace StripePhp;
 
 class BaseStripeClient implements StripeClientInterface, StripeStreamingClientInterface
 {

@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Radar;
+namespace StripePhp\Radar;
 
 /**
  * Value list items allow you to add specific values to a given Radar value list,

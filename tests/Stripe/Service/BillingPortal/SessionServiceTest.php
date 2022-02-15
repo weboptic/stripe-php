@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Service\BillingPortal;
+namespace StripePhp\Service\BillingPortal;
 
 /**
  * @internal

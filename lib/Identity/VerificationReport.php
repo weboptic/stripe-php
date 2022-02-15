@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Identity;
+namespace StripePhp\Identity;
 
 /**
  * A VerificationReport is the result of an attempt to collect and verify data from

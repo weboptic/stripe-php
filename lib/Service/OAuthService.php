@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Service;
+namespace StripePhp\Service;
 
 class OAuthService extends \Stripe\Service\AbstractService
 {

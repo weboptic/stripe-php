@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\BillingPortal;
+namespace StripePhp\BillingPortal;
 
 /**
  * A portal configuration describes the functionality and behavior of a portal

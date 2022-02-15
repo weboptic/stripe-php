@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe\Issuing;
+namespace StripePhp\Issuing;
 
 /**
  * As a <a href="https://stripe.com/docs/issuing">card issuer</a>, you can dispute

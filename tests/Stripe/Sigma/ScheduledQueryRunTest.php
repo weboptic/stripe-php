@@ -1,6 +1,6 @@
 <?php
 
-namespace Stripe\Sigma;
+namespace StripePhp\Sigma;
 
 /**
  * @internal

@@ -2,7 +2,7 @@
 
 // File generated from our OpenAPI spec
 
-namespace Stripe;
+namespace StripePhp;
 
 /**
  * <code>Exchange Rate</code> objects allow you to determine the rates that Stripe
