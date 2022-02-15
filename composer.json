@@ -1,5 +1,5 @@
 {
-  "name": "stripe/stripe-php",
+  "name": "weboptic/stripe-php",
   "description": "Stripe PHP Library",
   "keywords": [
     "stripe",
@@ -28,15 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Stripe\\": "lib/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Stripe\\": [
-        "tests/",
-        "tests/Stripe/"
-      ]
+      "StripePhp\\": "lib/"
     }
   },
   "extra": {
