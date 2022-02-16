@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class PromotionCodeService extends \Stripe\Service\AbstractService
+class PromotionCodeService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your promotion codes.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\PromotionCode>
+     * @return \StripePhp\Collection<\StripePhp\PromotionCode>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class PromotionCodeService extends \Stripe\Service\AbstractService
      * specific customer, redemption limit, and expiration date.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PromotionCode
+     * @return \StripePhp\PromotionCode
      */
     public function create($params = null, $opts = null)
     {
@@ -45,11 +45,11 @@ class PromotionCodeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PromotionCode
+     * @return \StripePhp\PromotionCode
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -62,11 +62,11 @@ class PromotionCodeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PromotionCode
+     * @return \StripePhp\PromotionCode
      */
     public function update($id, $params = null, $opts = null)
     {

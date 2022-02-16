@@ -23,7 +23,7 @@ class FooResource extends ApiResource
  * @internal
  * @coversNothing
  */
-final class ApiResourceTest extends \Stripe\TestCase
+final class ApiResourceTest extends \StripePhp\TestCase
 {
     use TestHelper;
 

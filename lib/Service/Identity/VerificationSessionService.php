@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Identity;
 
-class VerificationSessionService extends \Stripe\Service\AbstractService
+class VerificationSessionService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of VerificationSessions.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Identity\VerificationSession>
+     * @return \StripePhp\Collection<\StripePhp\Identity\VerificationSession>
      */
     public function all($params = null, $opts = null)
     {
@@ -31,11 +31,11 @@ class VerificationSessionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Identity\VerificationSession
+     * @return \StripePhp\Identity\VerificationSession
      */
     public function cancel($id, $params = null, $opts = null)
     {
@@ -56,11 +56,11 @@ class VerificationSessionService extends \Stripe\Service\AbstractService
      * users’ identity documents</a>.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Identity\VerificationSession
+     * @return \StripePhp\Identity\VerificationSession
      */
     public function create($params = null, $opts = null)
     {
@@ -94,11 +94,11 @@ class VerificationSessionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Identity\VerificationSession
+     * @return \StripePhp\Identity\VerificationSession
      */
     public function redact($id, $params = null, $opts = null)
     {
@@ -114,11 +114,11 @@ class VerificationSessionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Identity\VerificationSession
+     * @return \StripePhp\Identity\VerificationSession
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -133,11 +133,11 @@ class VerificationSessionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Identity\VerificationSession
+     * @return \StripePhp\Identity\VerificationSession
      */
     public function update($id, $params = null, $opts = null)
     {

@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Recipient
+ * @covers \StripePhp\Recipient
  */
-final class RecipientTest extends \Stripe\TestCase
+final class RecipientTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class RecipientTest extends \Stripe\TestCase
         );
         $resources = Recipient::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Recipient::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Recipient::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class RecipientTest extends \Stripe\TestCase
             '/v1/recipients/' . self::TEST_RESOURCE_ID
         );
         $resource = Recipient::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Recipient::class, $resource);
+        static::assertInstanceOf(\StripePhp\Recipient::class, $resource);
     }
 
     public function testIsCreatable()
@@ -43,7 +43,7 @@ final class RecipientTest extends \Stripe\TestCase
             'name' => 'name',
             'type' => 'individual',
         ]);
-        static::assertInstanceOf(\Stripe\Recipient::class, $resource);
+        static::assertInstanceOf(\StripePhp\Recipient::class, $resource);
     }
 
     public function testIsSaveable()
@@ -55,7 +55,7 @@ final class RecipientTest extends \Stripe\TestCase
             '/v1/recipients/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Recipient::class, $resource);
+        static::assertInstanceOf(\StripePhp\Recipient::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -67,7 +67,7 @@ final class RecipientTest extends \Stripe\TestCase
         $resource = Recipient::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Recipient::class, $resource);
+        static::assertInstanceOf(\StripePhp\Recipient::class, $resource);
     }
 
     public function testIsDeletable()
@@ -78,6 +78,6 @@ final class RecipientTest extends \Stripe\TestCase
             '/v1/recipients/' . $resource->id
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\Recipient::class, $resource);
+        static::assertInstanceOf(\StripePhp\Recipient::class, $resource);
     }
 }

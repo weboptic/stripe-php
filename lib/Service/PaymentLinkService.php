@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class PaymentLinkService extends \Stripe\Service\AbstractService
+class PaymentLinkService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your payment links.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\PaymentLink>
+     * @return \StripePhp\Collection<\StripePhp\PaymentLink>
      */
     public function all($params = null, $opts = null)
     {
@@ -29,11 +29,11 @@ class PaymentLinkService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\PaymentLink>
+     * @return \StripePhp\Collection<\StripePhp\PaymentLink>
      */
     public function allLineItems($id, $params = null, $opts = null)
     {
@@ -44,11 +44,11 @@ class PaymentLinkService extends \Stripe\Service\AbstractService
      * Creates a payment link.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentLink
+     * @return \StripePhp\PaymentLink
      */
     public function create($params = null, $opts = null)
     {
@@ -60,11 +60,11 @@ class PaymentLinkService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentLink
+     * @return \StripePhp\PaymentLink
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -76,11 +76,11 @@ class PaymentLinkService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentLink
+     * @return \StripePhp\PaymentLink
      */
     public function update($id, $params = null, $opts = null)
     {

@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\CreditNote
+ * @covers \StripePhp\CreditNote
  */
-final class CreditNoteTest extends \Stripe\TestCase
+final class CreditNoteTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class CreditNoteTest extends \Stripe\TestCase
         );
         $resources = CreditNote::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\CreditNote::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class CreditNoteTest extends \Stripe\TestCase
             '/v1/credit_notes/' . self::TEST_RESOURCE_ID
         );
         $resource = CreditNote::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\CreditNote::class, $resource);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $resource);
     }
 
     public function testIsCreatable()
@@ -44,7 +44,7 @@ final class CreditNoteTest extends \Stripe\TestCase
             'invoice' => 'in_132',
             'reason' => 'duplicate',
         ]);
-        static::assertInstanceOf(\Stripe\CreditNote::class, $resource);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $resource);
     }
 
     public function testIsSaveable()
@@ -56,7 +56,7 @@ final class CreditNoteTest extends \Stripe\TestCase
             '/v1/credit_notes/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\CreditNote::class, $resource);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -68,7 +68,7 @@ final class CreditNoteTest extends \Stripe\TestCase
         $resource = CreditNote::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\CreditNote::class, $resource);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $resource);
     }
 
     public function testCanPreview()
@@ -81,7 +81,7 @@ final class CreditNoteTest extends \Stripe\TestCase
             'amount' => 100,
             'invoice' => 'in_123',
         ]);
-        static::assertInstanceOf(\Stripe\CreditNote::class, $resource);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $resource);
     }
 
     public function testCanVoidCreditNote()
@@ -92,7 +92,7 @@ final class CreditNoteTest extends \Stripe\TestCase
             '/v1/credit_notes/' . $creditNote->id . '/void'
         );
         $resource = $creditNote->voidCreditNote();
-        static::assertInstanceOf(\Stripe\CreditNote::class, $resource);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $resource);
         static::assertSame($resource, $creditNote);
     }
 

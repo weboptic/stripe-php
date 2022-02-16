@@ -9,7 +9,7 @@ namespace StripePhp\Service\Sigma;
  *
  * @property ScheduledQueryRunService $scheduledQueryRuns
  */
-class SigmaServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class SigmaServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

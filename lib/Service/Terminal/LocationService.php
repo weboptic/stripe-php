@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Terminal;
 
-class LocationService extends \Stripe\Service\AbstractService
+class LocationService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of <code>Location</code> objects.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Terminal\Location>
+     * @return \StripePhp\Collection<\StripePhp\Terminal\Location>
      */
     public function all($params = null, $opts = null)
     {
@@ -27,11 +27,11 @@ class LocationService extends \Stripe\Service\AbstractService
      * href="/docs/terminal/fleet/locations">Manage locations</a> guide.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Location
+     * @return \StripePhp\Terminal\Location
      */
     public function create($params = null, $opts = null)
     {
@@ -43,11 +43,11 @@ class LocationService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Location
+     * @return \StripePhp\Terminal\Location
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -59,11 +59,11 @@ class LocationService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Location
+     * @return \StripePhp\Terminal\Location
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -76,11 +76,11 @@ class LocationService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Location
+     * @return \StripePhp\Terminal\Location
      */
     public function update($id, $params = null, $opts = null)
     {

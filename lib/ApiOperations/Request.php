@@ -12,7 +12,7 @@ trait Request
     /**
      * @param null|array|mixed $params The list of parameters to validate
      *
-     * @throws \Stripe\Exception\InvalidArgumentException if $params exists and is not an array
+     * @throws \StripePhp\Exception\InvalidArgumentException if $params exists and is not an array
      */
     protected static function _validateParams($params = null)
     {
@@ -22,7 +22,7 @@ trait Request
                . "would be: \"Stripe\\Charge::create(['amount' => 100, "
                . "'currency' => 'usd', 'source' => 'tok_1234'])\")";
 
-            throw new \Stripe\Exception\InvalidArgumentException($message);
+            throw new \StripePhp\Exception\InvalidArgumentException($message);
         }
     }
 
@@ -32,7 +32,7 @@ trait Request
      * @param array $params list of parameters for the request
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
      * @return array tuple containing (the JSON response, $options)
      */
@@ -52,7 +52,7 @@ trait Request
      * @param array $params list of parameters for the request
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      */
     protected function _requestStream($method, $url, $readBodyChunk, $params = [], $options = null)
     {
@@ -66,15 +66,15 @@ trait Request
      * @param array $params list of parameters for the request
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
      * @return array tuple containing (the JSON response, $options)
      */
     protected static function _staticRequest($method, $url, $params, $options)
     {
-        $opts = \Stripe\Util\RequestOptions::parse($options);
+        $opts = \StripePhp\Util\RequestOptions::parse($options);
         $baseUrl = isset($opts->apiBase) ? $opts->apiBase : static::baseUrl();
-        $requestor = new \Stripe\ApiRequestor($opts->apiKey, $baseUrl);
+        $requestor = new \StripePhp\ApiRequestor($opts->apiKey, $baseUrl);
         list($response, $opts->apiKey) = $requestor->request($method, $url, $params, $opts->headers);
         $opts->discardNonPersistentHeaders();
 
@@ -88,13 +88,13 @@ trait Request
      * @param array $params list of parameters for the request
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      */
     protected static function _staticStreamingRequest($method, $url, $readBodyChunk, $params, $options)
     {
-        $opts = \Stripe\Util\RequestOptions::parse($options);
+        $opts = \StripePhp\Util\RequestOptions::parse($options);
         $baseUrl = isset($opts->apiBase) ? $opts->apiBase : static::baseUrl();
-        $requestor = new \Stripe\ApiRequestor($opts->apiKey, $baseUrl);
+        $requestor = new \StripePhp\ApiRequestor($opts->apiKey, $baseUrl);
         $requestor->requestStream($method, $url, $readBodyChunk, $params, $opts->headers);
     }
 }

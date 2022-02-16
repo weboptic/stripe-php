@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class BalanceTransactionService extends \Stripe\Service\AbstractService
+class BalanceTransactionService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of transactions that have contributed to the Stripe account
@@ -15,11 +15,11 @@ class BalanceTransactionService extends \Stripe\Service\AbstractService
      * path <code>/v1/balance/history</code>.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\BalanceTransaction>
+     * @return \StripePhp\Collection<\StripePhp\BalanceTransaction>
      */
     public function all($params = null, $opts = null)
     {
@@ -34,11 +34,11 @@ class BalanceTransactionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\BalanceTransaction
+     * @return \StripePhp\BalanceTransaction
      */
     public function retrieve($id, $params = null, $opts = null)
     {

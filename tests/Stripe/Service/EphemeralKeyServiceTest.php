@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\EphemeralKeyService
+ * @covers \StripePhp\Service\EphemeralKeyService
  */
-final class EphemeralKeyServiceTest extends \Stripe\TestCase
+final class EphemeralKeyServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'ek_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var EphemeralKeyService */
@@ -23,7 +23,7 @@ final class EphemeralKeyServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new EphemeralKeyService($this->client);
     }
 
@@ -38,7 +38,7 @@ final class EphemeralKeyServiceTest extends \Stripe\TestCase
         $resource = $this->service->create([
             'customer' => 'cus_123',
         ], ['stripe_version' => '2017-05-25']);
-        static::assertInstanceOf(\Stripe\EphemeralKey::class, $resource);
+        static::assertInstanceOf(\StripePhp\EphemeralKey::class, $resource);
     }
 
     public function testCreateWithoutExplicitApiVersion()
@@ -57,6 +57,6 @@ final class EphemeralKeyServiceTest extends \Stripe\TestCase
             '/v1/ephemeral_keys/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\EphemeralKey::class, $resource);
+        static::assertInstanceOf(\StripePhp\EphemeralKey::class, $resource);
     }
 }

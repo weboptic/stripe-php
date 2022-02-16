@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class TokenService extends \Stripe\Service\AbstractService
+class TokenService extends \StripePhp\Service\AbstractService
 {
     /**
      * Creates a single-use token that represents a bank account’s details. This token
@@ -13,11 +13,11 @@ class TokenService extends \Stripe\Service\AbstractService
      * account</a>.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Token
+     * @return \StripePhp\Token
      */
     public function create($params = null, $opts = null)
     {
@@ -29,11 +29,11 @@ class TokenService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Token
+     * @return \StripePhp\Token
      */
     public function retrieve($id, $params = null, $opts = null)
     {

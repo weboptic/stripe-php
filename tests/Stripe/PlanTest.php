@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Plan
+ * @covers \StripePhp\Plan
  */
-final class PlanTest extends \Stripe\TestCase
+final class PlanTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class PlanTest extends \Stripe\TestCase
         );
         $resources = Plan::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Plan::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Plan::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class PlanTest extends \Stripe\TestCase
             '/v1/plans/' . self::TEST_RESOURCE_ID
         );
         $resource = Plan::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Plan::class, $resource);
+        static::assertInstanceOf(\StripePhp\Plan::class, $resource);
     }
 
     public function testIsCreatable()
@@ -46,7 +46,7 @@ final class PlanTest extends \Stripe\TestCase
             'nickname' => self::TEST_RESOURCE_ID,
             'id' => self::TEST_RESOURCE_ID,
         ]);
-        static::assertInstanceOf(\Stripe\Plan::class, $resource);
+        static::assertInstanceOf(\StripePhp\Plan::class, $resource);
     }
 
     public function testIsSaveable()
@@ -58,7 +58,7 @@ final class PlanTest extends \Stripe\TestCase
             '/v1/plans/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Plan::class, $resource);
+        static::assertInstanceOf(\StripePhp\Plan::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -70,7 +70,7 @@ final class PlanTest extends \Stripe\TestCase
         $resource = Plan::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Plan::class, $resource);
+        static::assertInstanceOf(\StripePhp\Plan::class, $resource);
     }
 
     public function testIsDeletable()
@@ -81,6 +81,6 @@ final class PlanTest extends \Stripe\TestCase
             '/v1/plans/' . $resource->id
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\Plan::class, $resource);
+        static::assertInstanceOf(\StripePhp\Plan::class, $resource);
     }
 }

@@ -4,11 +4,11 @@ namespace StripePhp\Issuing;
 
 /**
  * @internal
- * @covers \Stripe\Issuing\Cardholder
+ * @covers \StripePhp\Issuing\Cardholder
  */
-final class CardholderTest extends \Stripe\TestCase
+final class CardholderTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'ich_123';
 
@@ -33,7 +33,7 @@ final class CardholderTest extends \Stripe\TestCase
             $params
         );
         $resource = Cardholder::create($params);
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $resource);
     }
 
     public function testIsListable()
@@ -44,7 +44,7 @@ final class CardholderTest extends \Stripe\TestCase
         );
         $resources = Cardholder::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -54,7 +54,7 @@ final class CardholderTest extends \Stripe\TestCase
             '/v1/issuing/cardholders/' . self::TEST_RESOURCE_ID
         );
         $resource = Cardholder::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $resource);
     }
 
     public function testIsSaveable()
@@ -67,7 +67,7 @@ final class CardholderTest extends \Stripe\TestCase
             '/v1/issuing/cardholders/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -80,6 +80,6 @@ final class CardholderTest extends \Stripe\TestCase
         $resource = Cardholder::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $resource);
     }
 }

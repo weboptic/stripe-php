@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Coupon
+ * @covers \StripePhp\Coupon
  */
-final class CouponTest extends \Stripe\TestCase
+final class CouponTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class CouponTest extends \Stripe\TestCase
         );
         $resources = Coupon::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class CouponTest extends \Stripe\TestCase
             '/v1/coupons/' . self::TEST_RESOURCE_ID
         );
         $resource = Coupon::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 
     public function testIsCreatable()
@@ -45,7 +45,7 @@ final class CouponTest extends \Stripe\TestCase
             'duration_in_months' => 3,
             'id' => self::TEST_RESOURCE_ID,
         ]);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 
     public function testIsSaveable()
@@ -57,7 +57,7 @@ final class CouponTest extends \Stripe\TestCase
             '/v1/coupons/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -69,7 +69,7 @@ final class CouponTest extends \Stripe\TestCase
         $resource = Coupon::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 
     public function testIsDeletable()
@@ -80,6 +80,6 @@ final class CouponTest extends \Stripe\TestCase
             '/v1/coupons/' . self::TEST_RESOURCE_ID
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 }

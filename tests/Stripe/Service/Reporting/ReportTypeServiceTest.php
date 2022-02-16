@@ -4,15 +4,15 @@ namespace StripePhp\Service\Reporting;
 
 /**
  * @internal
- * @covers \Stripe\Service\Reporting\ReportTypeService
+ * @covers \StripePhp\Service\Reporting\ReportTypeService
  */
-final class ReportTypeServiceTest extends \Stripe\TestCase
+final class ReportTypeServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'activity.summary.1';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ReportTypeService */
@@ -23,7 +23,7 @@ final class ReportTypeServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ReportTypeService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class ReportTypeServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Reporting\ReportType::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportType::class, $resources->data[0]);
     }
 
     public function testRetrieve()
@@ -45,6 +45,6 @@ final class ReportTypeServiceTest extends \Stripe\TestCase
             '/v1/reporting/report_types/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Reporting\ReportType::class, $resource);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportType::class, $resource);
     }
 }

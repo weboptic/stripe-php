@@ -4,15 +4,15 @@ namespace StripePhp\Service\Issuing;
 
 /**
  * @internal
- * @covers \Stripe\Service\Issuing\AuthorizationService
+ * @covers \StripePhp\Service\Issuing\AuthorizationService
  */
-final class AuthorizationServiceTest extends \Stripe\TestCase
+final class AuthorizationServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'iauth_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var AuthorizationService */
@@ -23,7 +23,7 @@ final class AuthorizationServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new AuthorizationService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class AuthorizationServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $resources->data[0]);
     }
 
     public function testApprove()
@@ -45,7 +45,7 @@ final class AuthorizationServiceTest extends \Stripe\TestCase
             '/v1/issuing/authorizations/' . self::TEST_RESOURCE_ID . '/approve'
         );
         $resource = $this->service->approve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $resource);
     }
 
     public function testDecline()
@@ -55,7 +55,7 @@ final class AuthorizationServiceTest extends \Stripe\TestCase
             '/v1/issuing/authorizations/' . self::TEST_RESOURCE_ID . '/decline'
         );
         $resource = $this->service->decline(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $resource);
     }
 
     public function testRetrieve()
@@ -65,7 +65,7 @@ final class AuthorizationServiceTest extends \Stripe\TestCase
             '/v1/issuing/authorizations/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $resource);
     }
 
     public function testUpdate()
@@ -78,6 +78,6 @@ final class AuthorizationServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $resource);
     }
 }

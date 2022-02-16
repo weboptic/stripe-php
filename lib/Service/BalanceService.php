@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class BalanceService extends \Stripe\Service\AbstractService
+class BalanceService extends \StripePhp\Service\AbstractService
 {
     /**
      * Retrieves the current account balance, based on the authentication that was used
@@ -13,11 +13,11 @@ class BalanceService extends \Stripe\Service\AbstractService
      * for negative balances</a>.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Balance
+     * @return \StripePhp\Balance
      */
     public function retrieve($params = null, $opts = null)
     {

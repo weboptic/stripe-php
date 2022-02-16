@@ -9,7 +9,7 @@ namespace StripePhp\Service\Checkout;
  *
  * @property SessionService $sessions
  */
-class CheckoutServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class CheckoutServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

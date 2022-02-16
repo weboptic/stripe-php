@@ -4,11 +4,11 @@ namespace StripePhp\BillingPortal;
 
 /**
  * @internal
- * @covers \Stripe\BillingPortal\Session
+ * @covers \StripePhp\BillingPortal\Session
  */
-final class SessionTest extends \Stripe\TestCase
+final class SessionTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'pts_123';
 
@@ -22,6 +22,6 @@ final class SessionTest extends \Stripe\TestCase
             'customer' => 'cus_123',
             'return_url' => 'https://stripe.com/return',
         ]);
-        static::assertInstanceOf(\Stripe\BillingPortal\Session::class, $resource);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Session::class, $resource);
     }
 }

@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\BillingPortal;
 
-class SessionService extends \Stripe\Service\AbstractService
+class SessionService extends \StripePhp\Service\AbstractService
 {
     /**
      * Creates a session of the customer portal.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\BillingPortal\Session
+     * @return \StripePhp\BillingPortal\Session
      */
     public function create($params = null, $opts = null)
     {

@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\BitcoinReceiver
+ * @covers \StripePhp\BitcoinReceiver
  */
-final class BitcoinReceiverTest extends \Stripe\TestCase
+final class BitcoinReceiverTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -54,7 +54,7 @@ final class BitcoinReceiverTest extends \Stripe\TestCase
         );
         $resources = BitcoinReceiver::all();
         static::compatAssertIsArray($resources->data);
-        static::assertSame(\Stripe\BitcoinReceiver::class, \get_class($resources->data[0]));
+        static::assertSame(\StripePhp\BitcoinReceiver::class, \get_class($resources->data[0]));
     }
 
     public function testIsRetrievable()
@@ -64,6 +64,6 @@ final class BitcoinReceiverTest extends \Stripe\TestCase
             '/v1/bitcoin/receivers/' . self::TEST_RESOURCE_ID
         );
         $resource = BitcoinReceiver::retrieve(self::TEST_RESOURCE_ID);
-        static::assertSame(\Stripe\BitcoinReceiver::class, \get_class($resource));
+        static::assertSame(\StripePhp\BitcoinReceiver::class, \get_class($resource));
     }
 }

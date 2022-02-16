@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\OAuthErrorObject
+ * @covers \StripePhp\OAuthErrorObject
  */
-final class OAuthErrorObjectTest extends \Stripe\TestCase
+final class OAuthErrorObjectTest extends \StripePhp\TestCase
 {
     use TestHelper;
 

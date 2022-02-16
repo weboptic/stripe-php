@@ -13,9 +13,9 @@ trait All
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection of ApiResources
+     * @return \StripePhp\Collection of ApiResources
      */
     public static function all($params = null, $opts = null)
     {
@@ -23,10 +23,10 @@ trait All
         $url = static::classUrl();
 
         list($response, $opts) = static::_staticRequest('get', $url, $params, $opts);
-        $obj = \Stripe\Util\Util::convertToStripeObject($response->json, $opts);
-        if (!($obj instanceof \Stripe\Collection)) {
-            throw new \Stripe\Exception\UnexpectedValueException(
-                'Expected type ' . \Stripe\Collection::class . ', got "' . \get_class($obj) . '" instead.'
+        $obj = \StripePhp\Util\Util::convertToStripeObject($response->json, $opts);
+        if (!($obj instanceof \StripePhp\Collection)) {
+            throw new \StripePhp\Exception\UnexpectedValueException(
+                'Expected type ' . \StripePhp\Collection::class . ', got "' . \get_class($obj) . '" instead.'
             );
         }
         $obj->setLastResponse($response);

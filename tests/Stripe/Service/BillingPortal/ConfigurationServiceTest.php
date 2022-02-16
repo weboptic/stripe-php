@@ -4,15 +4,15 @@ namespace StripePhp\Service\BillingPortal;
 
 /**
  * @internal
- * @covers \Stripe\Service\BillingPortal\ConfigurationService
+ * @covers \StripePhp\Service\BillingPortal\ConfigurationService
  */
-final class ConfigurationServiceTest extends \Stripe\TestCase
+final class ConfigurationServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'bpc_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ConfigurationService */
@@ -23,7 +23,7 @@ final class ConfigurationServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ConfigurationService($this->client);
     }
 
@@ -45,7 +45,7 @@ final class ConfigurationServiceTest extends \Stripe\TestCase
                 ],
             ],
         ]);
-        static::assertInstanceOf(\Stripe\BillingPortal\Configuration::class, $resource);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Configuration::class, $resource);
     }
 
     public function testUpdate()
@@ -57,7 +57,7 @@ final class ConfigurationServiceTest extends \Stripe\TestCase
         $resource = $this->service->update('bpc_xyz', [
             'active' => false,
         ]);
-        static::assertInstanceOf(\Stripe\BillingPortal\Configuration::class, $resource);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Configuration::class, $resource);
     }
 
     public function testRetrieve()
@@ -67,7 +67,7 @@ final class ConfigurationServiceTest extends \Stripe\TestCase
             '/v1/billing_portal/configurations/bpc_xyz'
         );
         $resource = $this->service->retrieve('bpc_xyz');
-        static::assertInstanceOf(\Stripe\BillingPortal\Configuration::class, $resource);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Configuration::class, $resource);
     }
 
     public function testList()
@@ -77,6 +77,6 @@ final class ConfigurationServiceTest extends \Stripe\TestCase
             '/v1/billing_portal/configurations'
         );
         $resource = $this->service->all();
-        static::assertInstanceOf(\Stripe\BillingPortal\Configuration::class, $resource->data[0]);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Configuration::class, $resource->data[0]);
     }
 }

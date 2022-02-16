@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\TransferReversal
+ * @covers \StripePhp\TransferReversal
  */
-final class TransferReversalTest extends \Stripe\TestCase
+final class TransferReversalTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -22,6 +22,6 @@ final class TransferReversalTest extends \Stripe\TestCase
             '/v1/transfers/' . $resource->transfer . '/reversals/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\TransferReversal::class, $resource);
+        static::assertInstanceOf(\StripePhp\TransferReversal::class, $resource);
     }
 }

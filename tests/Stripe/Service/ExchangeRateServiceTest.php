@@ -4,13 +4,13 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\ExchangeRateService
+ * @covers \StripePhp\Service\ExchangeRateService
  */
-final class ExchangeRateServiceTest extends \Stripe\TestCase
+final class ExchangeRateServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ExchangeRateService */
@@ -21,7 +21,7 @@ final class ExchangeRateServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ExchangeRateService($this->client);
     }
 
@@ -29,12 +29,12 @@ final class ExchangeRateServiceTest extends \Stripe\TestCase
     {
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\ExchangeRate::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\ExchangeRate::class, $resources->data[0]);
     }
 
     public function testRetrieve()
     {
         $resource = $this->service->retrieve('usd');
-        static::assertInstanceOf(\Stripe\ExchangeRate::class, $resource);
+        static::assertInstanceOf(\StripePhp\ExchangeRate::class, $resource);
     }
 }

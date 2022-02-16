@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\RefundService
+ * @covers \StripePhp\Service\RefundService
  */
-final class RefundServiceTest extends \Stripe\TestCase
+final class RefundServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 're_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var RefundService */
@@ -23,7 +23,7 @@ final class RefundServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new RefundService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class RefundServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Refund::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -47,7 +47,7 @@ final class RefundServiceTest extends \Stripe\TestCase
         $resource = $this->service->create([
             'charge' => 'ch_123',
         ]);
-        static::assertInstanceOf(\Stripe\Refund::class, $resource);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resource);
     }
 
     public function testRetrieve()
@@ -57,7 +57,7 @@ final class RefundServiceTest extends \Stripe\TestCase
             '/v1/refunds/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Refund::class, $resource);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resource);
     }
 
     public function testUpdate()
@@ -69,6 +69,6 @@ final class RefundServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Refund::class, $resource);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resource);
     }
 }

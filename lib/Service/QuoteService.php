@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class QuoteService extends \Stripe\Service\AbstractService
+class QuoteService extends \StripePhp\Service\AbstractService
 {
     /**
      * Accepts the specified quote.
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Quote
+     * @return \StripePhp\Quote
      */
     public function accept($id, $params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      * Returns a list of your quotes.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Quote>
+     * @return \StripePhp\Collection<\StripePhp\Quote>
      */
     public function all($params = null, $opts = null)
     {
@@ -45,11 +45,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Quote>
+     * @return \StripePhp\Collection<\StripePhp\Quote>
      */
     public function allComputedUpfrontLineItems($id, $params = null, $opts = null)
     {
@@ -63,11 +63,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Quote>
+     * @return \StripePhp\Collection<\StripePhp\Quote>
      */
     public function allLineItems($id, $params = null, $opts = null)
     {
@@ -79,11 +79,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Quote
+     * @return \StripePhp\Quote
      */
     public function cancel($id, $params = null, $opts = null)
     {
@@ -97,11 +97,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      * href="https://dashboard.stripe.com/settings/billing/quote">quote template</a>.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Quote
+     * @return \StripePhp\Quote
      */
     public function create($params = null, $opts = null)
     {
@@ -113,11 +113,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Quote
+     * @return \StripePhp\Quote
      */
     public function finalizeQuote($id, $params = null, $opts = null)
     {
@@ -129,11 +129,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Quote
+     * @return \StripePhp\Quote
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -145,11 +145,11 @@ class QuoteService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Quote
+     * @return \StripePhp\Quote
      */
     public function update($id, $params = null, $opts = null)
     {
@@ -162,13 +162,13 @@ class QuoteService extends \Stripe\Service\AbstractService
      * @param string $id
      * @param callable $readBodyChunkCallable
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      */
     public function pdf($id, $readBodyChunkCallable, $params = null, $opts = null)
     {
-        $opts = \Stripe\Util\RequestOptions::parse($opts);
+        $opts = \StripePhp\Util\RequestOptions::parse($opts);
         if (!isset($opts->apiBase)) {
             $opts->apiBase = $this->getClient()->getFilesBase();
         }

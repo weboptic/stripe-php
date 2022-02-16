@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service\Issuing;
 
-class CardholderService extends \Stripe\Service\AbstractService
+class CardholderService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of Issuing <code>Cardholder</code> objects. The objects are
@@ -12,11 +12,11 @@ class CardholderService extends \Stripe\Service\AbstractService
      * object appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Issuing\Cardholder>
+     * @return \StripePhp\Collection<\StripePhp\Issuing\Cardholder>
      */
     public function all($params = null, $opts = null)
     {
@@ -27,11 +27,11 @@ class CardholderService extends \Stripe\Service\AbstractService
      * Creates a new Issuing <code>Cardholder</code> object that can be issued cards.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Cardholder
+     * @return \StripePhp\Issuing\Cardholder
      */
     public function create($params = null, $opts = null)
     {
@@ -43,11 +43,11 @@ class CardholderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Cardholder
+     * @return \StripePhp\Issuing\Cardholder
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -61,11 +61,11 @@ class CardholderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Cardholder
+     * @return \StripePhp\Issuing\Cardholder
      */
     public function update($id, $params = null, $opts = null)
     {

@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service\Issuing;
 
-class DisputeService extends \Stripe\Service\AbstractService
+class DisputeService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of Issuing <code>Dispute</code> objects. The objects are sorted
@@ -12,11 +12,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      * appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Issuing\Dispute>
+     * @return \StripePhp\Collection<\StripePhp\Issuing\Dispute>
      */
     public function all($params = null, $opts = null)
     {
@@ -31,11 +31,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      * reasons and evidence</a> for more details about evidence requirements.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Dispute
+     * @return \StripePhp\Issuing\Dispute
      */
     public function create($params = null, $opts = null)
     {
@@ -47,11 +47,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Dispute
+     * @return \StripePhp\Issuing\Dispute
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -67,11 +67,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Dispute
+     * @return \StripePhp\Issuing\Dispute
      */
     public function submit($id, $params = null, $opts = null)
     {
@@ -86,11 +86,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Dispute
+     * @return \StripePhp\Issuing\Dispute
      */
     public function update($id, $params = null, $opts = null)
     {

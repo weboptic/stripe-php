@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\PromotionCode
+ * @covers \StripePhp\PromotionCode
  */
-final class PromotionCodeTest extends \Stripe\TestCase
+final class PromotionCodeTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class PromotionCodeTest extends \Stripe\TestCase
         );
         $resources = PromotionCode::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class PromotionCodeTest extends \Stripe\TestCase
             '/v1/promotion_codes/' . self::TEST_RESOURCE_ID
         );
         $resource = PromotionCode::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resource);
     }
 
     public function testIsCreatable()
@@ -43,7 +43,7 @@ final class PromotionCodeTest extends \Stripe\TestCase
             'coupon' => 'co_123',
             'code' => 'MYCODE',
         ]);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resource);
     }
 
     public function testIsSaveable()
@@ -55,7 +55,7 @@ final class PromotionCodeTest extends \Stripe\TestCase
             '/v1/promotion_codes/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -67,6 +67,6 @@ final class PromotionCodeTest extends \Stripe\TestCase
         $resource = PromotionCode::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resource);
     }
 }

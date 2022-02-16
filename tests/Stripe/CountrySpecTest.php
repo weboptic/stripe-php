@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\CountrySpec
+ * @covers \StripePhp\CountrySpec
  */
-final class CountrySpecTest extends \Stripe\TestCase
+final class CountrySpecTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class CountrySpecTest extends \Stripe\TestCase
         );
         $resources = CountrySpec::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\CountrySpec::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\CountrySpec::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,6 +30,6 @@ final class CountrySpecTest extends \Stripe\TestCase
             '/v1/country_specs/' . self::TEST_RESOURCE_ID
         );
         $resource = CountrySpec::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\CountrySpec::class, $resource);
+        static::assertInstanceOf(\StripePhp\CountrySpec::class, $resource);
     }
 }

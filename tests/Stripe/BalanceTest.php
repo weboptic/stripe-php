@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Balance
+ * @covers \StripePhp\Balance
  */
-final class BalanceTest extends \Stripe\TestCase
+final class BalanceTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -17,6 +17,6 @@ final class BalanceTest extends \Stripe\TestCase
             '/v1/balance'
         );
         $resource = Balance::retrieve();
-        static::assertInstanceOf(\Stripe\Balance::class, $resource);
+        static::assertInstanceOf(\StripePhp\Balance::class, $resource);
     }
 }

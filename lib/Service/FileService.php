@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class FileService extends \Stripe\Service\AbstractService
+class FileService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of the files that your account has access to. The files are
@@ -12,11 +12,11 @@ class FileService extends \Stripe\Service\AbstractService
      * first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\File>
+     * @return \StripePhp\Collection<\StripePhp\File>
      */
     public function all($params = null, $opts = null)
     {
@@ -31,11 +31,11 @@ class FileService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\File
+     * @return \StripePhp\File
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -46,20 +46,20 @@ class FileService extends \Stripe\Service\AbstractService
      * Create a file.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @return \Stripe\File
+     * @return \StripePhp\File
      */
     public function create($params = null, $opts = null)
     {
-        $opts = \Stripe\Util\RequestOptions::parse($opts);
+        $opts = \StripePhp\Util\RequestOptions::parse($opts);
         if (!isset($opts->apiBase)) {
             $opts->apiBase = $this->getClient()->getFilesBase();
         }
 
         // Manually flatten params, otherwise curl's multipart encoder will
         // choke on nested null|arrays.
-        $flatParams = \array_column(\Stripe\Util\Util::flattenParams($params), 1, 0);
+        $flatParams = \array_column(\StripePhp\Util\Util::flattenParams($params), 1, 0);
 
         return $this->request('post', '/v1/files', $flatParams, $opts);
     }

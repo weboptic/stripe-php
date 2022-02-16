@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Account
+ * @covers \StripePhp\Account
  */
-final class AccountTest extends \Stripe\TestCase
+final class AccountTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -23,7 +23,7 @@ final class AccountTest extends \Stripe\TestCase
         );
         $resources = Account::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Account::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Account::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -33,7 +33,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . self::TEST_RESOURCE_ID
         );
         $resource = Account::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Account::class, $resource);
+        static::assertInstanceOf(\StripePhp\Account::class, $resource);
     }
 
     public function testIsRetrievableWithoutId()
@@ -43,7 +43,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/account'
         );
         $resource = Account::retrieve();
-        static::assertInstanceOf(\Stripe\Account::class, $resource);
+        static::assertInstanceOf(\StripePhp\Account::class, $resource);
     }
 
     public function testIsCreatable()
@@ -53,7 +53,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts'
         );
         $resource = Account::create(['type' => 'custom']);
-        static::assertInstanceOf(\Stripe\Account::class, $resource);
+        static::assertInstanceOf(\StripePhp\Account::class, $resource);
     }
 
     public function testIsSaveable()
@@ -65,7 +65,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Account::class, $resource);
+        static::assertInstanceOf(\StripePhp\Account::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -77,7 +77,7 @@ final class AccountTest extends \Stripe\TestCase
         $resource = Account::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Account::class, $resource);
+        static::assertInstanceOf(\StripePhp\Account::class, $resource);
     }
 
     public function testIsDeletable()
@@ -88,7 +88,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . $resource->id
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\Account::class, $resource);
+        static::assertInstanceOf(\StripePhp\Account::class, $resource);
     }
 
     public function testIsRejectable()
@@ -99,7 +99,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . $account->id . '/reject'
         );
         $resource = $account->reject(['reason' => 'fraud']);
-        static::assertInstanceOf(\Stripe\Account::class, $resource);
+        static::assertInstanceOf(\StripePhp\Account::class, $resource);
         static::assertSame($resource, $account);
     }
 
@@ -133,7 +133,7 @@ final class AccountTest extends \Stripe\TestCase
         );
         $persons = $account->persons();
         static::compatAssertIsArray($persons->data);
-        static::assertInstanceOf(\Stripe\Person::class, $persons->data[0]);
+        static::assertInstanceOf(\StripePhp\Person::class, $persons->data[0]);
     }
 
     public function testCanRetrieveCapability()
@@ -143,7 +143,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . self::TEST_RESOURCE_ID . '/capabilities/' . self::TEST_CAPABILITY_ID
         );
         $resource = Account::retrieveCapability(self::TEST_RESOURCE_ID, self::TEST_CAPABILITY_ID);
-        static::assertInstanceOf(\Stripe\Capability::class, $resource);
+        static::assertInstanceOf(\StripePhp\Capability::class, $resource);
     }
 
     public function testCanUpdateCapability()
@@ -155,7 +155,7 @@ final class AccountTest extends \Stripe\TestCase
         $resource = Account::updateCapability(self::TEST_RESOURCE_ID, self::TEST_CAPABILITY_ID, [
             'requested' => true,
         ]);
-        static::assertInstanceOf(\Stripe\Capability::class, $resource);
+        static::assertInstanceOf(\StripePhp\Capability::class, $resource);
     }
 
     public function testCanListCapabilities()
@@ -177,7 +177,7 @@ final class AccountTest extends \Stripe\TestCase
         $resource = Account::createExternalAccount(self::TEST_RESOURCE_ID, [
             'external_account' => 'btok_123',
         ]);
-        static::assertInstanceOf(\Stripe\BankAccount::class, $resource);
+        static::assertInstanceOf(\StripePhp\BankAccount::class, $resource);
     }
 
     public function testCanRetrieveExternalAccount()
@@ -187,7 +187,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . self::TEST_RESOURCE_ID . '/external_accounts/' . self::TEST_EXTERNALACCOUNT_ID
         );
         $resource = Account::retrieveExternalAccount(self::TEST_RESOURCE_ID, self::TEST_EXTERNALACCOUNT_ID);
-        static::assertInstanceOf(\Stripe\BankAccount::class, $resource);
+        static::assertInstanceOf(\StripePhp\BankAccount::class, $resource);
     }
 
     public function testCanUpdateExternalAccount()
@@ -199,7 +199,7 @@ final class AccountTest extends \Stripe\TestCase
         $resource = Account::updateExternalAccount(self::TEST_RESOURCE_ID, self::TEST_EXTERNALACCOUNT_ID, [
             'name' => 'name',
         ]);
-        static::assertInstanceOf(\Stripe\BankAccount::class, $resource);
+        static::assertInstanceOf(\StripePhp\BankAccount::class, $resource);
     }
 
     public function testCanDeleteExternalAccount()
@@ -229,7 +229,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . self::TEST_RESOURCE_ID . '/login_links'
         );
         $resource = Account::createLoginLink(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\LoginLink::class, $resource);
+        static::assertInstanceOf(\StripePhp\LoginLink::class, $resource);
     }
 
     public function testCanCreatePerson()
@@ -245,7 +245,7 @@ final class AccountTest extends \Stripe\TestCase
                 'year' => 1980,
             ],
         ]);
-        static::assertInstanceOf(\Stripe\Person::class, $resource);
+        static::assertInstanceOf(\StripePhp\Person::class, $resource);
     }
 
     public function testCanRetrievePerson()
@@ -255,7 +255,7 @@ final class AccountTest extends \Stripe\TestCase
             '/v1/accounts/' . self::TEST_RESOURCE_ID . '/persons/' . self::TEST_PERSON_ID
         );
         $resource = Account::retrievePerson(self::TEST_RESOURCE_ID, self::TEST_PERSON_ID);
-        static::assertInstanceOf(\Stripe\Person::class, $resource);
+        static::assertInstanceOf(\StripePhp\Person::class, $resource);
     }
 
     public function testCanUpdatePerson()
@@ -267,7 +267,7 @@ final class AccountTest extends \Stripe\TestCase
         $resource = Account::updatePerson(self::TEST_RESOURCE_ID, self::TEST_PERSON_ID, [
             'first_name' => 'First name',
         ]);
-        static::assertInstanceOf(\Stripe\Person::class, $resource);
+        static::assertInstanceOf(\StripePhp\Person::class, $resource);
     }
 
     public function testCanDeletePerson()

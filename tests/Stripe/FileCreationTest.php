@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\File
+ * @covers \StripePhp\File
  */
-final class FileCreationTest extends \Stripe\TestCase
+final class FileCreationTest extends \StripePhp\TestCase
 {
     // These tests should really be part of `FileTest`, but because the file creation requests use a
     // different host, the tests for these methods need their own setup and teardown methods.
@@ -49,7 +49,7 @@ final class FileCreationTest extends \Stripe\TestCase
             'file' => $fp,
             'file_link_data' => ['create' => true],
         ]);
-        static::assertInstanceOf(\Stripe\File::class, $resource);
+        static::assertInstanceOf(\StripePhp\File::class, $resource);
     }
 
     public function testIsCreatableWithCURLFile()
@@ -68,6 +68,6 @@ final class FileCreationTest extends \Stripe\TestCase
             'file' => $curlFile,
             'file_link_data' => ['create' => true],
         ]);
-        static::assertInstanceOf(\Stripe\File::class, $resource);
+        static::assertInstanceOf(\StripePhp\File::class, $resource);
     }
 }

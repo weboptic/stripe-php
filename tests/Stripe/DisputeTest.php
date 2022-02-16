@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Dispute
+ * @covers \StripePhp\Dispute
  */
-final class DisputeTest extends \Stripe\TestCase
+final class DisputeTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class DisputeTest extends \Stripe\TestCase
         );
         $resources = Dispute::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Dispute::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class DisputeTest extends \Stripe\TestCase
             '/v1/disputes/' . self::TEST_RESOURCE_ID
         );
         $resource = Dispute::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $resource);
     }
 
     public function testIsSaveable()
@@ -42,7 +42,7 @@ final class DisputeTest extends \Stripe\TestCase
             '/v1/disputes/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -54,7 +54,7 @@ final class DisputeTest extends \Stripe\TestCase
         $resource = Dispute::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $resource);
     }
 
     public function testIsClosable()
@@ -65,7 +65,7 @@ final class DisputeTest extends \Stripe\TestCase
             '/v1/disputes/' . $dispute->id . '/close'
         );
         $resource = $dispute->close();
-        static::assertInstanceOf(\Stripe\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $resource);
         static::assertSame($resource, $dispute);
     }
 }

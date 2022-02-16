@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\InvoiceItemService
+ * @covers \StripePhp\Service\InvoiceItemService
  */
-final class InvoiceItemServiceTest extends \Stripe\TestCase
+final class InvoiceItemServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'ii_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var InvoiceItemService */
@@ -23,7 +23,7 @@ final class InvoiceItemServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new InvoiceItemService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class InvoiceItemServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -49,7 +49,7 @@ final class InvoiceItemServiceTest extends \Stripe\TestCase
             'currency' => 'usd',
             'customer' => 'cus_123',
         ]);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $resource);
     }
 
     public function testDelete()
@@ -59,7 +59,7 @@ final class InvoiceItemServiceTest extends \Stripe\TestCase
             '/v1/invoiceitems/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $resource);
     }
 
     public function testRetrieve()
@@ -69,7 +69,7 @@ final class InvoiceItemServiceTest extends \Stripe\TestCase
             '/v1/invoiceitems/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $resource);
     }
 
     public function testUpdate()
@@ -81,6 +81,6 @@ final class InvoiceItemServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $resource);
     }
 }

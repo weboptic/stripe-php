@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class CountrySpecService extends \Stripe\Service\AbstractService
+class CountrySpecService extends \StripePhp\Service\AbstractService
 {
     /**
      * Lists all Country Spec objects available in the API.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\CountrySpec>
+     * @return \StripePhp\Collection<\StripePhp\CountrySpec>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class CountrySpecService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\CountrySpec
+     * @return \StripePhp\CountrySpec
      */
     public function retrieve($id, $params = null, $opts = null)
     {

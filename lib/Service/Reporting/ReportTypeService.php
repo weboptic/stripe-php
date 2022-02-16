@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Reporting;
 
-class ReportTypeService extends \Stripe\Service\AbstractService
+class ReportTypeService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a full list of Report Types.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Reporting\ReportType>
+     * @return \StripePhp\Collection<\StripePhp\Reporting\ReportType>
      */
     public function all($params = null, $opts = null)
     {
@@ -27,11 +27,11 @@ class ReportTypeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Reporting\ReportType
+     * @return \StripePhp\Reporting\ReportType
      */
     public function retrieve($id, $params = null, $opts = null)
     {

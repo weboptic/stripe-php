@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\TaxCode
+ * @covers \StripePhp\TaxCode
  */
-final class TaxCodeTest extends \Stripe\TestCase
+final class TaxCodeTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class TaxCodeTest extends \Stripe\TestCase
         );
         $resources = TaxCode::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\TaxCode::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\TaxCode::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,6 +30,6 @@ final class TaxCodeTest extends \Stripe\TestCase
             '/v1/tax_codes/' . self::TEST_RESOURCE_ID
         );
         $resource = TaxCode::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\TaxCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\TaxCode::class, $resource);
     }
 }

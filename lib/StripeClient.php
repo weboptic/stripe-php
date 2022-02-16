@@ -7,74 +7,74 @@ namespace StripePhp;
 /**
  * Client used to send requests to Stripe's API.
  *
- * @property \Stripe\Service\AccountLinkService $accountLinks
- * @property \Stripe\Service\AccountService $accounts
- * @property \Stripe\Service\ApplePayDomainService $applePayDomains
- * @property \Stripe\Service\ApplicationFeeService $applicationFees
- * @property \Stripe\Service\BalanceService $balance
- * @property \Stripe\Service\BalanceTransactionService $balanceTransactions
- * @property \Stripe\Service\BillingPortal\BillingPortalServiceFactory $billingPortal
- * @property \Stripe\Service\ChargeService $charges
- * @property \Stripe\Service\Checkout\CheckoutServiceFactory $checkout
- * @property \Stripe\Service\CountrySpecService $countrySpecs
- * @property \Stripe\Service\CouponService $coupons
- * @property \Stripe\Service\CreditNoteService $creditNotes
- * @property \Stripe\Service\CustomerService $customers
- * @property \Stripe\Service\DisputeService $disputes
- * @property \Stripe\Service\EphemeralKeyService $ephemeralKeys
- * @property \Stripe\Service\EventService $events
- * @property \Stripe\Service\ExchangeRateService $exchangeRates
- * @property \Stripe\Service\FileLinkService $fileLinks
- * @property \Stripe\Service\FileService $files
- * @property \Stripe\Service\Identity\IdentityServiceFactory $identity
- * @property \Stripe\Service\InvoiceItemService $invoiceItems
- * @property \Stripe\Service\InvoiceService $invoices
- * @property \Stripe\Service\Issuing\IssuingServiceFactory $issuing
- * @property \Stripe\Service\MandateService $mandates
- * @property \Stripe\Service\OAuthService $oauth
- * @property \Stripe\Service\OrderReturnService $orderReturns
- * @property \Stripe\Service\OrderService $orders
- * @property \Stripe\Service\PaymentIntentService $paymentIntents
- * @property \Stripe\Service\PaymentLinkService $paymentLinks
- * @property \Stripe\Service\PaymentMethodService $paymentMethods
- * @property \Stripe\Service\PayoutService $payouts
- * @property \Stripe\Service\PlanService $plans
- * @property \Stripe\Service\PriceService $prices
- * @property \Stripe\Service\ProductService $products
- * @property \Stripe\Service\PromotionCodeService $promotionCodes
- * @property \Stripe\Service\QuoteService $quotes
- * @property \Stripe\Service\Radar\RadarServiceFactory $radar
- * @property \Stripe\Service\RefundService $refunds
- * @property \Stripe\Service\Reporting\ReportingServiceFactory $reporting
- * @property \Stripe\Service\ReviewService $reviews
- * @property \Stripe\Service\SetupAttemptService $setupAttempts
- * @property \Stripe\Service\SetupIntentService $setupIntents
- * @property \Stripe\Service\ShippingRateService $shippingRates
- * @property \Stripe\Service\Sigma\SigmaServiceFactory $sigma
- * @property \Stripe\Service\SkuService $skus
- * @property \Stripe\Service\SourceService $sources
- * @property \Stripe\Service\SubscriptionItemService $subscriptionItems
- * @property \Stripe\Service\SubscriptionScheduleService $subscriptionSchedules
- * @property \Stripe\Service\SubscriptionService $subscriptions
- * @property \Stripe\Service\TaxCodeService $taxCodes
- * @property \Stripe\Service\TaxRateService $taxRates
- * @property \Stripe\Service\Terminal\TerminalServiceFactory $terminal
- * @property \Stripe\Service\TokenService $tokens
- * @property \Stripe\Service\TopupService $topups
- * @property \Stripe\Service\TransferService $transfers
- * @property \Stripe\Service\WebhookEndpointService $webhookEndpoints
+ * @property \StripePhp\Service\AccountLinkService $accountLinks
+ * @property \StripePhp\Service\AccountService $accounts
+ * @property \StripePhp\Service\ApplePayDomainService $applePayDomains
+ * @property \StripePhp\Service\ApplicationFeeService $applicationFees
+ * @property \StripePhp\Service\BalanceService $balance
+ * @property \StripePhp\Service\BalanceTransactionService $balanceTransactions
+ * @property \StripePhp\Service\BillingPortal\BillingPortalServiceFactory $billingPortal
+ * @property \StripePhp\Service\ChargeService $charges
+ * @property \StripePhp\Service\Checkout\CheckoutServiceFactory $checkout
+ * @property \StripePhp\Service\CountrySpecService $countrySpecs
+ * @property \StripePhp\Service\CouponService $coupons
+ * @property \StripePhp\Service\CreditNoteService $creditNotes
+ * @property \StripePhp\Service\CustomerService $customers
+ * @property \StripePhp\Service\DisputeService $disputes
+ * @property \StripePhp\Service\EphemeralKeyService $ephemeralKeys
+ * @property \StripePhp\Service\EventService $events
+ * @property \StripePhp\Service\ExchangeRateService $exchangeRates
+ * @property \StripePhp\Service\FileLinkService $fileLinks
+ * @property \StripePhp\Service\FileService $files
+ * @property \StripePhp\Service\Identity\IdentityServiceFactory $identity
+ * @property \StripePhp\Service\InvoiceItemService $invoiceItems
+ * @property \StripePhp\Service\InvoiceService $invoices
+ * @property \StripePhp\Service\Issuing\IssuingServiceFactory $issuing
+ * @property \StripePhp\Service\MandateService $mandates
+ * @property \StripePhp\Service\OAuthService $oauth
+ * @property \StripePhp\Service\OrderReturnService $orderReturns
+ * @property \StripePhp\Service\OrderService $orders
+ * @property \StripePhp\Service\PaymentIntentService $paymentIntents
+ * @property \StripePhp\Service\PaymentLinkService $paymentLinks
+ * @property \StripePhp\Service\PaymentMethodService $paymentMethods
+ * @property \StripePhp\Service\PayoutService $payouts
+ * @property \StripePhp\Service\PlanService $plans
+ * @property \StripePhp\Service\PriceService $prices
+ * @property \StripePhp\Service\ProductService $products
+ * @property \StripePhp\Service\PromotionCodeService $promotionCodes
+ * @property \StripePhp\Service\QuoteService $quotes
+ * @property \StripePhp\Service\Radar\RadarServiceFactory $radar
+ * @property \StripePhp\Service\RefundService $refunds
+ * @property \StripePhp\Service\Reporting\ReportingServiceFactory $reporting
+ * @property \StripePhp\Service\ReviewService $reviews
+ * @property \StripePhp\Service\SetupAttemptService $setupAttempts
+ * @property \StripePhp\Service\SetupIntentService $setupIntents
+ * @property \StripePhp\Service\ShippingRateService $shippingRates
+ * @property \StripePhp\Service\Sigma\SigmaServiceFactory $sigma
+ * @property \StripePhp\Service\SkuService $skus
+ * @property \StripePhp\Service\SourceService $sources
+ * @property \StripePhp\Service\SubscriptionItemService $subscriptionItems
+ * @property \StripePhp\Service\SubscriptionScheduleService $subscriptionSchedules
+ * @property \StripePhp\Service\SubscriptionService $subscriptions
+ * @property \StripePhp\Service\TaxCodeService $taxCodes
+ * @property \StripePhp\Service\TaxRateService $taxRates
+ * @property \StripePhp\Service\Terminal\TerminalServiceFactory $terminal
+ * @property \StripePhp\Service\TokenService $tokens
+ * @property \StripePhp\Service\TopupService $topups
+ * @property \StripePhp\Service\TransferService $transfers
+ * @property \StripePhp\Service\WebhookEndpointService $webhookEndpoints
  */
 class StripeClient extends BaseStripeClient
 {
     /**
-     * @var \Stripe\Service\CoreServiceFactory
+     * @var \StripePhp\Service\CoreServiceFactory
      */
     private $coreServiceFactory;
 
     public function __get($name)
     {
         if (null === $this->coreServiceFactory) {
-            $this->coreServiceFactory = new \Stripe\Service\CoreServiceFactory($this);
+            $this->coreServiceFactory = new \StripePhp\Service\CoreServiceFactory($this);
         }
 
         return $this->coreServiceFactory->__get($name);

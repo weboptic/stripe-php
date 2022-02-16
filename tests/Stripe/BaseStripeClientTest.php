@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\BaseStripeClient
+ * @covers \StripePhp\BaseStripeClient
  */
-final class BaseStripeClientTest extends \Stripe\TestCase
+final class BaseStripeClientTest extends \StripePhp\TestCase
 {
     /** @var \ReflectionProperty */
     private $optsReflector;
@@ -14,7 +14,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
     /** @before */
     protected function setUpOptsReflector()
     {
-        $this->optsReflector = new \ReflectionProperty(\Stripe\StripeObject::class, '_opts');
+        $this->optsReflector = new \ReflectionProperty(\StripePhp\StripeObject::class, '_opts');
         $this->optsReflector->setAccessible(true);
     }
 
@@ -27,7 +27,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testCtorThrowsIfConfigIsUnexpectedType()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('$config must be a string or an array');
 
         $client = new BaseStripeClient(234);
@@ -35,7 +35,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testCtorThrowsIfApiKeyIsEmpty()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('api_key cannot be the empty string');
 
         $client = new BaseStripeClient('');
@@ -43,7 +43,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testCtorThrowsIfApiKeyContainsWhitespace()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('api_key cannot contain whitespace');
 
         $client = new BaseStripeClient("sk_test_123\n");
@@ -51,7 +51,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testCtorThrowsIfApiKeyIsUnexpectedType()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('api_key must be null or a string');
 
         $client = new BaseStripeClient(['api_key' => 234]);
@@ -59,7 +59,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testCtorThrowsIfConfigArrayContainsUnexpectedKey()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('Found unknown key(s) in configuration array: \'foo\', \'foo2\'');
 
         $client = new BaseStripeClient(['foo' => 'bar', 'foo2' => 'bar2']);
@@ -83,7 +83,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testRequestThrowsIfNoApiKeyInClientAndOpts()
     {
-        $this->expectException(\Stripe\Exception\AuthenticationException::class);
+        $this->expectException(\StripePhp\Exception\AuthenticationException::class);
         $this->expectExceptionMessage('No API key provided.');
 
         $client = new BaseStripeClient(['api_base' => MOCK_URL]);
@@ -94,7 +94,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testRequestThrowsIfOptsIsString()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->compatExpectExceptionMessageMatches('#Do not pass a string for request options.#');
 
         $client = new BaseStripeClient(['api_base' => MOCK_URL]);
@@ -105,7 +105,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testRequestThrowsIfOptsIsArrayWithUnexpectedKeys()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('Got unexpected keys in options array: foo');
 
         $client = new BaseStripeClient(['api_base' => MOCK_URL]);
@@ -172,7 +172,7 @@ final class BaseStripeClientTest extends \Stripe\TestCase
 
     public function testRequestCollectionThrowsForNonList()
     {
-        $this->expectException(\Stripe\Exception\UnexpectedValueException::class);
+        $this->expectException(\StripePhp\Exception\UnexpectedValueException::class);
         $this->expectExceptionMessage('Expected to receive `Stripe\Collection` object from Stripe API. Instead received `Stripe\Charge`.');
 
         $client = new BaseStripeClient(['api_key' => 'sk_test_client', 'api_base' => MOCK_URL]);

@@ -4,13 +4,13 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\AbstractService
+ * @covers \StripePhp\Service\AbstractService
  */
-final class AbstractServiceTest extends \Stripe\TestCase
+final class AbstractServiceTest extends \StripePhp\TestCase
 {
     const TEST_RESOURCE_ID = '25OFF';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var CouponService */
@@ -24,9 +24,9 @@ final class AbstractServiceTest extends \Stripe\TestCase
      */
     public function setUpMockService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         // Testing with CouponService, because testing abstract classes is hard in PHP :/
-        $this->service = new \Stripe\Service\CouponService($this->client);
+        $this->service = new \StripePhp\Service\CouponService($this->client);
     }
 
     /**
@@ -34,13 +34,13 @@ final class AbstractServiceTest extends \Stripe\TestCase
      */
     public function setUpReflectors()
     {
-        $this->formatParamsReflector = new \ReflectionMethod(\Stripe\Service\AbstractService::class, 'formatParams');
+        $this->formatParamsReflector = new \ReflectionMethod(\StripePhp\Service\AbstractService::class, 'formatParams');
         $this->formatParamsReflector->setAccessible(true);
     }
 
     public function testNullGetsEmptyStringified()
     {
-        $this->expectException(\Stripe\Exception\InvalidRequestException::class);
+        $this->expectException(\StripePhp\Exception\InvalidRequestException::class);
         $this->service->update('id', [
             'doesnotexist' => null,
         ]);
@@ -48,7 +48,7 @@ final class AbstractServiceTest extends \Stripe\TestCase
 
     public function testRetrieveThrowsIfIdNullIsNull()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('The resource ID cannot be null or whitespace.');
 
         $this->service->retrieve(null);
@@ -56,7 +56,7 @@ final class AbstractServiceTest extends \Stripe\TestCase
 
     public function testRetrieveThrowsIfIdNullIsEmpty()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('The resource ID cannot be null or whitespace.');
 
         $this->service->retrieve('');
@@ -64,7 +64,7 @@ final class AbstractServiceTest extends \Stripe\TestCase
 
     public function testRetrieveThrowsIfIdNullIsWhitespace()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('The resource ID cannot be null or whitespace.');
 
         $this->service->retrieve(' ');

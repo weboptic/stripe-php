@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\PaymentIntentService
+ * @covers \StripePhp\Service\PaymentIntentService
  */
-final class PaymentIntentServiceTest extends \Stripe\TestCase
+final class PaymentIntentServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'pi_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var PaymentIntentService */
@@ -23,7 +23,7 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new PaymentIntentService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resources->data[0]);
     }
 
     public function testCancel()
@@ -45,7 +45,7 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource = $this->service->cancel(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testCapture()
@@ -55,7 +55,7 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID . '/capture'
         );
         $resource = $this->service->capture(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testConfirm()
@@ -65,7 +65,7 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID . '/confirm'
         );
         $resource = $this->service->confirm(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testCreate()
@@ -79,7 +79,7 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
             'currency' => 'usd',
             'payment_method_types' => ['card'],
         ]);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testRetrieve()
@@ -89,7 +89,7 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testUpdate()
@@ -101,6 +101,6 @@ final class PaymentIntentServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 }

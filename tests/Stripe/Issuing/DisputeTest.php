@@ -4,11 +4,11 @@ namespace StripePhp\Issuing;
 
 /**
  * @internal
- * @covers \Stripe\Issuing\Dispute
+ * @covers \StripePhp\Issuing\Dispute
  */
-final class DisputeTest extends \Stripe\TestCase
+final class DisputeTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'idp_123';
 
@@ -24,7 +24,7 @@ final class DisputeTest extends \Stripe\TestCase
             $params
         );
         $resource = Dispute::create($params);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 
     public function testIsListable()
@@ -35,7 +35,7 @@ final class DisputeTest extends \Stripe\TestCase
         );
         $resources = Dispute::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -45,7 +45,7 @@ final class DisputeTest extends \Stripe\TestCase
             '/v1/issuing/disputes/' . self::TEST_RESOURCE_ID
         );
         $resource = Dispute::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -56,7 +56,7 @@ final class DisputeTest extends \Stripe\TestCase
             []
         );
         $resource = Dispute::update(self::TEST_RESOURCE_ID, []);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 
     public function testIsSubmittable()
@@ -67,6 +67,6 @@ final class DisputeTest extends \Stripe\TestCase
             '/v1/issuing/disputes/' . self::TEST_RESOURCE_ID . '/submit'
         );
         $resource->submit();
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 }

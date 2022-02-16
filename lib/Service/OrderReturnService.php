@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class OrderReturnService extends \Stripe\Service\AbstractService
+class OrderReturnService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your order returns. The returns are returned sorted by
      * creation date, with the most recently created return appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\OrderReturn>
+     * @return \StripePhp\Collection<\StripePhp\OrderReturn>
      */
     public function all($params = null, $opts = null)
     {
@@ -29,11 +29,11 @@ class OrderReturnService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\OrderReturn
+     * @return \StripePhp\OrderReturn
      */
     public function retrieve($id, $params = null, $opts = null)
     {

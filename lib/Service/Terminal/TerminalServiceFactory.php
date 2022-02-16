@@ -11,7 +11,7 @@ namespace StripePhp\Service\Terminal;
  * @property LocationService $locations
  * @property ReaderService $readers
  */
-class TerminalServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class TerminalServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

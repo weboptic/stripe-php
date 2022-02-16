@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Quote
+ * @covers \StripePhp\Quote
  */
-final class QuoteTest extends \Stripe\TestCase
+final class QuoteTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class QuoteTest extends \Stripe\TestCase
         );
         $resources = Quote::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Quote::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class QuoteTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID
         );
         $resource = Quote::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testIsCreatable()
@@ -46,7 +46,7 @@ final class QuoteTest extends \Stripe\TestCase
                 ['price' => 'price_xyz'],
             ],
         ]);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testIsSaveable()
@@ -58,7 +58,7 @@ final class QuoteTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -73,7 +73,7 @@ final class QuoteTest extends \Stripe\TestCase
                 'metadata' => ['key' => 'value'],
             ]
         );
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testIsAcceptable()
@@ -84,7 +84,7 @@ final class QuoteTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID . '/accept'
         );
         $resource->accept();
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testIsCancelable()
@@ -95,7 +95,7 @@ final class QuoteTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource->cancel();
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testIsFinalizable()
@@ -106,7 +106,7 @@ final class QuoteTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID . '/finalize'
         );
         $resource->finalizeQuote();
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testCanListLineItems()

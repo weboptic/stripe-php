@@ -4,11 +4,11 @@ namespace StripePhp\Terminal;
 
 /**
  * @internal
- * @covers \Stripe\Terminal\ConnectionToken
+ * @covers \StripePhp\Terminal\ConnectionToken
  */
-final class ConnectionTokenTest extends \Stripe\TestCase
+final class ConnectionTokenTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function testIsCreatable()
     {
@@ -17,6 +17,6 @@ final class ConnectionTokenTest extends \Stripe\TestCase
             '/v1/terminal/connection_tokens'
         );
         $resource = ConnectionToken::create();
-        static::assertInstanceOf(\Stripe\Terminal\ConnectionToken::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\ConnectionToken::class, $resource);
     }
 }

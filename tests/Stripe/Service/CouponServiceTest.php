@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\CouponService
+ * @covers \StripePhp\Service\CouponService
  */
-final class CouponServiceTest extends \Stripe\TestCase
+final class CouponServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'COUPON_ID';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var CouponService */
@@ -23,7 +23,7 @@ final class CouponServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new CouponService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class CouponServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -49,7 +49,7 @@ final class CouponServiceTest extends \Stripe\TestCase
             'duration' => 'repeating',
             'duration_in_months' => 3,
         ]);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 
     public function testDelete()
@@ -59,7 +59,7 @@ final class CouponServiceTest extends \Stripe\TestCase
             '/v1/coupons/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 
     public function testRetrieve()
@@ -69,7 +69,7 @@ final class CouponServiceTest extends \Stripe\TestCase
             '/v1/coupons/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 
     public function testUpdate()
@@ -81,6 +81,6 @@ final class CouponServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Coupon::class, $resource);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $resource);
     }
 }

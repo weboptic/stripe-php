@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\PromotionCodeService
+ * @covers \StripePhp\Service\PromotionCodeService
  */
-final class PromotionCodeServiceTest extends \Stripe\TestCase
+final class PromotionCodeServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'promo_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var PromotionCodeService */
@@ -23,7 +23,7 @@ final class PromotionCodeServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new PromotionCodeService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class PromotionCodeServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -48,7 +48,7 @@ final class PromotionCodeServiceTest extends \Stripe\TestCase
             'coupon' => 'co_123',
             'code' => 'MYCODE',
         ]);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resource);
     }
 
     public function testRetrieve()
@@ -58,7 +58,7 @@ final class PromotionCodeServiceTest extends \Stripe\TestCase
             '/v1/promotion_codes/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resource);
     }
 
     public function testUpdate()
@@ -70,6 +70,6 @@ final class PromotionCodeServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $resource);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $resource);
     }
 }

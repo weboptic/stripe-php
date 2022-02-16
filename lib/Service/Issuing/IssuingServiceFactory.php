@@ -13,7 +13,7 @@ namespace StripePhp\Service\Issuing;
  * @property DisputeService $disputes
  * @property TransactionService $transactions
  */
-class IssuingServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class IssuingServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

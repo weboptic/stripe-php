@@ -13,7 +13,7 @@ namespace StripePhp\Issuing;
  * @property int $exp_year
  * @property string $number
  */
-class CardDetails extends \Stripe\ApiResource
+class CardDetails extends \StripePhp\ApiResource
 {
     const OBJECT_NAME = 'issuing.card_details';
 }

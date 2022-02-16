@@ -4,11 +4,11 @@ namespace StripePhp\Exception\OAuth;
 
 /**
  * @internal
- * @covers \Stripe\Exception\OAuth\OAuthErrorException
+ * @covers \StripePhp\Exception\OAuth\OAuthErrorException
  */
-final class OAuthErrorExceptionTest extends \Stripe\TestCase
+final class OAuthErrorExceptionTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function createFixture()
     {

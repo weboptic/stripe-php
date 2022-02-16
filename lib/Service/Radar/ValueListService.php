@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service\Radar;
 
-class ValueListService extends \Stripe\Service\AbstractService
+class ValueListService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of <code>ValueList</code> objects. The objects are sorted in
@@ -12,11 +12,11 @@ class ValueListService extends \Stripe\Service\AbstractService
      * appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Radar\ValueList>
+     * @return \StripePhp\Collection<\StripePhp\Radar\ValueList>
      */
     public function all($params = null, $opts = null)
     {
@@ -28,11 +28,11 @@ class ValueListService extends \Stripe\Service\AbstractService
      * rules.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Radar\ValueList
+     * @return \StripePhp\Radar\ValueList
      */
     public function create($params = null, $opts = null)
     {
@@ -46,11 +46,11 @@ class ValueListService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Radar\ValueList
+     * @return \StripePhp\Radar\ValueList
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -62,11 +62,11 @@ class ValueListService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Radar\ValueList
+     * @return \StripePhp\Radar\ValueList
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -80,11 +80,11 @@ class ValueListService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Radar\ValueList
+     * @return \StripePhp\Radar\ValueList
      */
     public function update($id, $params = null, $opts = null)
     {

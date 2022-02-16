@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service\Issuing;
 
-class TransactionService extends \Stripe\Service\AbstractService
+class TransactionService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of Issuing <code>Transaction</code> objects. The objects are
@@ -12,11 +12,11 @@ class TransactionService extends \Stripe\Service\AbstractService
      * object appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Issuing\Transaction>
+     * @return \StripePhp\Collection<\StripePhp\Issuing\Transaction>
      */
     public function all($params = null, $opts = null)
     {
@@ -28,11 +28,11 @@ class TransactionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Transaction
+     * @return \StripePhp\Issuing\Transaction
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -46,11 +46,11 @@ class TransactionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Issuing\Transaction
+     * @return \StripePhp\Issuing\Transaction
      */
     public function update($id, $params = null, $opts = null)
     {

@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class PayoutService extends \Stripe\Service\AbstractService
+class PayoutService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of existing payouts sent to third-party bank accounts or that
@@ -12,11 +12,11 @@ class PayoutService extends \Stripe\Service\AbstractService
      * recently created payouts appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Payout>
+     * @return \StripePhp\Collection<\StripePhp\Payout>
      */
     public function all($params = null, $opts = null)
     {
@@ -30,11 +30,11 @@ class PayoutService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Payout
+     * @return \StripePhp\Payout
      */
     public function cancel($id, $params = null, $opts = null)
     {
@@ -55,11 +55,11 @@ class PayoutService extends \Stripe\Service\AbstractService
      * details available and pending amounts by source type.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Payout
+     * @return \StripePhp\Payout
      */
     public function create($params = null, $opts = null)
     {
@@ -73,11 +73,11 @@ class PayoutService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Payout
+     * @return \StripePhp\Payout
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -96,11 +96,11 @@ class PayoutService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Payout
+     * @return \StripePhp\Payout
      */
     public function reverse($id, $params = null, $opts = null)
     {
@@ -114,11 +114,11 @@ class PayoutService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Payout
+     * @return \StripePhp\Payout
      */
     public function update($id, $params = null, $opts = null)
     {

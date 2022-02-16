@@ -6,9 +6,9 @@ namespace StripePhp\Identity;
  * @internal
  * @coversNothing
  */
-final class VerificationSessionTest extends \Stripe\TestCase
+final class VerificationSessionTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
     const TEST_RESOURCE_ID = 'vs_123';
 
     public function testIsListable()
@@ -19,7 +19,7 @@ final class VerificationSessionTest extends \Stripe\TestCase
         );
         $resources = VerificationSession::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Identity\VerificationSession::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationSession::class, $resources->data[0]);
     }
 
     public function testIsCreatable()
@@ -31,7 +31,7 @@ final class VerificationSessionTest extends \Stripe\TestCase
         $resource = VerificationSession::create([
             'type' => 'id_number',
         ]);
-        static::assertInstanceOf(\Stripe\Identity\VerificationSession::class, $resource);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationSession::class, $resource);
     }
 
     public function testIsRetrievable()
@@ -41,7 +41,7 @@ final class VerificationSessionTest extends \Stripe\TestCase
             '/v1/identity/verification_sessions/' . self::TEST_RESOURCE_ID
         );
         $resource = VerificationSession::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Identity\VerificationSession::class, $resource);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationSession::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -53,7 +53,7 @@ final class VerificationSessionTest extends \Stripe\TestCase
         $resource = VerificationSession::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Identity\VerificationSession::class, $resource);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationSession::class, $resource);
     }
 
     public function testIsCancelable()
@@ -64,7 +64,7 @@ final class VerificationSessionTest extends \Stripe\TestCase
             '/v1/identity/verification_sessions/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource->cancel();
-        static::assertInstanceOf(\Stripe\Identity\VerificationSession::class, $resource);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationSession::class, $resource);
     }
 
     public function testIsRedactable()
@@ -75,6 +75,6 @@ final class VerificationSessionTest extends \Stripe\TestCase
             '/v1/identity/verification_sessions/' . self::TEST_RESOURCE_ID . '/redact'
         );
         $resource->redact();
-        static::assertInstanceOf(\Stripe\Identity\VerificationSession::class, $resource);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationSession::class, $resource);
     }
 }

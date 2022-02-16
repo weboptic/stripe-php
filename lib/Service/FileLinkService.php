@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class FileLinkService extends \Stripe\Service\AbstractService
+class FileLinkService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of file links.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\FileLink>
+     * @return \StripePhp\Collection<\StripePhp\FileLink>
      */
     public function all($params = null, $opts = null)
     {
@@ -25,11 +25,11 @@ class FileLinkService extends \Stripe\Service\AbstractService
      * Creates a new file link object.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\FileLink
+     * @return \StripePhp\FileLink
      */
     public function create($params = null, $opts = null)
     {
@@ -41,11 +41,11 @@ class FileLinkService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\FileLink
+     * @return \StripePhp\FileLink
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -57,11 +57,11 @@ class FileLinkService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\FileLink
+     * @return \StripePhp\FileLink
      */
     public function update($id, $params = null, $opts = null)
     {

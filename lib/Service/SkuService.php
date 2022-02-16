@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class SkuService extends \Stripe\Service\AbstractService
+class SkuService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your SKUs. The SKUs are returned sorted by creation date, with
      * the most recently created SKUs appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\SKU>
+     * @return \StripePhp\Collection<\StripePhp\SKU>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class SkuService extends \Stripe\Service\AbstractService
      * Creates a new SKU associated with a product.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SKU
+     * @return \StripePhp\SKU
      */
     public function create($params = null, $opts = null)
     {
@@ -43,11 +43,11 @@ class SkuService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SKU
+     * @return \StripePhp\SKU
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -61,11 +61,11 @@ class SkuService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SKU
+     * @return \StripePhp\SKU
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -82,11 +82,11 @@ class SkuService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SKU
+     * @return \StripePhp\SKU
      */
     public function update($id, $params = null, $opts = null)
     {

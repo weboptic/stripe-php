@@ -4,15 +4,15 @@ namespace StripePhp\Service\Reporting;
 
 /**
  * @internal
- * @covers \Stripe\Service\Reporting\ReportRunService
+ * @covers \StripePhp\Service\Reporting\ReportRunService
  */
-final class ReportRunServiceTest extends \Stripe\TestCase
+final class ReportRunServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'frr_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ReportRunService */
@@ -23,7 +23,7 @@ final class ReportRunServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ReportRunService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class ReportRunServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Reporting\ReportRun::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportRun::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -53,7 +53,7 @@ final class ReportRunServiceTest extends \Stripe\TestCase
             $params
         );
         $resource = $this->service->create($params);
-        static::assertInstanceOf(\Stripe\Reporting\ReportRun::class, $resource);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportRun::class, $resource);
     }
 
     public function testRetrieve()
@@ -63,6 +63,6 @@ final class ReportRunServiceTest extends \Stripe\TestCase
             '/v1/reporting/report_runs/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Reporting\ReportRun::class, $resource);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportRun::class, $resource);
     }
 }

@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\FileService
+ * @covers \StripePhp\Service\FileService
  */
-final class FileServiceTest extends \Stripe\TestCase
+final class FileServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'file_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var FileService */
@@ -23,7 +23,7 @@ final class FileServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new FileService($this->client);
     }
 
@@ -35,12 +35,12 @@ final class FileServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\File::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\File::class, $resources->data[0]);
     }
 
     public function testCreateWithCURLFile()
     {
-        $client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'files_base' => MOCK_URL]);
+        $client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'files_base' => MOCK_URL]);
         $service = new FileService($client);
 
         $this->expectsRequest(
@@ -57,12 +57,12 @@ final class FileServiceTest extends \Stripe\TestCase
             'file' => $curlFile,
             'file_link_data' => ['create' => true],
         ]);
-        static::assertInstanceOf(\Stripe\File::class, $resource);
+        static::assertInstanceOf(\StripePhp\File::class, $resource);
     }
 
     public function testCreateWithFileHandle()
     {
-        $client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'files_base' => MOCK_URL]);
+        $client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'files_base' => MOCK_URL]);
         $service = new FileService($client);
 
         $this->expectsRequest(
@@ -79,7 +79,7 @@ final class FileServiceTest extends \Stripe\TestCase
             'file' => $fp,
             'file_link_data' => ['create' => true],
         ]);
-        static::assertInstanceOf(\Stripe\File::class, $resource);
+        static::assertInstanceOf(\StripePhp\File::class, $resource);
     }
 
     public function testRetrieve()
@@ -89,6 +89,6 @@ final class FileServiceTest extends \Stripe\TestCase
             '/v1/files/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\File::class, $resource);
+        static::assertInstanceOf(\StripePhp\File::class, $resource);
     }
 }

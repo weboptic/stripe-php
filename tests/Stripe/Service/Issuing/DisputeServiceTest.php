@@ -4,15 +4,15 @@ namespace StripePhp\Service\Issuing;
 
 /**
  * @internal
- * @covers \Stripe\Service\Issuing\DisputeService
+ * @covers \StripePhp\Service\Issuing\DisputeService
  */
-final class DisputeServiceTest extends \Stripe\TestCase
+final class DisputeServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'idp_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var DisputeService */
@@ -23,7 +23,7 @@ final class DisputeServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new DisputeService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class DisputeServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -50,7 +50,7 @@ final class DisputeServiceTest extends \Stripe\TestCase
             $params
         );
         $resource = $this->service->create($params);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 
     public function testRetrieve()
@@ -60,7 +60,7 @@ final class DisputeServiceTest extends \Stripe\TestCase
             '/v1/issuing/disputes/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 
     public function testUpdate()
@@ -73,7 +73,7 @@ final class DisputeServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 
     public function testSubmit()
@@ -86,6 +86,6 @@ final class DisputeServiceTest extends \Stripe\TestCase
         $resource = $this->service->submit(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $resource);
     }
 }

@@ -4,13 +4,13 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Collection
+ * @covers \StripePhp\Collection
  */
-final class CollectionTest extends \Stripe\TestCase
+final class CollectionTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
-    /** @var \Stripe\Collection */
+    /** @var \StripePhp\Collection */
     private $fixture;
 
     /**
@@ -27,7 +27,7 @@ final class CollectionTest extends \Stripe\TestCase
 
     public function testOffsetGetNumericIndex()
     {
-        $this->expectException(\Stripe\Exception\InvalidArgumentException::class);
+        $this->expectException(\StripePhp\Exception\InvalidArgumentException::class);
         $this->compatExpectExceptionMessageMatches('/You tried to access the \\d index/');
 
         $this->fixture[0];

@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Source
+ * @covers \StripePhp\Source
  */
-final class SourceTest extends \Stripe\TestCase
+final class SourceTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -19,7 +19,7 @@ final class SourceTest extends \Stripe\TestCase
             '/v1/sources/' . self::TEST_RESOURCE_ID
         );
         $resource = Source::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Source::class, $resource);
+        static::assertInstanceOf(\StripePhp\Source::class, $resource);
     }
 
     public function testIsCreatable()
@@ -31,7 +31,7 @@ final class SourceTest extends \Stripe\TestCase
         $resource = Source::create([
             'type' => 'card',
         ]);
-        static::assertInstanceOf(\Stripe\Source::class, $resource);
+        static::assertInstanceOf(\StripePhp\Source::class, $resource);
     }
 
     public function testIsSaveable()
@@ -43,7 +43,7 @@ final class SourceTest extends \Stripe\TestCase
             '/v1/sources/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Source::class, $resource);
+        static::assertInstanceOf(\StripePhp\Source::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -55,7 +55,7 @@ final class SourceTest extends \Stripe\TestCase
         $resource = Source::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Source::class, $resource);
+        static::assertInstanceOf(\StripePhp\Source::class, $resource);
     }
 
     public function testCanSaveCardExpiryDate()
@@ -103,12 +103,12 @@ final class SourceTest extends \Stripe\TestCase
             '/v1/customers/cus_123/sources/' . $resource->id
         );
         $resource->detach();
-        static::assertInstanceOf(\Stripe\Source::class, $resource);
+        static::assertInstanceOf(\StripePhp\Source::class, $resource);
     }
 
     public function testIsNotDetachableWhenUnattached()
     {
-        $this->expectException(\Stripe\Exception\UnexpectedValueException::class);
+        $this->expectException(\StripePhp\Exception\UnexpectedValueException::class);
 
         $resource = Source::retrieve(self::TEST_RESOURCE_ID);
         $resource->detach();
@@ -123,7 +123,7 @@ final class SourceTest extends \Stripe\TestCase
         );
         $resources = $source->sourceTransactions();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\SourceTransaction::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\SourceTransaction::class, $resources->data[0]);
     }
 
     public function testCanListSourceTransactions()
@@ -134,7 +134,7 @@ final class SourceTest extends \Stripe\TestCase
         );
         $resources = Source::allSourceTransactions(self::TEST_RESOURCE_ID);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\SourceTransaction::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\SourceTransaction::class, $resources->data[0]);
     }
 
     public function testCanVerify()
@@ -145,6 +145,6 @@ final class SourceTest extends \Stripe\TestCase
             '/v1/sources/' . $resource->id . '/verify'
         );
         $resource->verify(['values' => [32, 45]]);
-        static::assertInstanceOf(\Stripe\Source::class, $resource);
+        static::assertInstanceOf(\StripePhp\Source::class, $resource);
     }
 }

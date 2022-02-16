@@ -4,15 +4,15 @@ namespace StripePhp\Service\Sigma;
 
 /**
  * @internal
- * @covers \Stripe\Service\Sigma\ScheduledQueryRunService
+ * @covers \StripePhp\Service\Sigma\ScheduledQueryRunService
  */
-final class ScheduledQueryRunServiceTest extends \Stripe\TestCase
+final class ScheduledQueryRunServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'sqr_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ScheduledQueryRunService */
@@ -23,7 +23,7 @@ final class ScheduledQueryRunServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ScheduledQueryRunService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class ScheduledQueryRunServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Sigma\ScheduledQueryRun::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Sigma\ScheduledQueryRun::class, $resources->data[0]);
     }
 
     public function testRetrieve()
@@ -45,6 +45,6 @@ final class ScheduledQueryRunServiceTest extends \Stripe\TestCase
             '/v1/sigma/scheduled_query_runs/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Sigma\ScheduledQueryRun::class, $resource);
+        static::assertInstanceOf(\StripePhp\Sigma\ScheduledQueryRun::class, $resource);
     }
 }

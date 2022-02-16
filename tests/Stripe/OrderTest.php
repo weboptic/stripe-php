@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Order
+ * @covers \StripePhp\Order
  */
-final class OrderTest extends \Stripe\TestCase
+final class OrderTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class OrderTest extends \Stripe\TestCase
         );
         $resources = Order::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Order::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Order::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class OrderTest extends \Stripe\TestCase
             '/v1/orders/' . self::TEST_RESOURCE_ID
         );
         $resource = Order::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Order::class, $resource);
+        static::assertInstanceOf(\StripePhp\Order::class, $resource);
     }
 
     public function testIsCreatable()
@@ -42,7 +42,7 @@ final class OrderTest extends \Stripe\TestCase
         $resource = Order::create([
             'currency' => 'usd',
         ]);
-        static::assertInstanceOf(\Stripe\Order::class, $resource);
+        static::assertInstanceOf(\StripePhp\Order::class, $resource);
     }
 
     public function testIsSaveable()
@@ -54,7 +54,7 @@ final class OrderTest extends \Stripe\TestCase
             '/v1/orders/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Order::class, $resource);
+        static::assertInstanceOf(\StripePhp\Order::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -66,7 +66,7 @@ final class OrderTest extends \Stripe\TestCase
         $resource = Order::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Order::class, $resource);
+        static::assertInstanceOf(\StripePhp\Order::class, $resource);
     }
 
     public function testIsPayable()
@@ -77,7 +77,7 @@ final class OrderTest extends \Stripe\TestCase
             '/v1/orders/' . $resource->id . '/pay'
         );
         $resource->pay();
-        static::assertInstanceOf(\Stripe\Order::class, $resource);
+        static::assertInstanceOf(\StripePhp\Order::class, $resource);
     }
 
     public function testIsReturnable()
@@ -88,6 +88,6 @@ final class OrderTest extends \Stripe\TestCase
             '/v1/orders/' . $order->id . '/returns'
         );
         $resource = $order->returnOrder();
-        static::assertInstanceOf(\Stripe\OrderReturn::class, $resource);
+        static::assertInstanceOf(\StripePhp\OrderReturn::class, $resource);
     }
 }

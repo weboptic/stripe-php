@@ -4,15 +4,15 @@ namespace StripePhp\Service\Identity;
 
 /**
  * @internal
- * @covers \Stripe\Service\Identity\VerificationReportService
+ * @covers \StripePhp\Service\Identity\VerificationReportService
  */
-final class VerificationReportServiceTest extends \Stripe\TestCase
+final class VerificationReportServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'vr_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var VerificationReportService */
@@ -23,7 +23,7 @@ final class VerificationReportServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new VerificationReportService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class VerificationReportServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Identity\VerificationReport::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationReport::class, $resources->data[0]);
     }
 
     public function testRetrieve()
@@ -45,6 +45,6 @@ final class VerificationReportServiceTest extends \Stripe\TestCase
             '/v1/identity/verification_reports/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Identity\VerificationReport::class, $resource);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationReport::class, $resource);
     }
 }

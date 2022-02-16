@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Radar;
 
-class EarlyFraudWarningService extends \Stripe\Service\AbstractService
+class EarlyFraudWarningService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of early fraud warnings.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Radar\EarlyFraudWarning>
+     * @return \StripePhp\Collection<\StripePhp\Radar\EarlyFraudWarning>
      */
     public function all($params = null, $opts = null)
     {
@@ -30,11 +30,11 @@ class EarlyFraudWarningService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Radar\EarlyFraudWarning
+     * @return \StripePhp\Radar\EarlyFraudWarning
      */
     public function retrieve($id, $params = null, $opts = null)
     {

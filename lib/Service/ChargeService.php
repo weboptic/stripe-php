@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class ChargeService extends \Stripe\Service\AbstractService
+class ChargeService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of charges you’ve previously created. The charges are returned in
      * sorted order, with the most recent charges appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Charge>
+     * @return \StripePhp\Collection<\StripePhp\Charge>
      */
     public function all($params = null, $opts = null)
     {
@@ -34,11 +34,11 @@ class ChargeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Charge
+     * @return \StripePhp\Charge
      */
     public function capture($id, $params = null, $opts = null)
     {
@@ -53,11 +53,11 @@ class ChargeService extends \Stripe\Service\AbstractService
      * completed successfully).
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Charge
+     * @return \StripePhp\Charge
      */
     public function create($params = null, $opts = null)
     {
@@ -72,11 +72,11 @@ class ChargeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Charge
+     * @return \StripePhp\Charge
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -89,11 +89,11 @@ class ChargeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Charge
+     * @return \StripePhp\Charge
      */
     public function update($id, $params = null, $opts = null)
     {

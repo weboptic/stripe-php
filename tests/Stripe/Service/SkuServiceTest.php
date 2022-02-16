@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\SkuService
+ * @covers \StripePhp\Service\SkuService
  */
-final class SkuServiceTest extends \Stripe\TestCase
+final class SkuServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'sku_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var SkuService */
@@ -23,7 +23,7 @@ final class SkuServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new SkuService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class SkuServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\SKU::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\SKU::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -53,7 +53,7 @@ final class SkuServiceTest extends \Stripe\TestCase
             'price' => 100,
             'product' => 'prod_123',
         ]);
-        static::assertInstanceOf(\Stripe\SKU::class, $resource);
+        static::assertInstanceOf(\StripePhp\SKU::class, $resource);
     }
 
     public function testDelete()
@@ -63,7 +63,7 @@ final class SkuServiceTest extends \Stripe\TestCase
             '/v1/skus/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\SKU::class, $resource);
+        static::assertInstanceOf(\StripePhp\SKU::class, $resource);
         static::assertTrue($resource->isDeleted());
     }
 
@@ -74,7 +74,7 @@ final class SkuServiceTest extends \Stripe\TestCase
             '/v1/skus/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\SKU::class, $resource);
+        static::assertInstanceOf(\StripePhp\SKU::class, $resource);
     }
 
     public function testUpdate()
@@ -86,6 +86,6 @@ final class SkuServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\SKU::class, $resource);
+        static::assertInstanceOf(\StripePhp\SKU::class, $resource);
     }
 }

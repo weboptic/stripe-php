@@ -4,11 +4,11 @@ namespace StripePhp\Exception;
 
 /**
  * @internal
- * @covers \Stripe\Exception\SignatureVerificationException
+ * @covers \StripePhp\Exception\SignatureVerificationException
  */
-final class SignatureVerificationExceptionTest extends \Stripe\TestCase
+final class SignatureVerificationExceptionTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function testGetters()
     {

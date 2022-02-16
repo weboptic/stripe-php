@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\PriceService
+ * @covers \StripePhp\Service\PriceService
  */
-final class PriceServiceTest extends \Stripe\TestCase
+final class PriceServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'prod_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var PriceService */
@@ -23,7 +23,7 @@ final class PriceServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new PriceService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class PriceServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Price::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Price::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -54,7 +54,7 @@ final class PriceServiceTest extends \Stripe\TestCase
                 'name' => 'Product Name',
             ],
         ]);
-        static::assertInstanceOf(\Stripe\Price::class, $resource);
+        static::assertInstanceOf(\StripePhp\Price::class, $resource);
     }
 
     public function testRetrieve()
@@ -64,7 +64,7 @@ final class PriceServiceTest extends \Stripe\TestCase
             '/v1/prices/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Price::class, $resource);
+        static::assertInstanceOf(\StripePhp\Price::class, $resource);
     }
 
     public function testUpdate()
@@ -76,6 +76,6 @@ final class PriceServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Price::class, $resource);
+        static::assertInstanceOf(\StripePhp\Price::class, $resource);
     }
 }

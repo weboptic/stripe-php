@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Identity;
 
-class VerificationReportService extends \Stripe\Service\AbstractService
+class VerificationReportService extends \StripePhp\Service\AbstractService
 {
     /**
      * List all verification reports.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Identity\VerificationReport>
+     * @return \StripePhp\Collection<\StripePhp\Identity\VerificationReport>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class VerificationReportService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Identity\VerificationReport
+     * @return \StripePhp\Identity\VerificationReport
      */
     public function retrieve($id, $params = null, $opts = null)
     {

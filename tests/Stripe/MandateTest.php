@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Mandate
+ * @covers \StripePhp\Mandate
  */
-final class MandateTest extends \Stripe\TestCase
+final class MandateTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -19,6 +19,6 @@ final class MandateTest extends \Stripe\TestCase
             '/v1/mandates/' . self::TEST_RESOURCE_ID
         );
         $resource = Mandate::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Mandate::class, $resource);
+        static::assertInstanceOf(\StripePhp\Mandate::class, $resource);
     }
 }

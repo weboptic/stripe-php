@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class PlanService extends \Stripe\Service\AbstractService
+class PlanService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your plans.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Plan>
+     * @return \StripePhp\Collection<\StripePhp\Plan>
      */
     public function all($params = null, $opts = null)
     {
@@ -27,11 +27,11 @@ class PlanService extends \Stripe\Service\AbstractService
      * migration.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Plan
+     * @return \StripePhp\Plan
      */
     public function create($params = null, $opts = null)
     {
@@ -44,11 +44,11 @@ class PlanService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Plan
+     * @return \StripePhp\Plan
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -60,11 +60,11 @@ class PlanService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Plan
+     * @return \StripePhp\Plan
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -78,11 +78,11 @@ class PlanService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Plan
+     * @return \StripePhp\Plan
      */
     public function update($id, $params = null, $opts = null)
     {

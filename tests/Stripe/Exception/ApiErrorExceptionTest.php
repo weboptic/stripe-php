@@ -4,11 +4,11 @@ namespace StripePhp\Exception;
 
 /**
  * @internal
- * @covers \Stripe\Exception\ApiErrorException
+ * @covers \StripePhp\Exception\ApiErrorException
  */
-final class ApiErrorExceptionTest extends \Stripe\TestCase
+final class ApiErrorExceptionTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function createFixture()
     {

@@ -4,16 +4,16 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\SubscriptionScheduleService
+ * @covers \StripePhp\Service\SubscriptionScheduleService
  */
-final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
+final class SubscriptionScheduleServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'sub_sched_123';
     const TEST_REVISION_ID = 'sub_sched_rev_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var SubscriptionScheduleService */
@@ -24,7 +24,7 @@ final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new SubscriptionScheduleService($this->client);
     }
 
@@ -36,7 +36,7 @@ final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $resources->data[0]);
     }
 
     public function testCancel()
@@ -46,7 +46,7 @@ final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
             '/v1/subscription_schedules/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource = $this->service->cancel(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $resource);
     }
 
     public function testCreate()
@@ -64,7 +64,7 @@ final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
                 ],
             ],
         ]);
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $resource);
     }
 
     public function testRelease()
@@ -74,7 +74,7 @@ final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
             '/v1/subscription_schedules/' . self::TEST_RESOURCE_ID . '/release'
         );
         $resource = $this->service->release(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $resource);
     }
 
     public function testRetrieve()
@@ -84,7 +84,7 @@ final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
             '/v1/subscription_schedules/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $resource);
     }
 
     public function testUpdate()
@@ -96,6 +96,6 @@ final class SubscriptionScheduleServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $resource);
     }
 }

@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\StripeObject
+ * @covers \StripePhp\StripeObject
  */
-final class StripeObjectTest extends \Stripe\TestCase
+final class StripeObjectTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -25,11 +25,11 @@ final class StripeObjectTest extends \Stripe\TestCase
         // private attributes.
 
         // This is used to invoke the `deepCopy` protected function
-        $this->deepCopyReflector = new \ReflectionMethod(\Stripe\StripeObject::class, 'deepCopy');
+        $this->deepCopyReflector = new \ReflectionMethod(\StripePhp\StripeObject::class, 'deepCopy');
         $this->deepCopyReflector->setAccessible(true);
 
         // This is used to access the `_opts` protected variable
-        $this->optsReflector = new \ReflectionProperty(\Stripe\StripeObject::class, '_opts');
+        $this->optsReflector = new \ReflectionProperty(\StripePhp\StripeObject::class, '_opts');
         $this->optsReflector->setAccessible(true);
     }
 
@@ -517,7 +517,7 @@ EOS;
             'metadata' => [],
         ]);
 
-        static::assertInstanceOf(\Stripe\StripeObject::class, $obj->metadata);
+        static::assertInstanceOf(\StripePhp\StripeObject::class, $obj->metadata);
     }
 
     public function testDeserializeMetadataWithKeyNamedMetadata()
@@ -526,7 +526,7 @@ EOS;
             'metadata' => ['metadata' => 'value'],
         ]);
 
-        static::assertInstanceOf(\Stripe\StripeObject::class, $obj->metadata);
+        static::assertInstanceOf(\StripePhp\StripeObject::class, $obj->metadata);
         static::assertSame('value', $obj->metadata->metadata);
     }
 }

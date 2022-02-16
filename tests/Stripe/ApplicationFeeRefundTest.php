@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\ApplicationFeeRefund
+ * @covers \StripePhp\ApplicationFeeRefund
  */
-final class ApplicationFeeRefundTest extends \Stripe\TestCase
+final class ApplicationFeeRefundTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -22,6 +22,6 @@ final class ApplicationFeeRefundTest extends \Stripe\TestCase
             '/v1/application_fees/' . $resource->fee . '/refunds/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $resource);
     }
 }

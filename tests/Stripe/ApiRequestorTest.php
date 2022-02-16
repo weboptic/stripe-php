@@ -6,15 +6,15 @@ use Stripe\HttpClient\CurlClient;
 
 /**
  * @internal
- * @covers \Stripe\ApiRequestor
+ * @covers \StripePhp\ApiRequestor
  */
-final class ApiRequestorTest extends \Stripe\TestCase
+final class ApiRequestorTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
     public function testEncodeObjects()
     {
-        $reflector = new \ReflectionClass(\Stripe\ApiRequestor::class);
+        $reflector = new \ReflectionClass(\StripePhp\ApiRequestor::class);
         $method = $reflector->getMethod('_encodeObjects');
         $method->setAccessible(true);
 
@@ -44,7 +44,7 @@ final class ApiRequestorTest extends \Stripe\TestCase
 
     public function testHttpClientInjection()
     {
-        $reflector = new \ReflectionClass(\Stripe\ApiRequestor::class);
+        $reflector = new \ReflectionClass(\StripePhp\ApiRequestor::class);
         $method = $reflector->getMethod('httpClient');
         $method->setAccessible(true);
 
@@ -58,7 +58,7 @@ final class ApiRequestorTest extends \Stripe\TestCase
 
     public function testDefaultHeaders()
     {
-        $reflector = new \ReflectionClass(\Stripe\ApiRequestor::class);
+        $reflector = new \ReflectionClass(\StripePhp\ApiRequestor::class);
         $method = $reflector->getMethod('_defaultHeaders');
         $method->setAccessible(true);
 
@@ -87,7 +87,7 @@ final class ApiRequestorTest extends \Stripe\TestCase
 
     public function testRaisesAuthenticationErrorWhenNoApiKey()
     {
-        $this->expectException(\Stripe\Exception\AuthenticationException::class);
+        $this->expectException(\StripePhp\Exception\AuthenticationException::class);
         $this->compatExpectExceptionMessageMatches('#No API key provided#');
 
         Stripe::setApiKey(null);
@@ -579,7 +579,7 @@ final class ApiRequestorTest extends \Stripe\TestCase
 
     public function testIsDisabled()
     {
-        $reflector = new \ReflectionClass(\Stripe\ApiRequestor::class);
+        $reflector = new \ReflectionClass(\StripePhp\ApiRequestor::class);
         $method = $reflector->getMethod('_isDisabled');
         $method->setAccessible(true);
 

@@ -6,9 +6,9 @@ namespace StripePhp\Identity;
  * @internal
  * @coversNothing
  */
-final class VerificationReportTest extends \Stripe\TestCase
+final class VerificationReportTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
     const TEST_RESOURCE_ID = 'vr_123';
 
     public function testIsListable()
@@ -19,7 +19,7 @@ final class VerificationReportTest extends \Stripe\TestCase
         );
         $resources = VerificationReport::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Identity\VerificationReport::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationReport::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -29,6 +29,6 @@ final class VerificationReportTest extends \Stripe\TestCase
             '/v1/identity/verification_reports/' . self::TEST_RESOURCE_ID
         );
         $resource = VerificationReport::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Identity\VerificationReport::class, $resource);
+        static::assertInstanceOf(\StripePhp\Identity\VerificationReport::class, $resource);
     }
 }

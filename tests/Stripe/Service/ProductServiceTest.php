@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\ProductService
+ * @covers \StripePhp\Service\ProductService
  */
-final class ProductServiceTest extends \Stripe\TestCase
+final class ProductServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'prod_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ProductService */
@@ -23,7 +23,7 @@ final class ProductServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ProductService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class ProductServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Product::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Product::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -47,7 +47,7 @@ final class ProductServiceTest extends \Stripe\TestCase
         $resource = $this->service->create([
             'name' => 'name',
         ]);
-        static::assertInstanceOf(\Stripe\Product::class, $resource);
+        static::assertInstanceOf(\StripePhp\Product::class, $resource);
     }
 
     public function testDelete()
@@ -57,7 +57,7 @@ final class ProductServiceTest extends \Stripe\TestCase
             '/v1/products/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Product::class, $resource);
+        static::assertInstanceOf(\StripePhp\Product::class, $resource);
     }
 
     public function testRetrieve()
@@ -67,7 +67,7 @@ final class ProductServiceTest extends \Stripe\TestCase
             '/v1/products/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Product::class, $resource);
+        static::assertInstanceOf(\StripePhp\Product::class, $resource);
     }
 
     public function testUpdate()
@@ -79,6 +79,6 @@ final class ProductServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Product::class, $resource);
+        static::assertInstanceOf(\StripePhp\Product::class, $resource);
     }
 }

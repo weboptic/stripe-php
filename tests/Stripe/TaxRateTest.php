@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\TaxRate
+ * @covers \StripePhp\TaxRate
  */
-final class TaxRateTest extends \Stripe\TestCase
+final class TaxRateTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class TaxRateTest extends \Stripe\TestCase
         );
         $resources = TaxRate::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\TaxRate::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class TaxRateTest extends \Stripe\TestCase
             '/v1/tax_rates/' . self::TEST_RESOURCE_ID
         );
         $resource = TaxRate::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\TaxRate::class, $resource);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $resource);
     }
 
     public function testIsCreatable()
@@ -44,7 +44,7 @@ final class TaxRateTest extends \Stripe\TestCase
             'inclusive' => false,
             'percentage' => 10.15,
         ]);
-        static::assertInstanceOf(\Stripe\TaxRate::class, $resource);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $resource);
     }
 
     public function testIsSaveable()
@@ -56,7 +56,7 @@ final class TaxRateTest extends \Stripe\TestCase
             '/v1/tax_rates/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\TaxRate::class, $resource);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -68,6 +68,6 @@ final class TaxRateTest extends \Stripe\TestCase
         $resource = TaxRate::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\TaxRate::class, $resource);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $resource);
     }
 }

@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service\Terminal;
 
-class ConnectionTokenService extends \Stripe\Service\AbstractService
+class ConnectionTokenService extends \StripePhp\Service\AbstractService
 {
     /**
      * To connect to a reader the Stripe Terminal SDK needs to retrieve a short-lived
@@ -12,11 +12,11 @@ class ConnectionTokenService extends \Stripe\Service\AbstractService
      * an endpoint that creates and returns a connection token.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\ConnectionToken
+     * @return \StripePhp\Terminal\ConnectionToken
      */
     public function create($params = null, $opts = null)
     {

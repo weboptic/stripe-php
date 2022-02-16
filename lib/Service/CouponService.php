@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class CouponService extends \Stripe\Service\AbstractService
+class CouponService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your coupons.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Coupon>
+     * @return \StripePhp\Collection<\StripePhp\Coupon>
      */
     public function all($params = null, $opts = null)
     {
@@ -38,11 +38,11 @@ class CouponService extends \Stripe\Service\AbstractService
      * it.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Coupon
+     * @return \StripePhp\Coupon
      */
     public function create($params = null, $opts = null)
     {
@@ -58,11 +58,11 @@ class CouponService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Coupon
+     * @return \StripePhp\Coupon
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -74,11 +74,11 @@ class CouponService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Coupon
+     * @return \StripePhp\Coupon
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -91,11 +91,11 @@ class CouponService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Coupon
+     * @return \StripePhp\Coupon
      */
     public function update($id, $params = null, $opts = null)
     {

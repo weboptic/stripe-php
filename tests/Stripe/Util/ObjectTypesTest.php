@@ -4,15 +4,15 @@ namespace StripePhp\Util;
 
 /**
  * @internal
- * @covers \Stripe\Util\ObjectTypes
+ * @covers \StripePhp\Util\ObjectTypes
  */
-final class ObjectTypesTest extends \Stripe\TestCase
+final class ObjectTypesTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function testMapping()
     {
-        static::assertSame(\Stripe\Util\ObjectTypes::mapping['charge'], \Stripe\Charge::class);
-        static::assertSame(\Stripe\Util\ObjectTypes::mapping['checkout.session'], \Stripe\Checkout\Session::class);
+        static::assertSame(\StripePhp\Util\ObjectTypes::mapping['charge'], \StripePhp\Charge::class);
+        static::assertSame(\StripePhp\Util\ObjectTypes::mapping['checkout.session'], \StripePhp\Checkout\Session::class);
     }
 }

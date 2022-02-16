@@ -4,11 +4,11 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Review
+ * @covers \StripePhp\Review
  */
-final class ReviewTest extends \Stripe\TestCase
+final class ReviewTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'prv_123';
 
@@ -20,7 +20,7 @@ final class ReviewTest extends \Stripe\TestCase
             '/v1/reviews/' . self::TEST_RESOURCE_ID . '/approve'
         );
         $resource->approve();
-        static::assertInstanceOf(\Stripe\Review::class, $resource);
+        static::assertInstanceOf(\StripePhp\Review::class, $resource);
     }
 
     public function testIsListable()
@@ -31,7 +31,7 @@ final class ReviewTest extends \Stripe\TestCase
         );
         $resources = Review::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Review::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Review::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -41,6 +41,6 @@ final class ReviewTest extends \Stripe\TestCase
             '/v1/reviews/' . self::TEST_RESOURCE_ID
         );
         $resource = Review::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Review::class, $resource);
+        static::assertInstanceOf(\StripePhp\Review::class, $resource);
     }
 }

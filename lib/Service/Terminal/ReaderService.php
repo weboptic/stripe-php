@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Terminal;
 
-class ReaderService extends \Stripe\Service\AbstractService
+class ReaderService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of <code>Reader</code> objects.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Terminal\Reader>
+     * @return \StripePhp\Collection<\StripePhp\Terminal\Reader>
      */
     public function all($params = null, $opts = null)
     {
@@ -25,11 +25,11 @@ class ReaderService extends \Stripe\Service\AbstractService
      * Creates a new <code>Reader</code> object.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Reader
+     * @return \StripePhp\Terminal\Reader
      */
     public function create($params = null, $opts = null)
     {
@@ -41,11 +41,11 @@ class ReaderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Reader
+     * @return \StripePhp\Terminal\Reader
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -57,11 +57,11 @@ class ReaderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Reader
+     * @return \StripePhp\Terminal\Reader
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -74,11 +74,11 @@ class ReaderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Terminal\Reader
+     * @return \StripePhp\Terminal\Reader
      */
     public function update($id, $params = null, $opts = null)
     {

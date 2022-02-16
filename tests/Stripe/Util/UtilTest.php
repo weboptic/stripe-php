@@ -4,11 +4,11 @@ namespace StripePhp\Util;
 
 /**
  * @internal
- * @covers \Stripe\Util\Util
+ * @covers \StripePhp\Util\Util
  */
-final class UtilTest extends \Stripe\TestCase
+final class UtilTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function testIsList()
     {

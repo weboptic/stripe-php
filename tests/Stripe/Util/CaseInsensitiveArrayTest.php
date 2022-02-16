@@ -4,11 +4,11 @@ namespace StripePhp\Util;
 
 /**
  * @internal
- * @covers \Stripe\Util\CaseInsensitiveArray
+ * @covers \StripePhp\Util\CaseInsensitiveArray
  */
-final class CaseInsensitiveArrayTest extends \Stripe\TestCase
+final class CaseInsensitiveArrayTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function testArrayAccess()
     {

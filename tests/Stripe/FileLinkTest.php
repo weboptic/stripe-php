@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\FileLink
+ * @covers \StripePhp\FileLink
  */
-final class FileLinkTest extends \Stripe\TestCase
+final class FileLinkTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class FileLinkTest extends \Stripe\TestCase
         );
         $resources = FileLink::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\FileLink::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class FileLinkTest extends \Stripe\TestCase
             '/v1/file_links/' . self::TEST_RESOURCE_ID
         );
         $resource = FileLink::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\FileLink::class, $resource);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $resource);
     }
 
     public function testIsCreatable()
@@ -42,7 +42,7 @@ final class FileLinkTest extends \Stripe\TestCase
         $resource = FileLink::create([
             'file' => 'file_123',
         ]);
-        static::assertInstanceOf(\Stripe\FileLink::class, $resource);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $resource);
     }
 
     public function testIsSaveable()
@@ -54,7 +54,7 @@ final class FileLinkTest extends \Stripe\TestCase
             '/v1/file_links/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\FileLink::class, $resource);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -66,6 +66,6 @@ final class FileLinkTest extends \Stripe\TestCase
         $resource = FileLink::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\FileLink::class, $resource);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $resource);
     }
 }

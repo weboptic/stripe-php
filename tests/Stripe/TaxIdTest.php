@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\TaxId
+ * @covers \StripePhp\TaxId
  */
-final class TaxIdTest extends \Stripe\TestCase
+final class TaxIdTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -15,7 +15,7 @@ final class TaxIdTest extends \Stripe\TestCase
 
     public function testHasCorrectUrl()
     {
-        $resource = \Stripe\Customer::retrieveTaxId(self::TEST_CUSTOMER_ID, self::TEST_RESOURCE_ID);
+        $resource = \StripePhp\Customer::retrieveTaxId(self::TEST_CUSTOMER_ID, self::TEST_RESOURCE_ID);
         static::assertSame(
             '/v1/customers/' . self::TEST_CUSTOMER_ID . '/tax_ids/' . self::TEST_RESOURCE_ID,
             $resource->instanceUrl()
@@ -24,12 +24,12 @@ final class TaxIdTest extends \Stripe\TestCase
 
     public function testIsDeletable()
     {
-        $resource = \Stripe\Customer::retrieveTaxId(self::TEST_CUSTOMER_ID, self::TEST_RESOURCE_ID);
+        $resource = \StripePhp\Customer::retrieveTaxId(self::TEST_CUSTOMER_ID, self::TEST_RESOURCE_ID);
         $this->expectsRequest(
             'delete',
             '/v1/customers/' . self::TEST_CUSTOMER_ID . '/tax_ids/' . self::TEST_RESOURCE_ID
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\TaxId::class, $resource);
+        static::assertInstanceOf(\StripePhp\TaxId::class, $resource);
     }
 }

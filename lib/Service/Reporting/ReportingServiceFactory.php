@@ -10,7 +10,7 @@ namespace StripePhp\Service\Reporting;
  * @property ReportRunService $reportRuns
  * @property ReportTypeService $reportTypes
  */
-class ReportingServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class ReportingServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class TaxRateService extends \Stripe\Service\AbstractService
+class TaxRateService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your tax rates. Tax rates are returned sorted by creation
      * date, with the most recently created tax rates appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\TaxRate>
+     * @return \StripePhp\Collection<\StripePhp\TaxRate>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class TaxRateService extends \Stripe\Service\AbstractService
      * Creates a new tax rate.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\TaxRate
+     * @return \StripePhp\TaxRate
      */
     public function create($params = null, $opts = null)
     {
@@ -42,11 +42,11 @@ class TaxRateService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\TaxRate
+     * @return \StripePhp\TaxRate
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -58,11 +58,11 @@ class TaxRateService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\TaxRate
+     * @return \StripePhp\TaxRate
      */
     public function update($id, $params = null, $opts = null)
     {

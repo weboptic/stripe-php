@@ -4,11 +4,11 @@ namespace StripePhp\Util;
 
 /**
  * @internal
- * @covers \Stripe\Util\DefaultLogger
+ * @covers \StripePhp\Util\DefaultLogger
  */
-final class DefaultLoggerTest extends \Stripe\TestCase
+final class DefaultLoggerTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     public function testDefaultLogger()
     {

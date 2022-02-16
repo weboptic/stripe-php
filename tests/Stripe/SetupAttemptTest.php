@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\SetupAttempt
+ * @covers \StripePhp\SetupAttempt
  */
-final class SetupAttemptTest extends \Stripe\TestCase
+final class SetupAttemptTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,6 +20,6 @@ final class SetupAttemptTest extends \Stripe\TestCase
             'setup_intent' => 'si_123',
         ]);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\SetupAttempt::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\SetupAttempt::class, $resources->data[0]);
     }
 }

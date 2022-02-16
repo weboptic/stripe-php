@@ -2,7 +2,7 @@
 
 namespace StripePhp\Service;
 
-class OAuthService extends \Stripe\Service\AbstractService
+class OAuthService extends \StripePhp\Service\AbstractService
 {
     /**
      * Sends a request to Stripe's Connect API.
@@ -10,9 +10,9 @@ class OAuthService extends \Stripe\Service\AbstractService
      * @param string $method the HTTP method
      * @param string $path the path of the request
      * @param array $params the parameters of the request
-     * @param array|\Stripe\Util\RequestOptions $opts the special modifiers of the request
+     * @param array|\StripePhp\Util\RequestOptions $opts the special modifiers of the request
      *
-     * @return \Stripe\StripeObject the object returned by Stripe's Connect API
+     * @return \StripePhp\StripeObject the object returned by Stripe's Connect API
      */
     protected function requestConnect($method, $path, $params, $opts)
     {
@@ -41,7 +41,7 @@ class OAuthService extends \Stripe\Service\AbstractService
         if (!\array_key_exists('response_type', $params)) {
             $params['response_type'] = 'code';
         }
-        $query = \Stripe\Util\Util::encodeParameters($params);
+        $query = \StripePhp\Util\Util::encodeParameters($params);
 
         return $base . '/oauth/authorize?' . $query;
     }
@@ -53,9 +53,9 @@ class OAuthService extends \Stripe\Service\AbstractService
      * @param null|array $params
      * @param null|array $opts
      *
-     * @throws \Stripe\Exception\OAuth\OAuthErrorException if the request fails
+     * @throws \StripePhp\Exception\OAuth\OAuthErrorException if the request fails
      *
-     * @return \Stripe\StripeObject object containing the response from the API
+     * @return \StripePhp\StripeObject object containing the response from the API
      */
     public function token($params = null, $opts = null)
     {
@@ -71,9 +71,9 @@ class OAuthService extends \Stripe\Service\AbstractService
      * @param null|array $params
      * @param null|array $opts
      *
-     * @throws \Stripe\Exception\OAuth\OAuthErrorException if the request fails
+     * @throws \StripePhp\Exception\OAuth\OAuthErrorException if the request fails
      *
-     * @return \Stripe\StripeObject object containing the response from the API
+     * @return \StripePhp\StripeObject object containing the response from the API
      */
     public function deauthorize($params = null, $opts = null)
     {
@@ -92,7 +92,7 @@ class OAuthService extends \Stripe\Service\AbstractService
         }
         if (null === $clientId) {
             $msg = 'No client_id provided. (HINT: set your client_id using '
-              . '`new \Stripe\StripeClient([clientId => <CLIENT-ID>
+              . '`new \StripePhp\StripeClient([clientId => <CLIENT-ID>
                 ])`)".  You can find your client_ids '
               . 'in your Stripe dashboard at '
               . 'https://dashboard.stripe.com/account/applications/settings, '
@@ -100,7 +100,7 @@ class OAuthService extends \Stripe\Service\AbstractService
               . 'https://stripe.com/docs/connect/standard-accounts for details, '
               . 'or email support@stripe.com if you have any questions.';
 
-            throw new \Stripe\Exception\AuthenticationException($msg);
+            throw new \StripePhp\Exception\AuthenticationException($msg);
         }
 
         return $clientId;
@@ -116,28 +116,28 @@ class OAuthService extends \Stripe\Service\AbstractService
     }
 
     /**
-     * @param array|\Stripe\Util\RequestOptions $opts the special modifiers of the request
+     * @param array|\StripePhp\Util\RequestOptions $opts the special modifiers of the request
      *
-     * @throws \Stripe\Exception\InvalidArgumentException
+     * @throws \StripePhp\Exception\InvalidArgumentException
      *
-     * @return \Stripe\Util\RequestOptions
+     * @return \StripePhp\Util\RequestOptions
      */
     private function _parseOpts($opts)
     {
         if (\is_array($opts)) {
             if (\array_key_exists('connect_base', $opts)) {
                 // Throw an exception for the convenience of anybody migrating to
-                // \Stripe\Service\OAuthService from \Stripe\OAuth, where `connect_base`
+                // \StripePhp\Service\OAuthService from \StripePhp\OAuth, where `connect_base`
                 // was the name of the parameter that behaves as `api_base` does here.
-                throw new \Stripe\Exception\InvalidArgumentException('Use `api_base`, not `connect_base`');
+                throw new \StripePhp\Exception\InvalidArgumentException('Use `api_base`, not `connect_base`');
             }
         }
 
-        return \Stripe\Util\RequestOptions::parse($opts);
+        return \StripePhp\Util\RequestOptions::parse($opts);
     }
 
     /**
-     * @param \Stripe\Util\RequestOptions $opts
+     * @param \StripePhp\Util\RequestOptions $opts
      *
      * @return string
      */

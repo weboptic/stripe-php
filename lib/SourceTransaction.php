@@ -7,7 +7,7 @@ namespace StripePhp;
  *
  * @property string $id
  * @property string $object
- * @property \Stripe\StripeObject $ach_credit_transfer
+ * @property \StripePhp\StripeObject $ach_credit_transfer
  * @property int $amount
  * @property int $created
  * @property string $customer_data

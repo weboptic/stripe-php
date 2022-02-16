@@ -10,7 +10,7 @@ namespace StripePhp\Service\BillingPortal;
  * @property ConfigurationService $configurations
  * @property SessionService $sessions
  */
-class BillingPortalServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class BillingPortalServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

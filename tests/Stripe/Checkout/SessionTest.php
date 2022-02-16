@@ -4,11 +4,11 @@ namespace StripePhp\Checkout;
 
 /**
  * @internal
- * @covers \Stripe\Checkout\Session
+ * @covers \StripePhp\Checkout\Session
  */
-final class SessionTest extends \Stripe\TestCase
+final class SessionTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'cs_123';
 
@@ -39,7 +39,7 @@ final class SessionTest extends \Stripe\TestCase
             'payment_method_types' => ['card'],
             'success_url' => 'https://stripe.com/success',
         ]);
-        static::assertInstanceOf(\Stripe\Checkout\Session::class, $resource);
+        static::assertInstanceOf(\StripePhp\Checkout\Session::class, $resource);
     }
 
     public function testIsRetrievable()
@@ -49,7 +49,7 @@ final class SessionTest extends \Stripe\TestCase
             '/v1/checkout/sessions/' . self::TEST_RESOURCE_ID
         );
         $resource = Session::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Checkout\Session::class, $resource);
+        static::assertInstanceOf(\StripePhp\Checkout\Session::class, $resource);
     }
 
     public function testCanListLineItems()
@@ -60,6 +60,6 @@ final class SessionTest extends \Stripe\TestCase
         );
         $resources = Session::allLineItems(self::TEST_RESOURCE_ID);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\LineItem::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\LineItem::class, $resources->data[0]);
     }
 }

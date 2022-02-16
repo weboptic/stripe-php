@@ -25,20 +25,20 @@ namespace StripePhp\Identity;
  * @property string $id Unique identifier for the object.
  * @property string $object String representing the object's type. Objects of the same type share the same value.
  * @property int $created Time at which the object was created. Measured in seconds since the Unix epoch.
- * @property \Stripe\StripeObject $document Result from a document check
- * @property \Stripe\StripeObject $id_number Result from an id_number check
+ * @property \StripePhp\StripeObject $document Result from a document check
+ * @property \StripePhp\StripeObject $id_number Result from an id_number check
  * @property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.
- * @property \Stripe\StripeObject $options
- * @property \Stripe\StripeObject $selfie Result from a selfie check
+ * @property \StripePhp\StripeObject $options
+ * @property \StripePhp\StripeObject $selfie Result from a selfie check
  * @property string $type Type of report.
  * @property null|string $verification_session ID of the VerificationSession that created this report.
  */
-class VerificationReport extends \Stripe\ApiResource
+class VerificationReport extends \StripePhp\ApiResource
 {
     const OBJECT_NAME = 'identity.verification_report';
 
-    use \Stripe\ApiOperations\All;
-    use \Stripe\ApiOperations\Retrieve;
+    use \StripePhp\ApiOperations\All;
+    use \StripePhp\ApiOperations\Retrieve;
 
     const TYPE_DOCUMENT = 'document';
     const TYPE_ID_NUMBER = 'id_number';

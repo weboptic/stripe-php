@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service\BillingPortal;
 
-class ConfigurationService extends \Stripe\Service\AbstractService
+class ConfigurationService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of configurations that describe the functionality of the customer
      * portal.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\BillingPortal\Configuration>
+     * @return \StripePhp\Collection<\StripePhp\BillingPortal\Configuration>
      */
     public function all($params = null, $opts = null)
     {
@@ -27,11 +27,11 @@ class ConfigurationService extends \Stripe\Service\AbstractService
      * PortalSession.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\BillingPortal\Configuration
+     * @return \StripePhp\BillingPortal\Configuration
      */
     public function create($params = null, $opts = null)
     {
@@ -44,11 +44,11 @@ class ConfigurationService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\BillingPortal\Configuration
+     * @return \StripePhp\BillingPortal\Configuration
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -60,11 +60,11 @@ class ConfigurationService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\BillingPortal\Configuration
+     * @return \StripePhp\BillingPortal\Configuration
      */
     public function update($id, $params = null, $opts = null)
     {

@@ -6,25 +6,25 @@ namespace StripePhp;
  * @internal
  * @coversNothing
  */
-final class GeneratedExamplesTest extends \Stripe\TestCase
+final class GeneratedExamplesTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
-    /** @var null|\Stripe\StripeClient */
+    /** @var null|\StripePhp\StripeClient */
     private $client;
 
     /** @before */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
     }
 
     public function testListCustomer()
     {
         $this->expectsRequest('get', '/v1/customers');
         $result = $this->client->customers->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Customer::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Customer::class, $result->data[0]);
     }
 
     public function testRetrieveBalanceTransaction()
@@ -34,15 +34,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'txn_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\BalanceTransaction::class, $result);
+        static::assertInstanceOf(\StripePhp\BalanceTransaction::class, $result);
     }
 
     public function testListBalanceTransaction()
     {
         $this->expectsRequest('get', '/v1/balance_transactions');
         $result = $this->client->balanceTransactions->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\BalanceTransaction::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\BalanceTransaction::class, $result->data[0]);
     }
 
     public function testCreateCharge()
@@ -56,14 +56,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'description' => 'My First Test Charge (created for API docs)',
             ]
         );
-        static::assertInstanceOf(\Stripe\Charge::class, $result);
+        static::assertInstanceOf(\StripePhp\Charge::class, $result);
     }
 
     public function testRetrieveCharge()
     {
         $this->expectsRequest('get', '/v1/charges/ch_xxxxxxxxxxxxx');
         $result = $this->client->charges->retrieve('ch_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Charge::class, $result);
+        static::assertInstanceOf(\StripePhp\Charge::class, $result);
     }
 
     public function testUpdateCharge()
@@ -73,22 +73,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'ch_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Charge::class, $result);
+        static::assertInstanceOf(\StripePhp\Charge::class, $result);
     }
 
     public function testCaptureCharge()
     {
         $this->expectsRequest('post', '/v1/charges/ch_xxxxxxxxxxxxx/capture');
         $result = $this->client->charges->capture('ch_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Charge::class, $result);
+        static::assertInstanceOf(\StripePhp\Charge::class, $result);
     }
 
     public function testListCharge()
     {
         $this->expectsRequest('get', '/v1/charges');
         $result = $this->client->charges->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Charge::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Charge::class, $result->data[0]);
     }
 
     public function testCreateCustomer()
@@ -97,14 +97,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->customers->create(
             ['description' => 'My First Test Customer (created for API docs)']
         );
-        static::assertInstanceOf(\Stripe\Customer::class, $result);
+        static::assertInstanceOf(\StripePhp\Customer::class, $result);
     }
 
     public function testRetrieveCustomer()
     {
         $this->expectsRequest('get', '/v1/customers/cus_xxxxxxxxxxxxx');
         $result = $this->client->customers->retrieve('cus_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Customer::class, $result);
+        static::assertInstanceOf(\StripePhp\Customer::class, $result);
     }
 
     public function testUpdateCustomer()
@@ -114,29 +114,29 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cus_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Customer::class, $result);
+        static::assertInstanceOf(\StripePhp\Customer::class, $result);
     }
 
     public function testDeleteCustomer()
     {
         $this->expectsRequest('delete', '/v1/customers/cus_xxxxxxxxxxxxx');
         $result = $this->client->customers->delete('cus_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Customer::class, $result);
+        static::assertInstanceOf(\StripePhp\Customer::class, $result);
     }
 
     public function testListCustomer2()
     {
         $this->expectsRequest('get', '/v1/customers');
         $result = $this->client->customers->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Customer::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Customer::class, $result->data[0]);
     }
 
     public function testRetrieveDispute()
     {
         $this->expectsRequest('get', '/v1/disputes/dp_xxxxxxxxxxxxx');
         $result = $this->client->disputes->retrieve('dp_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Dispute::class, $result);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $result);
     }
 
     public function testUpdateDispute()
@@ -146,52 +146,52 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'dp_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Dispute::class, $result);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $result);
     }
 
     public function testCloseDispute()
     {
         $this->expectsRequest('post', '/v1/disputes/dp_xxxxxxxxxxxxx/close');
         $result = $this->client->disputes->close('dp_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Dispute::class, $result);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $result);
     }
 
     public function testListDispute()
     {
         $this->expectsRequest('get', '/v1/disputes');
         $result = $this->client->disputes->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Dispute::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Dispute::class, $result->data[0]);
     }
 
     public function testRetrieveEvent()
     {
         $this->expectsRequest('get', '/v1/events/evt_xxxxxxxxxxxxx');
         $result = $this->client->events->retrieve('evt_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Event::class, $result);
+        static::assertInstanceOf(\StripePhp\Event::class, $result);
     }
 
     public function testListEvent()
     {
         $this->expectsRequest('get', '/v1/events');
         $result = $this->client->events->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Event::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Event::class, $result->data[0]);
     }
 
     public function testRetrieveFile()
     {
         $this->expectsRequest('get', '/v1/files/file_xxxxxxxxxxxxx');
         $result = $this->client->files->retrieve('file_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\File::class, $result);
+        static::assertInstanceOf(\StripePhp\File::class, $result);
     }
 
     public function testListFile()
     {
         $this->expectsRequest('get', '/v1/files');
         $result = $this->client->files->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\File::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\File::class, $result->data[0]);
     }
 
     public function testCreateFileLink()
@@ -200,14 +200,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->fileLinks->create(
             ['file' => 'file_xxxxxxxxxxxxx']
         );
-        static::assertInstanceOf(\Stripe\FileLink::class, $result);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $result);
     }
 
     public function testRetrieveFileLink()
     {
         $this->expectsRequest('get', '/v1/file_links/link_xxxxxxxxxxxxx');
         $result = $this->client->fileLinks->retrieve('link_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\FileLink::class, $result);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $result);
     }
 
     public function testUpdateFileLink()
@@ -217,22 +217,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'link_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\FileLink::class, $result);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $result);
     }
 
     public function testListFileLink()
     {
         $this->expectsRequest('get', '/v1/file_links');
         $result = $this->client->fileLinks->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\FileLink::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\FileLink::class, $result->data[0]);
     }
 
     public function testRetrieveMandate()
     {
         $this->expectsRequest('get', '/v1/mandates/mandate_xxxxxxxxxxxxx');
         $result = $this->client->mandates->retrieve('mandate_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Mandate::class, $result);
+        static::assertInstanceOf(\StripePhp\Mandate::class, $result);
     }
 
     public function testCreatePaymentIntent()
@@ -245,14 +245,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'payment_method_types' => ['card'],
             ]
         );
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testRetrievePaymentIntent()
     {
         $this->expectsRequest('get', '/v1/payment_intents/pi_xxxxxxxxxxxxx');
         $result = $this->client->paymentIntents->retrieve('pi_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testUpdatePaymentIntent()
@@ -262,7 +262,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'pi_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testConfirmPaymentIntent()
@@ -275,7 +275,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'pi_xxxxxxxxxxxxx',
             ['payment_method' => 'pm_card_visa']
         );
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testCapturePaymentIntent()
@@ -285,7 +285,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             '/v1/payment_intents/pi_xxxxxxxxxxxxx/capture'
         );
         $result = $this->client->paymentIntents->capture('pi_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testCancelPaymentIntent()
@@ -295,15 +295,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             '/v1/payment_intents/pi_xxxxxxxxxxxxx/cancel'
         );
         $result = $this->client->paymentIntents->cancel('pi_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testListPaymentIntent()
     {
         $this->expectsRequest('get', '/v1/payment_intents');
         $result = $this->client->paymentIntents->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result->data[0]);
     }
 
     public function testCreateSetupIntent()
@@ -312,14 +312,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->setupIntents->create(
             ['payment_method_types' => ['card']]
         );
-        static::assertInstanceOf(\Stripe\SetupIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupIntent::class, $result);
     }
 
     public function testRetrieveSetupIntent()
     {
         $this->expectsRequest('get', '/v1/setup_intents/seti_xxxxxxxxxxxxx');
         $result = $this->client->setupIntents->retrieve('seti_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\SetupIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupIntent::class, $result);
     }
 
     public function testUpdateSetupIntent()
@@ -329,7 +329,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'seti_xxxxxxxxxxxxx',
             ['metadata' => ['user_id' => '3435453']]
         );
-        static::assertInstanceOf(\Stripe\SetupIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupIntent::class, $result);
     }
 
     public function testConfirmSetupIntent()
@@ -342,7 +342,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'seti_xxxxxxxxxxxxx',
             ['payment_method' => 'pm_card_visa']
         );
-        static::assertInstanceOf(\Stripe\SetupIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupIntent::class, $result);
     }
 
     public function testCancelSetupIntent()
@@ -352,15 +352,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             '/v1/setup_intents/seti_xxxxxxxxxxxxx/cancel'
         );
         $result = $this->client->setupIntents->cancel('seti_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\SetupIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupIntent::class, $result);
     }
 
     public function testListSetupIntent()
     {
         $this->expectsRequest('get', '/v1/setup_intents');
         $result = $this->client->setupIntents->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\SetupIntent::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupIntent::class, $result->data[0]);
     }
 
     public function testListSetupAttempt()
@@ -369,8 +369,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->setupAttempts->all(
             ['setup_intent' => 'seti_xxxxxxxxxxxxx', 'limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\SetupAttempt::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupAttempt::class, $result->data[0]);
     }
 
     public function testCreatePayout()
@@ -379,14 +379,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->payouts->create(
             ['amount' => 1100, 'currency' => 'usd']
         );
-        static::assertInstanceOf(\Stripe\Payout::class, $result);
+        static::assertInstanceOf(\StripePhp\Payout::class, $result);
     }
 
     public function testRetrievePayout()
     {
         $this->expectsRequest('get', '/v1/payouts/po_xxxxxxxxxxxxx');
         $result = $this->client->payouts->retrieve('po_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Payout::class, $result);
+        static::assertInstanceOf(\StripePhp\Payout::class, $result);
     }
 
     public function testUpdatePayout()
@@ -396,43 +396,43 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'po_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Payout::class, $result);
+        static::assertInstanceOf(\StripePhp\Payout::class, $result);
     }
 
     public function testListPayout()
     {
         $this->expectsRequest('get', '/v1/payouts');
         $result = $this->client->payouts->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Payout::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Payout::class, $result->data[0]);
     }
 
     public function testCancelPayout()
     {
         $this->expectsRequest('post', '/v1/payouts/po_xxxxxxxxxxxxx/cancel');
         $result = $this->client->payouts->cancel('po_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Payout::class, $result);
+        static::assertInstanceOf(\StripePhp\Payout::class, $result);
     }
 
     public function testReversePayout()
     {
         $this->expectsRequest('post', '/v1/payouts/po_xxxxxxxxxxxxx/reverse');
         $result = $this->client->payouts->reverse('po_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Payout::class, $result);
+        static::assertInstanceOf(\StripePhp\Payout::class, $result);
     }
 
     public function testCreateProduct()
     {
         $this->expectsRequest('post', '/v1/products');
         $result = $this->client->products->create(['name' => 'Gold Special']);
-        static::assertInstanceOf(\Stripe\Product::class, $result);
+        static::assertInstanceOf(\StripePhp\Product::class, $result);
     }
 
     public function testRetrieveProduct()
     {
         $this->expectsRequest('get', '/v1/products/prod_xxxxxxxxxxxxx');
         $result = $this->client->products->retrieve('prod_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Product::class, $result);
+        static::assertInstanceOf(\StripePhp\Product::class, $result);
     }
 
     public function testUpdateProduct()
@@ -442,22 +442,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'prod_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Product::class, $result);
+        static::assertInstanceOf(\StripePhp\Product::class, $result);
     }
 
     public function testListProduct()
     {
         $this->expectsRequest('get', '/v1/products');
         $result = $this->client->products->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Product::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Product::class, $result->data[0]);
     }
 
     public function testDeleteProduct()
     {
         $this->expectsRequest('delete', '/v1/products/prod_xxxxxxxxxxxxx');
         $result = $this->client->products->delete('prod_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Product::class, $result);
+        static::assertInstanceOf(\StripePhp\Product::class, $result);
     }
 
     public function testCreatePrice()
@@ -471,14 +471,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'product' => 'prod_xxxxxxxxxxxxx',
             ]
         );
-        static::assertInstanceOf(\Stripe\Price::class, $result);
+        static::assertInstanceOf(\StripePhp\Price::class, $result);
     }
 
     public function testRetrievePrice()
     {
         $this->expectsRequest('get', '/v1/prices/price_xxxxxxxxxxxxx');
         $result = $this->client->prices->retrieve('price_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Price::class, $result);
+        static::assertInstanceOf(\StripePhp\Price::class, $result);
     }
 
     public function testUpdatePrice()
@@ -488,29 +488,29 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'price_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Price::class, $result);
+        static::assertInstanceOf(\StripePhp\Price::class, $result);
     }
 
     public function testListPrice()
     {
         $this->expectsRequest('get', '/v1/prices');
         $result = $this->client->prices->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Price::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Price::class, $result->data[0]);
     }
 
     public function testCreateRefund()
     {
         $this->expectsRequest('post', '/v1/refunds');
         $result = $this->client->refunds->create(['charge' => 'ch_xxxxxxxxxxxxx']);
-        static::assertInstanceOf(\Stripe\Refund::class, $result);
+        static::assertInstanceOf(\StripePhp\Refund::class, $result);
     }
 
     public function testRetrieveRefund()
     {
         $this->expectsRequest('get', '/v1/refunds/re_xxxxxxxxxxxxx');
         $result = $this->client->refunds->retrieve('re_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Refund::class, $result);
+        static::assertInstanceOf(\StripePhp\Refund::class, $result);
     }
 
     public function testUpdateRefund()
@@ -520,15 +520,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             're_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Refund::class, $result);
+        static::assertInstanceOf(\StripePhp\Refund::class, $result);
     }
 
     public function testListRefund()
     {
         $this->expectsRequest('get', '/v1/refunds');
         $result = $this->client->refunds->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Refund::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Refund::class, $result->data[0]);
     }
 
     public function testCreateToken()
@@ -544,7 +544,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Token::class, $result);
+        static::assertInstanceOf(\StripePhp\Token::class, $result);
     }
 
     public function testCreateToken2()
@@ -562,7 +562,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Token::class, $result);
+        static::assertInstanceOf(\StripePhp\Token::class, $result);
     }
 
     public function testCreateToken3()
@@ -571,7 +571,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->tokens->create(
             ['pii' => ['id_number' => '000000000']]
         );
-        static::assertInstanceOf(\Stripe\Token::class, $result);
+        static::assertInstanceOf(\StripePhp\Token::class, $result);
     }
 
     public function testCreateToken4()
@@ -585,7 +585,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Token::class, $result);
+        static::assertInstanceOf(\StripePhp\Token::class, $result);
     }
 
     public function testCreateToken5()
@@ -600,21 +600,21 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Token::class, $result);
+        static::assertInstanceOf(\StripePhp\Token::class, $result);
     }
 
     public function testCreateToken6()
     {
         $this->expectsRequest('post', '/v1/tokens');
         $result = $this->client->tokens->create(['cvc_update' => ['cvc' => '123']]);
-        static::assertInstanceOf(\Stripe\Token::class, $result);
+        static::assertInstanceOf(\StripePhp\Token::class, $result);
     }
 
     public function testRetrieveToken()
     {
         $this->expectsRequest('get', '/v1/tokens/tok_xxxx');
         $result = $this->client->tokens->retrieve('tok_xxxx', []);
-        static::assertInstanceOf(\Stripe\Token::class, $result);
+        static::assertInstanceOf(\StripePhp\Token::class, $result);
     }
 
     public function testCreatePaymentMethod()
@@ -631,14 +631,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $result);
     }
 
     public function testRetrievePaymentMethod()
     {
         $this->expectsRequest('get', '/v1/payment_methods/pm_xxxxxxxxxxxxx');
         $result = $this->client->paymentMethods->retrieve('pm_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $result);
     }
 
     public function testUpdatePaymentMethod()
@@ -648,7 +648,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'pm_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $result);
     }
 
     public function testListPaymentMethod()
@@ -657,8 +657,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->paymentMethods->all(
             ['customer' => 'cus_xxxxxxxxxxxxx', 'type' => 'card']
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $result->data[0]);
     }
 
     public function testAttachPaymentMethod()
@@ -671,7 +671,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'pm_xxxxxxxxxxxxx',
             ['customer' => 'cus_xxxxxxxxxxxxx']
         );
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $result);
     }
 
     public function testDetachPaymentMethod()
@@ -681,14 +681,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             '/v1/payment_methods/pm_xxxxxxxxxxxxx/detach'
         );
         $result = $this->client->paymentMethods->detach('pm_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $result);
     }
 
     public function testRetrieveSource()
     {
         $this->expectsRequest('get', '/v1/sources/src_xxxxxxxxxxxxx');
         $result = $this->client->sources->retrieve('src_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Source::class, $result);
+        static::assertInstanceOf(\StripePhp\Source::class, $result);
     }
 
     public function testUpdateSource()
@@ -698,7 +698,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'src_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Source::class, $result);
+        static::assertInstanceOf(\StripePhp\Source::class, $result);
     }
 
     public function testCreateSession()
@@ -713,7 +713,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'mode' => 'payment',
             ]
         );
-        static::assertInstanceOf(\Stripe\Checkout\Session::class, $result);
+        static::assertInstanceOf(\StripePhp\Checkout\Session::class, $result);
     }
 
     public function testRetrieveSession()
@@ -723,15 +723,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cs_test_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Checkout\Session::class, $result);
+        static::assertInstanceOf(\StripePhp\Checkout\Session::class, $result);
     }
 
     public function testListSession()
     {
         $this->expectsRequest('get', '/v1/checkout/sessions');
         $result = $this->client->checkout->sessions->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Checkout\Session::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Checkout\Session::class, $result->data[0]);
     }
 
     public function testCreateCoupon()
@@ -744,14 +744,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'duration_in_months' => 3,
             ]
         );
-        static::assertInstanceOf(\Stripe\Coupon::class, $result);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $result);
     }
 
     public function testRetrieveCoupon()
     {
         $this->expectsRequest('get', '/v1/coupons/25_5OFF');
         $result = $this->client->coupons->retrieve('25_5OFF', []);
-        static::assertInstanceOf(\Stripe\Coupon::class, $result);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $result);
     }
 
     public function testUpdateCoupon()
@@ -761,22 +761,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'co_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Coupon::class, $result);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $result);
     }
 
     public function testDeleteCoupon()
     {
         $this->expectsRequest('delete', '/v1/coupons/co_xxxxxxxxxxxxx');
         $result = $this->client->coupons->delete('co_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Coupon::class, $result);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $result);
     }
 
     public function testListCoupon()
     {
         $this->expectsRequest('get', '/v1/coupons');
         $result = $this->client->coupons->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Coupon::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Coupon::class, $result->data[0]);
     }
 
     public function testPreviewCreditNote()
@@ -794,7 +794,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\CreditNote::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $result);
     }
 
     public function testCreateCreditNote()
@@ -812,14 +812,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\CreditNote::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $result);
     }
 
     public function testRetrieveCreditNote()
     {
         $this->expectsRequest('get', '/v1/credit_notes/cn_xxxxxxxxxxxxx');
         $result = $this->client->creditNotes->retrieve('cn_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\CreditNote::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $result);
     }
 
     public function testUpdateCreditNote()
@@ -829,7 +829,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cn_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\CreditNote::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $result);
     }
 
     public function testListCreditNoteLineItem()
@@ -839,8 +839,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cn_xxxxxxxxxxxxx',
             ['limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\CreditNoteLineItem::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNoteLineItem::class, $result->data[0]);
     }
 
     public function testPreviewCreditNote2()
@@ -858,7 +858,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\CreditNote::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $result);
     }
 
     public function testVoidCreditNoteCreditNote()
@@ -868,15 +868,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cn_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\CreditNote::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $result);
     }
 
     public function testListCreditNote()
     {
         $this->expectsRequest('get', '/v1/credit_notes');
         $result = $this->client->creditNotes->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\CreditNote::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\CreditNote::class, $result->data[0]);
     }
 
     public function testCreateCustomerBalanceTransaction()
@@ -889,7 +889,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cus_xxxxxxxxxxxxx',
             ['amount' => -500, 'currency' => 'usd']
         );
-        static::assertInstanceOf(\Stripe\CustomerBalanceTransaction::class, $result);
+        static::assertInstanceOf(\StripePhp\CustomerBalanceTransaction::class, $result);
     }
 
     public function testRetrieveCustomerBalanceTransaction()
@@ -903,7 +903,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cbtxn_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\CustomerBalanceTransaction::class, $result);
+        static::assertInstanceOf(\StripePhp\CustomerBalanceTransaction::class, $result);
     }
 
     public function testUpdateCustomerBalanceTransaction()
@@ -917,7 +917,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cbtxn_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\CustomerBalanceTransaction::class, $result);
+        static::assertInstanceOf(\StripePhp\CustomerBalanceTransaction::class, $result);
     }
 
     public function testListCustomerBalanceTransaction()
@@ -930,8 +930,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cus_xxxxxxxxxxxxx',
             ['limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\CustomerBalanceTransaction::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\CustomerBalanceTransaction::class, $result->data[0]);
     }
 
     public function testCreateSession2()
@@ -943,7 +943,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'return_url' => 'https://example.com/account',
             ]
         );
-        static::assertInstanceOf(\Stripe\BillingPortal\Session::class, $result);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Session::class, $result);
     }
 
     public function testUpdateConfiguration()
@@ -961,7 +961,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\BillingPortal\Configuration::class, $result);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Configuration::class, $result);
     }
 
     public function testRetrieveConfiguration()
@@ -974,15 +974,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'bpc_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\BillingPortal\Configuration::class, $result);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Configuration::class, $result);
     }
 
     public function testListConfiguration()
     {
         $this->expectsRequest('get', '/v1/billing_portal/configurations');
         $result = $this->client->billingPortal->configurations->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\BillingPortal\Configuration::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Configuration::class, $result->data[0]);
     }
 
     public function testCreateTaxId()
@@ -992,7 +992,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cus_xxxxxxxxxxxxx',
             ['type' => 'eu_vat', 'value' => 'DE123456789']
         );
-        static::assertInstanceOf(\Stripe\TaxId::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxId::class, $result);
     }
 
     public function testRetrieveTaxId()
@@ -1006,7 +1006,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'txi_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\TaxId::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxId::class, $result);
     }
 
     public function testDeleteTaxId()
@@ -1020,7 +1020,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'txi_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\TaxId::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxId::class, $result);
     }
 
     public function testListTaxId()
@@ -1030,8 +1030,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'cus_xxxxxxxxxxxxx',
             ['limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\TaxId::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxId::class, $result->data[0]);
     }
 
     public function testCreateInvoice()
@@ -1040,14 +1040,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->invoices->create(
             ['customer' => 'cus_xxxxxxxxxxxxx']
         );
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testRetrieveInvoice()
     {
         $this->expectsRequest('get', '/v1/invoices/in_xxxxxxxxxxxxx');
         $result = $this->client->invoices->retrieve('in_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testUpdateInvoice()
@@ -1057,42 +1057,42 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'in_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testDeleteInvoice()
     {
         $this->expectsRequest('delete', '/v1/invoices/in_xxxxxxxxxxxxx');
         $result = $this->client->invoices->delete('in_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testFinalizeInvoiceInvoice()
     {
         $this->expectsRequest('post', '/v1/invoices/in_xxxxxxxxxxxxx/finalize');
         $result = $this->client->invoices->finalizeInvoice('in_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testPayInvoice()
     {
         $this->expectsRequest('post', '/v1/invoices/in_xxxxxxxxxxxxx/pay');
         $result = $this->client->invoices->pay('in_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testSendInvoiceInvoice()
     {
         $this->expectsRequest('post', '/v1/invoices/in_xxxxxxxxxxxxx/send');
         $result = $this->client->invoices->sendInvoice('in_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testVoidInvoiceInvoice()
     {
         $this->expectsRequest('post', '/v1/invoices/in_xxxxxxxxxxxxx/void');
         $result = $this->client->invoices->voidInvoice('in_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testMarkUncollectibleInvoice()
@@ -1105,15 +1105,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'in_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Invoice::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result);
     }
 
     public function testListInvoice()
     {
         $this->expectsRequest('get', '/v1/invoices');
         $result = $this->client->invoices->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Invoice::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Invoice::class, $result->data[0]);
     }
 
     public function testCreateInvoiceItem()
@@ -1122,14 +1122,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->invoiceItems->create(
             ['customer' => 'cus_xxxxxxxxxxxxx', 'price' => 'price_xxxxxxxxxxxxx']
         );
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $result);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $result);
     }
 
     public function testRetrieveInvoiceItem()
     {
         $this->expectsRequest('get', '/v1/invoiceitems/ii_xxxxxxxxxxxxx');
         $result = $this->client->invoiceItems->retrieve('ii_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $result);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $result);
     }
 
     public function testUpdateInvoiceItem()
@@ -1139,22 +1139,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'ii_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $result);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $result);
     }
 
     public function testDeleteInvoiceItem()
     {
         $this->expectsRequest('delete', '/v1/invoiceitems/ii_xxxxxxxxxxxxx');
         $result = $this->client->invoiceItems->delete('ii_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $result);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $result);
     }
 
     public function testListInvoiceItem()
     {
         $this->expectsRequest('get', '/v1/invoiceitems');
         $result = $this->client->invoiceItems->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\InvoiceItem::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\InvoiceItem::class, $result->data[0]);
     }
 
     public function testCreatePlan()
@@ -1168,14 +1168,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'product' => 'prod_xxxxxxxxxxxxx',
             ]
         );
-        static::assertInstanceOf(\Stripe\Plan::class, $result);
+        static::assertInstanceOf(\StripePhp\Plan::class, $result);
     }
 
     public function testRetrievePlan()
     {
         $this->expectsRequest('get', '/v1/plans/price_xxxxxxxxxxxxx');
         $result = $this->client->plans->retrieve('price_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Plan::class, $result);
+        static::assertInstanceOf(\StripePhp\Plan::class, $result);
     }
 
     public function testUpdatePlan()
@@ -1185,29 +1185,29 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'price_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Plan::class, $result);
+        static::assertInstanceOf(\StripePhp\Plan::class, $result);
     }
 
     public function testDeletePlan()
     {
         $this->expectsRequest('delete', '/v1/plans/price_xxxxxxxxxxxxx');
         $result = $this->client->plans->delete('price_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Plan::class, $result);
+        static::assertInstanceOf(\StripePhp\Plan::class, $result);
     }
 
     public function testListPlan()
     {
         $this->expectsRequest('get', '/v1/plans');
         $result = $this->client->plans->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Plan::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Plan::class, $result->data[0]);
     }
 
     public function testCreatePromotionCode()
     {
         $this->expectsRequest('post', '/v1/promotion_codes');
         $result = $this->client->promotionCodes->create(['coupon' => '25_5OFF']);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $result);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $result);
     }
 
     public function testUpdatePromotionCode()
@@ -1217,7 +1217,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'promo_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $result);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $result);
     }
 
     public function testRetrievePromotionCode()
@@ -1227,15 +1227,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'promo_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $result);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $result);
     }
 
     public function testListPromotionCode()
     {
         $this->expectsRequest('get', '/v1/promotion_codes');
         $result = $this->client->promotionCodes->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\PromotionCode::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\PromotionCode::class, $result->data[0]);
     }
 
     public function testCreateSubscription()
@@ -1247,14 +1247,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'items' => [['price' => 'price_xxxxxxxxxxxxx']],
             ]
         );
-        static::assertInstanceOf(\Stripe\Subscription::class, $result);
+        static::assertInstanceOf(\StripePhp\Subscription::class, $result);
     }
 
     public function testRetrieveSubscription()
     {
         $this->expectsRequest('get', '/v1/subscriptions/sub_xxxxxxxxxxxxx');
         $result = $this->client->subscriptions->retrieve('sub_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Subscription::class, $result);
+        static::assertInstanceOf(\StripePhp\Subscription::class, $result);
     }
 
     public function testUpdateSubscription()
@@ -1264,22 +1264,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'sub_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Subscription::class, $result);
+        static::assertInstanceOf(\StripePhp\Subscription::class, $result);
     }
 
     public function testCancelSubscription()
     {
         $this->expectsRequest('delete', '/v1/subscriptions/sub_xxxxxxxxxxxxx');
         $result = $this->client->subscriptions->cancel('sub_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Subscription::class, $result);
+        static::assertInstanceOf(\StripePhp\Subscription::class, $result);
     }
 
     public function testListSubscription()
     {
         $this->expectsRequest('get', '/v1/subscriptions');
         $result = $this->client->subscriptions->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Subscription::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Subscription::class, $result->data[0]);
     }
 
     public function testCreateSubscriptionItem()
@@ -1292,7 +1292,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'quantity' => 2,
             ]
         );
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $result);
     }
 
     public function testRetrieveSubscriptionItem()
@@ -1302,7 +1302,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'si_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $result);
     }
 
     public function testUpdateSubscriptionItem()
@@ -1312,14 +1312,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'si_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $result);
     }
 
     public function testDeleteSubscriptionItem()
     {
         $this->expectsRequest('delete', '/v1/subscription_items/si_xxxxxxxxxxxxx');
         $result = $this->client->subscriptionItems->delete('si_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $result);
     }
 
     public function testListSubscriptionItem()
@@ -1328,8 +1328,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->subscriptionItems->all(
             ['subscription' => 'sub_xxxxxxxxxxxxx']
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $result->data[0]);
     }
 
     public function testCreateSubscriptionSchedule()
@@ -1348,7 +1348,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $result);
     }
 
     public function testRetrieveSubscriptionSchedule()
@@ -1361,7 +1361,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'sub_sched_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $result);
     }
 
     public function testUpdateSubscriptionSchedule()
@@ -1374,7 +1374,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'sub_sched_xxxxxxxxxxxxx',
             ['end_behavior' => 'release']
         );
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $result);
     }
 
     public function testCancelSubscriptionSchedule()
@@ -1387,7 +1387,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'sub_sched_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $result);
     }
 
     public function testReleaseSubscriptionSchedule()
@@ -1400,15 +1400,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'sub_sched_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $result);
     }
 
     public function testListSubscriptionSchedule()
     {
         $this->expectsRequest('get', '/v1/subscription_schedules');
         $result = $this->client->subscriptionSchedules->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\SubscriptionSchedule::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\SubscriptionSchedule::class, $result->data[0]);
     }
 
     public function testCreateTaxRate()
@@ -1423,14 +1423,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'inclusive' => false,
             ]
         );
-        static::assertInstanceOf(\Stripe\TaxRate::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $result);
     }
 
     public function testRetrieveTaxRate()
     {
         $this->expectsRequest('get', '/v1/tax_rates/txr_xxxxxxxxxxxxx');
         $result = $this->client->taxRates->retrieve('txr_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\TaxRate::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $result);
     }
 
     public function testUpdateTaxRate()
@@ -1440,15 +1440,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'txr_xxxxxxxxxxxxx',
             ['active' => false]
         );
-        static::assertInstanceOf(\Stripe\TaxRate::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $result);
     }
 
     public function testListTaxRate()
     {
         $this->expectsRequest('get', '/v1/tax_rates');
         $result = $this->client->taxRates->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\TaxRate::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\TaxRate::class, $result->data[0]);
     }
 
     public function testCreateUsageRecord()
@@ -1461,7 +1461,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'si_xxxxxxxxxxxxx',
             ['quantity' => 100, 'timestamp' => 1571252444]
         );
-        static::assertInstanceOf(\Stripe\UsageRecord::class, $result);
+        static::assertInstanceOf(\StripePhp\UsageRecord::class, $result);
     }
 
     public function testListUsageRecordSummary()
@@ -1474,8 +1474,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'si_xxxxxxxxxxxxx',
             ['limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\UsageRecordSummary::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\UsageRecordSummary::class, $result->data[0]);
     }
 
     public function testCreateAccount()
@@ -1492,14 +1492,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Account::class, $result);
+        static::assertInstanceOf(\StripePhp\Account::class, $result);
     }
 
     public function testRetrieveAccount()
     {
         $this->expectsRequest('get', '/v1/accounts/acct_xxxxxxxxxxxxx');
         $result = $this->client->accounts->retrieve('acct_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Account::class, $result);
+        static::assertInstanceOf(\StripePhp\Account::class, $result);
     }
 
     public function testUpdateAccount()
@@ -1509,14 +1509,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'acct_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Account::class, $result);
+        static::assertInstanceOf(\StripePhp\Account::class, $result);
     }
 
     public function testDeleteAccount()
     {
         $this->expectsRequest('delete', '/v1/accounts/acct_xxxxxxxxxxxxx');
         $result = $this->client->accounts->delete('acct_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Account::class, $result);
+        static::assertInstanceOf(\StripePhp\Account::class, $result);
     }
 
     public function testRejectAccount()
@@ -1526,15 +1526,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'acct_xxxxxxxxxxxxx',
             ['reason' => 'fraud']
         );
-        static::assertInstanceOf(\Stripe\Account::class, $result);
+        static::assertInstanceOf(\StripePhp\Account::class, $result);
     }
 
     public function testListAccount()
     {
         $this->expectsRequest('get', '/v1/accounts');
         $result = $this->client->accounts->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Account::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Account::class, $result->data[0]);
     }
 
     public function testCreateLoginLink()
@@ -1547,7 +1547,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'acct_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\LoginLink::class, $result);
+        static::assertInstanceOf(\StripePhp\LoginLink::class, $result);
     }
 
     public function testCreateAccountLink()
@@ -1561,22 +1561,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'type' => 'account_onboarding',
             ]
         );
-        static::assertInstanceOf(\Stripe\AccountLink::class, $result);
+        static::assertInstanceOf(\StripePhp\AccountLink::class, $result);
     }
 
     public function testRetrieveApplicationFee()
     {
         $this->expectsRequest('get', '/v1/application_fees/fee_xxxxxxxxxxxxx');
         $result = $this->client->applicationFees->retrieve('fee_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\ApplicationFee::class, $result);
+        static::assertInstanceOf(\StripePhp\ApplicationFee::class, $result);
     }
 
     public function testListApplicationFee()
     {
         $this->expectsRequest('get', '/v1/application_fees');
         $result = $this->client->applicationFees->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\ApplicationFee::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\ApplicationFee::class, $result->data[0]);
     }
 
     public function testCreateApplicationFeeRefund()
@@ -1589,7 +1589,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'fee_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $result);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $result);
     }
 
     public function testRetrieveApplicationFeeRefund()
@@ -1603,7 +1603,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'fr_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $result);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $result);
     }
 
     public function testUpdateApplicationFeeRefund()
@@ -1617,7 +1617,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'fr_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $result);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $result);
     }
 
     public function testListApplicationFeeRefund()
@@ -1630,8 +1630,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'fee_xxxxxxxxxxxxx',
             ['limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $result->data[0]);
     }
 
     public function testRetrieveCapability()
@@ -1645,7 +1645,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'card_payments',
             []
         );
-        static::assertInstanceOf(\Stripe\Capability::class, $result);
+        static::assertInstanceOf(\StripePhp\Capability::class, $result);
     }
 
     public function testUpdateCapability()
@@ -1659,7 +1659,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'card_payments',
             ['requested' => true]
         );
-        static::assertInstanceOf(\Stripe\Capability::class, $result);
+        static::assertInstanceOf(\StripePhp\Capability::class, $result);
     }
 
     public function testListCapability()
@@ -1672,23 +1672,23 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'acct_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Capability::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Capability::class, $result->data[0]);
     }
 
     public function testListCountrySpec()
     {
         $this->expectsRequest('get', '/v1/country_specs');
         $result = $this->client->countrySpecs->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\CountrySpec::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\CountrySpec::class, $result->data[0]);
     }
 
     public function testRetrieveCountrySpec()
     {
         $this->expectsRequest('get', '/v1/country_specs/US');
         $result = $this->client->countrySpecs->retrieve('US', []);
-        static::assertInstanceOf(\Stripe\CountrySpec::class, $result);
+        static::assertInstanceOf(\StripePhp\CountrySpec::class, $result);
     }
 
     public function testCreatePerson()
@@ -1698,7 +1698,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'acct_xxxxxxxxxxxxx',
             ['first_name' => 'Jane', 'last_name' => 'Diaz']
         );
-        static::assertInstanceOf(\Stripe\Person::class, $result);
+        static::assertInstanceOf(\StripePhp\Person::class, $result);
     }
 
     public function testRetrievePerson()
@@ -1712,7 +1712,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'person_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Person::class, $result);
+        static::assertInstanceOf(\StripePhp\Person::class, $result);
     }
 
     public function testUpdatePerson()
@@ -1726,7 +1726,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'person_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Person::class, $result);
+        static::assertInstanceOf(\StripePhp\Person::class, $result);
     }
 
     public function testDeletePerson()
@@ -1740,7 +1740,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'person_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Person::class, $result);
+        static::assertInstanceOf(\StripePhp\Person::class, $result);
     }
 
     public function testListPerson()
@@ -1750,8 +1750,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'acct_xxxxxxxxxxxxx',
             ['limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Person::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Person::class, $result->data[0]);
     }
 
     public function testCreateTopup()
@@ -1765,14 +1765,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'statement_descriptor' => 'Top-up',
             ]
         );
-        static::assertInstanceOf(\Stripe\Topup::class, $result);
+        static::assertInstanceOf(\StripePhp\Topup::class, $result);
     }
 
     public function testRetrieveTopup()
     {
         $this->expectsRequest('get', '/v1/topups/tu_xxxxxxxxxxxxx');
         $result = $this->client->topups->retrieve('tu_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Topup::class, $result);
+        static::assertInstanceOf(\StripePhp\Topup::class, $result);
     }
 
     public function testUpdateTopup()
@@ -1782,22 +1782,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tu_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Topup::class, $result);
+        static::assertInstanceOf(\StripePhp\Topup::class, $result);
     }
 
     public function testListTopup()
     {
         $this->expectsRequest('get', '/v1/topups');
         $result = $this->client->topups->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Topup::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Topup::class, $result->data[0]);
     }
 
     public function testCancelTopup()
     {
         $this->expectsRequest('post', '/v1/topups/tu_xxxxxxxxxxxxx/cancel');
         $result = $this->client->topups->cancel('tu_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Topup::class, $result);
+        static::assertInstanceOf(\StripePhp\Topup::class, $result);
     }
 
     public function testCreateTransfer()
@@ -1811,14 +1811,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'transfer_group' => 'ORDER_95',
             ]
         );
-        static::assertInstanceOf(\Stripe\Transfer::class, $result);
+        static::assertInstanceOf(\StripePhp\Transfer::class, $result);
     }
 
     public function testRetrieveTransfer()
     {
         $this->expectsRequest('get', '/v1/transfers/tr_xxxxxxxxxxxxx');
         $result = $this->client->transfers->retrieve('tr_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Transfer::class, $result);
+        static::assertInstanceOf(\StripePhp\Transfer::class, $result);
     }
 
     public function testUpdateTransfer()
@@ -1828,15 +1828,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tr_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Transfer::class, $result);
+        static::assertInstanceOf(\StripePhp\Transfer::class, $result);
     }
 
     public function testListTransfer()
     {
         $this->expectsRequest('get', '/v1/transfers');
         $result = $this->client->transfers->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Transfer::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Transfer::class, $result->data[0]);
     }
 
     public function testCreateTransferReversal()
@@ -1846,7 +1846,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tr_xxxxxxxxxxxxx',
             ['amount' => 100]
         );
-        static::assertInstanceOf(\Stripe\TransferReversal::class, $result);
+        static::assertInstanceOf(\StripePhp\TransferReversal::class, $result);
     }
 
     public function testRetrieveTransferReversal()
@@ -1860,7 +1860,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'trr_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\TransferReversal::class, $result);
+        static::assertInstanceOf(\StripePhp\TransferReversal::class, $result);
     }
 
     public function testUpdateTransferReversal()
@@ -1874,7 +1874,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'trr_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\TransferReversal::class, $result);
+        static::assertInstanceOf(\StripePhp\TransferReversal::class, $result);
     }
 
     public function testListTransferReversal()
@@ -1884,8 +1884,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tr_xxxxxxxxxxxxx',
             ['limit' => 3]
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\TransferReversal::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\TransferReversal::class, $result->data[0]);
     }
 
     public function testRetrieveEarlyFraudWarning()
@@ -1898,37 +1898,37 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'issfr_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Radar\EarlyFraudWarning::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\EarlyFraudWarning::class, $result);
     }
 
     public function testListEarlyFraudWarning()
     {
         $this->expectsRequest('get', '/v1/radar/early_fraud_warnings');
         $result = $this->client->radar->earlyFraudWarnings->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Radar\EarlyFraudWarning::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\EarlyFraudWarning::class, $result->data[0]);
     }
 
     public function testApproveReview()
     {
         $this->expectsRequest('post', '/v1/reviews/prv_xxxxxxxxxxxxx/approve');
         $result = $this->client->reviews->approve('prv_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Review::class, $result);
+        static::assertInstanceOf(\StripePhp\Review::class, $result);
     }
 
     public function testRetrieveReview()
     {
         $this->expectsRequest('get', '/v1/reviews/prv_xxxxxxxxxxxxx');
         $result = $this->client->reviews->retrieve('prv_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Review::class, $result);
+        static::assertInstanceOf(\StripePhp\Review::class, $result);
     }
 
     public function testListReview()
     {
         $this->expectsRequest('get', '/v1/reviews');
         $result = $this->client->reviews->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Review::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Review::class, $result->data[0]);
     }
 
     public function testCreateValueList()
@@ -1941,7 +1941,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'item_type' => 'ip_address',
             ]
         );
-        static::assertInstanceOf(\Stripe\Radar\ValueList::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueList::class, $result);
     }
 
     public function testRetrieveValueList()
@@ -1951,7 +1951,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'rsl_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Radar\ValueList::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueList::class, $result);
     }
 
     public function testUpdateValueList()
@@ -1961,22 +1961,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'rsl_xxxxxxxxxxxxx',
             ['name' => 'Updated IP Block List']
         );
-        static::assertInstanceOf(\Stripe\Radar\ValueList::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueList::class, $result);
     }
 
     public function testDeleteValueList()
     {
         $this->expectsRequest('delete', '/v1/radar/value_lists/rsl_xxxxxxxxxxxxx');
         $result = $this->client->radar->valueLists->delete('rsl_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Radar\ValueList::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueList::class, $result);
     }
 
     public function testListValueList()
     {
         $this->expectsRequest('get', '/v1/radar/value_lists');
         $result = $this->client->radar->valueLists->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Radar\ValueList::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueList::class, $result->data[0]);
     }
 
     public function testCreateValueListItem()
@@ -1985,7 +1985,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->radar->valueListItems->create(
             ['value_list' => 'rsl_xxxxxxxxxxxxx', 'value' => '1.2.3.4']
         );
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $result);
     }
 
     public function testRetrieveValueListItem()
@@ -1998,7 +1998,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'rsli_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $result);
     }
 
     public function testDeleteValueListItem()
@@ -2011,7 +2011,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'rsli_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $result);
     }
 
     public function testListValueListItem()
@@ -2020,8 +2020,8 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->radar->valueListItems->all(
             ['limit' => 3, 'value_list' => 'rsl_xxxxxxxxxxxxx']
         );
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $result->data[0]);
     }
 
     public function testRetrieveAuthorization()
@@ -2034,7 +2034,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'iauth_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $result);
     }
 
     public function testUpdateAuthorization()
@@ -2047,7 +2047,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'iauth_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $result);
     }
 
     public function testApproveAuthorization()
@@ -2060,7 +2060,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'iauth_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $result);
     }
 
     public function testDeclineAuthorization()
@@ -2073,15 +2073,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'iauth_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $result);
     }
 
     public function testListAuthorization()
     {
         $this->expectsRequest('get', '/v1/issuing/authorizations');
         $result = $this->client->issuing->authorizations->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Issuing\Authorization::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Authorization::class, $result->data[0]);
     }
 
     public function testCreateCardholder()
@@ -2104,7 +2104,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $result);
     }
 
     public function testRetrieveCardholder()
@@ -2114,7 +2114,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'ich_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $result);
     }
 
     public function testUpdateCardholder()
@@ -2124,15 +2124,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'ich_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $result);
     }
 
     public function testListCardholder()
     {
         $this->expectsRequest('get', '/v1/issuing/cardholders');
         $result = $this->client->issuing->cardholders->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Issuing\Cardholder::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Cardholder::class, $result->data[0]);
     }
 
     public function testCreateCard()
@@ -2145,14 +2145,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'type' => 'virtual',
             ]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $result);
     }
 
     public function testRetrieveCard()
     {
         $this->expectsRequest('get', '/v1/issuing/cards/ic_xxxxxxxxxxxxx');
         $result = $this->client->issuing->cards->retrieve('ic_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $result);
     }
 
     public function testUpdateCard()
@@ -2162,15 +2162,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'ic_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $result);
     }
 
     public function testListCard()
     {
         $this->expectsRequest('get', '/v1/issuing/cards');
         $result = $this->client->issuing->cards->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $result->data[0]);
     }
 
     public function testCreateDispute()
@@ -2185,7 +2185,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $result);
     }
 
     public function testSubmitDispute()
@@ -2195,7 +2195,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             '/v1/issuing/disputes/idp_xxxxxxxxxxxxx/submit'
         );
         $result = $this->client->issuing->disputes->submit('idp_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $result);
     }
 
     public function testRetrieveDispute2()
@@ -2205,7 +2205,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'idp_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $result);
     }
 
     public function testUpdateDispute2()
@@ -2225,15 +2225,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $result);
     }
 
     public function testListDispute2()
     {
         $this->expectsRequest('get', '/v1/issuing/disputes');
         $result = $this->client->issuing->disputes->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Issuing\Dispute::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Dispute::class, $result->data[0]);
     }
 
     public function testRetrieveTransaction()
@@ -2243,7 +2243,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'ipi_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Issuing\Transaction::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Transaction::class, $result);
     }
 
     public function testUpdateTransaction()
@@ -2253,22 +2253,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'ipi_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Issuing\Transaction::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Transaction::class, $result);
     }
 
     public function testListTransaction()
     {
         $this->expectsRequest('get', '/v1/issuing/transactions');
         $result = $this->client->issuing->transactions->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Issuing\Transaction::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Issuing\Transaction::class, $result->data[0]);
     }
 
     public function testCreateConnectionToken()
     {
         $this->expectsRequest('post', '/v1/terminal/connection_tokens');
         $result = $this->client->terminal->connectionTokens->create([]);
-        static::assertInstanceOf(\Stripe\Terminal\ConnectionToken::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\ConnectionToken::class, $result);
     }
 
     public function testCreateLocation()
@@ -2285,7 +2285,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $result);
     }
 
     public function testRetrieveLocation()
@@ -2295,7 +2295,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tml_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $result);
     }
 
     public function testUpdateLocation()
@@ -2305,7 +2305,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tml_xxxxxxxxxxxxx',
             ['display_name' => 'My First Store']
         );
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $result);
     }
 
     public function testDeleteLocation()
@@ -2315,15 +2315,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tml_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $result);
     }
 
     public function testListLocation()
     {
         $this->expectsRequest('get', '/v1/terminal/locations');
         $result = $this->client->terminal->locations->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $result->data[0]);
     }
 
     public function testCreateReader()
@@ -2336,7 +2336,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'location' => 'tml_1234',
             ]
         );
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $result);
     }
 
     public function testRetrieveReader()
@@ -2346,7 +2346,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tmr_P400-123-456-789',
             []
         );
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $result);
     }
 
     public function testUpdateReader()
@@ -2356,7 +2356,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tmr_P400-123-456-789',
             ['label' => 'Blue Rabbit']
         );
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $result);
     }
 
     public function testDeleteReader()
@@ -2369,15 +2369,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'tmr_P400-123-456-789',
             []
         );
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $result);
     }
 
     public function testListReader()
     {
         $this->expectsRequest('get', '/v1/terminal/readers');
         $result = $this->client->terminal->readers->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $result->data[0]);
     }
 
     public function testCreateOrder()
@@ -2400,14 +2400,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Order::class, $result);
+        static::assertInstanceOf(\StripePhp\Order::class, $result);
     }
 
     public function testRetrieveOrder()
     {
         $this->expectsRequest('get', '/v1/orders/or_xxxxxxxxxxxxx');
         $result = $this->client->orders->retrieve('or_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\Order::class, $result);
+        static::assertInstanceOf(\StripePhp\Order::class, $result);
     }
 
     public function testUpdateOrder()
@@ -2417,7 +2417,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'or_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\Order::class, $result);
+        static::assertInstanceOf(\StripePhp\Order::class, $result);
     }
 
     public function testPayOrder()
@@ -2427,30 +2427,30 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'or_xxxxxxxxxxxxx',
             ['source' => 'tok_xxxx']
         );
-        static::assertInstanceOf(\Stripe\Order::class, $result);
+        static::assertInstanceOf(\StripePhp\Order::class, $result);
     }
 
     public function testListOrder()
     {
         $this->expectsRequest('get', '/v1/orders');
         $result = $this->client->orders->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Order::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Order::class, $result->data[0]);
     }
 
     public function testRetrieveOrderReturn()
     {
         $this->expectsRequest('get', '/v1/order_returns/orret_xxxxxxxxxxxxx');
         $result = $this->client->orderReturns->retrieve('orret_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\OrderReturn::class, $result);
+        static::assertInstanceOf(\StripePhp\OrderReturn::class, $result);
     }
 
     public function testListOrderReturn()
     {
         $this->expectsRequest('get', '/v1/order_returns');
         $result = $this->client->orderReturns->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\OrderReturn::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\OrderReturn::class, $result->data[0]);
     }
 
     public function testCreateSku()
@@ -2465,14 +2465,14 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'product' => 'prod_xxxxxxxxxxxxx',
             ]
         );
-        static::assertInstanceOf(\Stripe\SKU::class, $result);
+        static::assertInstanceOf(\StripePhp\SKU::class, $result);
     }
 
     public function testRetrieveSku()
     {
         $this->expectsRequest('get', '/v1/skus/sku_xxxxxxxxxxxxx');
         $result = $this->client->skus->retrieve('sku_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\SKU::class, $result);
+        static::assertInstanceOf(\StripePhp\SKU::class, $result);
     }
 
     public function testUpdateSku()
@@ -2482,22 +2482,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'sku_xxxxxxxxxxxxx',
             ['metadata' => ['order_id' => '6735']]
         );
-        static::assertInstanceOf(\Stripe\SKU::class, $result);
+        static::assertInstanceOf(\StripePhp\SKU::class, $result);
     }
 
     public function testListSku()
     {
         $this->expectsRequest('get', '/v1/skus');
         $result = $this->client->skus->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\SKU::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\SKU::class, $result->data[0]);
     }
 
     public function testDeleteSku()
     {
         $this->expectsRequest('delete', '/v1/skus/sku_xxxxxxxxxxxxx');
         $result = $this->client->skus->delete('sku_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\SKU::class, $result);
+        static::assertInstanceOf(\StripePhp\SKU::class, $result);
     }
 
     public function testRetrieveScheduledQueryRun()
@@ -2510,15 +2510,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'sqr_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Sigma\ScheduledQueryRun::class, $result);
+        static::assertInstanceOf(\StripePhp\Sigma\ScheduledQueryRun::class, $result);
     }
 
     public function testListScheduledQueryRun()
     {
         $this->expectsRequest('get', '/v1/sigma/scheduled_query_runs');
         $result = $this->client->sigma->scheduledQueryRuns->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Sigma\ScheduledQueryRun::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Sigma\ScheduledQueryRun::class, $result->data[0]);
     }
 
     public function testCreateReportRun()
@@ -2533,7 +2533,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Reporting\ReportRun::class, $result);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportRun::class, $result);
     }
 
     public function testRetrieveReportRun()
@@ -2543,15 +2543,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'frr_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\Reporting\ReportRun::class, $result);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportRun::class, $result);
     }
 
     public function testListReportRun()
     {
         $this->expectsRequest('get', '/v1/reporting/report_runs');
         $result = $this->client->reporting->reportRuns->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Reporting\ReportRun::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportRun::class, $result->data[0]);
     }
 
     public function testRetrieveReportType()
@@ -2564,22 +2564,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'balance.summary.1',
             []
         );
-        static::assertInstanceOf(\Stripe\Reporting\ReportType::class, $result);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportType::class, $result);
     }
 
     public function testListReportType()
     {
         $this->expectsRequest('get', '/v1/reporting/report_types');
         $result = $this->client->reporting->reportTypes->all([]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\Reporting\ReportType::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\Reporting\ReportType::class, $result->data[0]);
     }
 
     public function testRetrieveWebhookEndpoint()
     {
         $this->expectsRequest('get', '/v1/webhook_endpoints/we_xxxxxxxxxxxxx');
         $result = $this->client->webhookEndpoints->retrieve('we_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $result);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $result);
     }
 
     public function testUpdateWebhookEndpoint()
@@ -2589,29 +2589,29 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'we_xxxxxxxxxxxxx',
             ['url' => 'https://example.com/new_endpoint']
         );
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $result);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $result);
     }
 
     public function testListWebhookEndpoint()
     {
         $this->expectsRequest('get', '/v1/webhook_endpoints');
         $result = $this->client->webhookEndpoints->all(['limit' => 3]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $result->data[0]);
     }
 
     public function testDeleteWebhookEndpoint()
     {
         $this->expectsRequest('delete', '/v1/webhook_endpoints/we_xxxxxxxxxxxxx');
         $result = $this->client->webhookEndpoints->delete('we_xxxxxxxxxxxxx', []);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $result);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $result);
     }
 
     public function testExpireSession()
     {
         $this->expectsRequest('post', '/v1/checkout/sessions/sess_xyz/expire');
         $result = $this->client->checkout->sessions->expire('sess_xyz', []);
-        static::assertInstanceOf(\Stripe\Checkout\Session::class, $result);
+        static::assertInstanceOf(\StripePhp\Checkout\Session::class, $result);
     }
 
     public function testCreateShippingRate()
@@ -2624,15 +2624,15 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'type' => 'fixed_amount',
             ]
         );
-        static::assertInstanceOf(\Stripe\ShippingRate::class, $result);
+        static::assertInstanceOf(\StripePhp\ShippingRate::class, $result);
     }
 
     public function testListShippingRate()
     {
         $this->expectsRequest('get', '/v1/shipping_rates');
         $result = $this->client->shippingRates->all([]);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\ShippingRate::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\ShippingRate::class, $result->data[0]);
     }
 
     public function testCreateSession3()
@@ -2657,7 +2657,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Checkout\Session::class, $result);
+        static::assertInstanceOf(\StripePhp\Checkout\Session::class, $result);
     }
 
     public function testCreatePaymentIntent2()
@@ -2670,7 +2670,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
                 'automatic_payment_methods' => ['enabled' => true],
             ]
         );
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testCreatePaymentLink()
@@ -2679,22 +2679,22 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
         $result = $this->client->paymentLinks->create(
             ['line_items' => [['price' => 'price_xxxxxxxxxxxxx', 'quantity' => 1]]]
         );
-        static::assertInstanceOf(\Stripe\PaymentLink::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentLink::class, $result);
     }
 
     public function testListLineItemsPaymentLink()
     {
         $this->expectsRequest('get', '/v1/payment_links/pl_xyz/line_items');
         $result = $this->client->paymentLinks->allLineItems('pl_xyz', []);
-        static::assertInstanceOf(\Stripe\Collection::class, $result);
-        static::assertInstanceOf(\Stripe\LineItem::class, $result->data[0]);
+        static::assertInstanceOf(\StripePhp\Collection::class, $result);
+        static::assertInstanceOf(\StripePhp\LineItem::class, $result->data[0]);
     }
 
     public function testRetrievePaymentLink()
     {
         $this->expectsRequest('get', '/v1/payment_links/pl_xyz');
         $result = $this->client->paymentLinks->retrieve('pl_xyz', []);
-        static::assertInstanceOf(\Stripe\PaymentLink::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentLink::class, $result);
     }
 
     public function testVerifyMicrodepositsPaymentIntent()
@@ -2707,7 +2707,7 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'pi_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $result);
     }
 
     public function testVerifyMicrodepositsSetupIntent()
@@ -2720,6 +2720,6 @@ final class GeneratedExamplesTest extends \Stripe\TestCase
             'seti_xxxxxxxxxxxxx',
             []
         );
-        static::assertInstanceOf(\Stripe\SetupIntent::class, $result);
+        static::assertInstanceOf(\StripePhp\SetupIntent::class, $result);
     }
 }

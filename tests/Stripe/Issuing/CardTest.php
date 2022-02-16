@@ -4,11 +4,11 @@ namespace StripePhp\Issuing;
 
 /**
  * @internal
- * @covers \Stripe\Issuing\Card
+ * @covers \StripePhp\Issuing\Card
  */
-final class CardTest extends \Stripe\TestCase
+final class CardTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'ic_123';
 
@@ -20,7 +20,7 @@ final class CardTest extends \Stripe\TestCase
         );
         $resources = Card::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class CardTest extends \Stripe\TestCase
             '/v1/issuing/cards/' . self::TEST_RESOURCE_ID
         );
         $resource = Card::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $resource);
     }
 
     public function testIsSaveable()
@@ -43,7 +43,7 @@ final class CardTest extends \Stripe\TestCase
             '/v1/issuing/cards/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -56,7 +56,7 @@ final class CardTest extends \Stripe\TestCase
         $resource = Card::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Issuing\Card::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Card::class, $resource);
     }
 
     public function testCanRetrieveDetails()
@@ -74,6 +74,6 @@ final class CardTest extends \Stripe\TestCase
         );
 
         $details = $resource->details();
-        static::assertInstanceOf(\Stripe\Issuing\CardDetails::class, $details);
+        static::assertInstanceOf(\StripePhp\Issuing\CardDetails::class, $details);
     }
 }

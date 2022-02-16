@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Checkout;
 
-class SessionService extends \Stripe\Service\AbstractService
+class SessionService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of Checkout Sessions.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Checkout\Session>
+     * @return \StripePhp\Collection<\StripePhp\Checkout\Session>
      */
     public function all($params = null, $opts = null)
     {
@@ -29,11 +29,11 @@ class SessionService extends \Stripe\Service\AbstractService
      *
      * @param string $parentId
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\LineItem>
+     * @return \StripePhp\Collection<\StripePhp\LineItem>
      */
     public function allLineItems($parentId, $params = null, $opts = null)
     {
@@ -44,11 +44,11 @@ class SessionService extends \Stripe\Service\AbstractService
      * Creates a Session object.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Checkout\Session
+     * @return \StripePhp\Checkout\Session
      */
     public function create($params = null, $opts = null)
     {
@@ -63,11 +63,11 @@ class SessionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Checkout\Session
+     * @return \StripePhp\Checkout\Session
      */
     public function expire($id, $params = null, $opts = null)
     {
@@ -79,11 +79,11 @@ class SessionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Checkout\Session
+     * @return \StripePhp\Checkout\Session
      */
     public function retrieve($id, $params = null, $opts = null)
     {

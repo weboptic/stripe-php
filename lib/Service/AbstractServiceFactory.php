@@ -4,7 +4,7 @@ namespace StripePhp\Service;
 
 /**
  * Abstract base class for all service factories used to expose service
- * instances through {@link \Stripe\StripeClient}.
+ * instances through {@link \StripePhp\StripeClient}.
  *
  * Service factories serve two purposes:
  *
@@ -14,14 +14,14 @@ namespace StripePhp\Service;
  */
 abstract class AbstractServiceFactory
 {
-    /** @var \Stripe\StripeClientInterface */
+    /** @var \StripePhp\StripeClientInterface */
     private $client;
 
     /** @var array<string, AbstractService|AbstractServiceFactory> */
     private $services;
 
     /**
-     * @param \Stripe\StripeClientInterface $client
+     * @param \StripePhp\StripeClientInterface $client
      */
     public function __construct($client)
     {

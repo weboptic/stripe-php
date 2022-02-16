@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\MandateService
+ * @covers \StripePhp\Service\MandateService
  */
-final class MandateServiceTest extends \Stripe\TestCase
+final class MandateServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'mandate_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var MandateService */
@@ -23,7 +23,7 @@ final class MandateServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new MandateService($this->client);
     }
 
@@ -34,6 +34,6 @@ final class MandateServiceTest extends \Stripe\TestCase
             '/v1/mandates/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Mandate::class, $resource);
+        static::assertInstanceOf(\StripePhp\Mandate::class, $resource);
     }
 }

@@ -4,15 +4,15 @@ namespace StripePhp\Service\BillingPortal;
 
 /**
  * @internal
- * @covers \Stripe\Service\BillingPortal\SessionService
+ * @covers \StripePhp\Service\BillingPortal\SessionService
  */
-final class SessionServiceTest extends \Stripe\TestCase
+final class SessionServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'cs_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var SessionService */
@@ -23,7 +23,7 @@ final class SessionServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new SessionService($this->client);
     }
 
@@ -37,6 +37,6 @@ final class SessionServiceTest extends \Stripe\TestCase
             'customer' => 'cus_123',
             'return_url' => 'https://stripe.com/return',
         ]);
-        static::assertInstanceOf(\Stripe\BillingPortal\Session::class, $resource);
+        static::assertInstanceOf(\StripePhp\BillingPortal\Session::class, $resource);
     }
 }

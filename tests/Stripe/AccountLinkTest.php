@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\AccountLink
+ * @covers \StripePhp\AccountLink
  */
-final class AccountLinkTest extends \Stripe\TestCase
+final class AccountLinkTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -22,6 +22,6 @@ final class AccountLinkTest extends \Stripe\TestCase
             'return_url' => 'https://stripe.com/return_url',
             'type' => 'account_onboarding',
         ]);
-        static::assertInstanceOf(\Stripe\AccountLink::class, $resource);
+        static::assertInstanceOf(\StripePhp\AccountLink::class, $resource);
     }
 }

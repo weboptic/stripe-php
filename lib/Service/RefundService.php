@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class RefundService extends \Stripe\Service\AbstractService
+class RefundService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of all refunds you’ve previously created. The refunds are
@@ -13,11 +13,11 @@ class RefundService extends \Stripe\Service\AbstractService
      * charge object.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Refund>
+     * @return \StripePhp\Collection<\StripePhp\Refund>
      */
     public function all($params = null, $opts = null)
     {
@@ -28,11 +28,11 @@ class RefundService extends \Stripe\Service\AbstractService
      * Create a refund.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Refund
+     * @return \StripePhp\Refund
      */
     public function create($params = null, $opts = null)
     {
@@ -44,11 +44,11 @@ class RefundService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Refund
+     * @return \StripePhp\Refund
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -63,11 +63,11 @@ class RefundService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Refund
+     * @return \StripePhp\Refund
      */
     public function update($id, $params = null, $opts = null)
     {

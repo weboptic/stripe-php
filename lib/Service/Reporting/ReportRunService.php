@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service\Reporting;
 
-class ReportRunService extends \Stripe\Service\AbstractService
+class ReportRunService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of Report Runs, with the most recent appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Reporting\ReportRun>
+     * @return \StripePhp\Collection<\StripePhp\Reporting\ReportRun>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class ReportRunService extends \Stripe\Service\AbstractService
      * a <a href="https://stripe.com/docs/keys#test-live-modes">live-mode API key</a>.).
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Reporting\ReportRun
+     * @return \StripePhp\Reporting\ReportRun
      */
     public function create($params = null, $opts = null)
     {
@@ -42,11 +42,11 @@ class ReportRunService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Reporting\ReportRun
+     * @return \StripePhp\Reporting\ReportRun
      */
     public function retrieve($id, $params = null, $opts = null)
     {

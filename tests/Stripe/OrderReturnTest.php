@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\OrderReturn
+ * @covers \StripePhp\OrderReturn
  */
-final class OrderReturnTest extends \Stripe\TestCase
+final class OrderReturnTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class OrderReturnTest extends \Stripe\TestCase
         );
         $resources = OrderReturn::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\OrderReturn::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\OrderReturn::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,6 +30,6 @@ final class OrderReturnTest extends \Stripe\TestCase
             '/v1/order_returns/' . self::TEST_RESOURCE_ID
         );
         $resource = OrderReturn::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\OrderReturn::class, $resource);
+        static::assertInstanceOf(\StripePhp\OrderReturn::class, $resource);
     }
 }

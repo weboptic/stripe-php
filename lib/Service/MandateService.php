@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class MandateService extends \Stripe\Service\AbstractService
+class MandateService extends \StripePhp\Service\AbstractService
 {
     /**
      * Retrieves a Mandate object.
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Mandate
+     * @return \StripePhp\Mandate
      */
     public function retrieve($id, $params = null, $opts = null)
     {

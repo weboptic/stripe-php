@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class EventService extends \Stripe\Service\AbstractService
+class EventService extends \StripePhp\Service\AbstractService
 {
     /**
      * List events, going back up to 30 days. Each event data is rendered according to
@@ -14,11 +14,11 @@ class EventService extends \Stripe\Service\AbstractService
      * <code>Stripe-Version</code> header).
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Event>
+     * @return \StripePhp\Collection<\StripePhp\Event>
      */
     public function all($params = null, $opts = null)
     {
@@ -31,11 +31,11 @@ class EventService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Event
+     * @return \StripePhp\Event
      */
     public function retrieve($id, $params = null, $opts = null)
     {

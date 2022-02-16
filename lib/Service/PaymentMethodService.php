@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class PaymentMethodService extends \Stripe\Service\AbstractService
+class PaymentMethodService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of PaymentMethods. For listing a customer’s payment methods, you
@@ -12,11 +12,11 @@ class PaymentMethodService extends \Stripe\Service\AbstractService
      * PaymentMethods</a>.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\PaymentMethod>
+     * @return \StripePhp\Collection<\StripePhp\PaymentMethod>
      */
     public function all($params = null, $opts = null)
     {
@@ -44,11 +44,11 @@ class PaymentMethodService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentMethod
+     * @return \StripePhp\PaymentMethod
      */
     public function attach($id, $params = null, $opts = null)
     {
@@ -67,11 +67,11 @@ class PaymentMethodService extends \Stripe\Service\AbstractService
      * method details ahead of a future payment.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentMethod
+     * @return \StripePhp\PaymentMethod
      */
     public function create($params = null, $opts = null)
     {
@@ -83,11 +83,11 @@ class PaymentMethodService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentMethod
+     * @return \StripePhp\PaymentMethod
      */
     public function detach($id, $params = null, $opts = null)
     {
@@ -99,11 +99,11 @@ class PaymentMethodService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentMethod
+     * @return \StripePhp\PaymentMethod
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -116,11 +116,11 @@ class PaymentMethodService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\PaymentMethod
+     * @return \StripePhp\PaymentMethod
      */
     public function update($id, $params = null, $opts = null)
     {

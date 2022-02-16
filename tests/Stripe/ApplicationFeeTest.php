@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\ApplicationFee
+ * @covers \StripePhp\ApplicationFee
  */
-final class ApplicationFeeTest extends \Stripe\TestCase
+final class ApplicationFeeTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -21,7 +21,7 @@ final class ApplicationFeeTest extends \Stripe\TestCase
         );
         $resources = ApplicationFee::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\ApplicationFee::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\ApplicationFee::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -31,7 +31,7 @@ final class ApplicationFeeTest extends \Stripe\TestCase
             '/v1/application_fees/' . self::TEST_RESOURCE_ID
         );
         $resource = ApplicationFee::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\ApplicationFee::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplicationFee::class, $resource);
     }
 
     public function testCanCreateRefund()
@@ -41,7 +41,7 @@ final class ApplicationFeeTest extends \Stripe\TestCase
             '/v1/application_fees/' . self::TEST_RESOURCE_ID . '/refunds'
         );
         $resource = ApplicationFee::createRefund(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $resource);
     }
 
     public function testCanRetrieveRefund()
@@ -51,7 +51,7 @@ final class ApplicationFeeTest extends \Stripe\TestCase
             '/v1/application_fees/' . self::TEST_RESOURCE_ID . '/refunds/' . self::TEST_FEEREFUND_ID
         );
         $resource = ApplicationFee::retrieveRefund(self::TEST_RESOURCE_ID, self::TEST_FEEREFUND_ID);
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $resource);
     }
 
     public function testCanUpdateRefund()
@@ -61,7 +61,7 @@ final class ApplicationFeeTest extends \Stripe\TestCase
             '/v1/application_fees/' . self::TEST_RESOURCE_ID . '/refunds/' . self::TEST_FEEREFUND_ID
         );
         $resource = ApplicationFee::updateRefund(self::TEST_RESOURCE_ID, self::TEST_FEEREFUND_ID);
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $resource);
     }
 
     public function testCanListRefunds()
@@ -72,6 +72,6 @@ final class ApplicationFeeTest extends \Stripe\TestCase
         );
         $resources = ApplicationFee::allRefunds(self::TEST_RESOURCE_ID);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\ApplicationFeeRefund::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\ApplicationFeeRefund::class, $resources->data[0]);
     }
 }

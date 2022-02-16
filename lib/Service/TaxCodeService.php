@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class TaxCodeService extends \Stripe\Service\AbstractService
+class TaxCodeService extends \StripePhp\Service\AbstractService
 {
     /**
      * A list of <a href="https://stripe.com/docs/tax/tax-codes">all tax codes
      * available</a> to add to Products in order to allow specific tax calculations.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\TaxCode>
+     * @return \StripePhp\Collection<\StripePhp\TaxCode>
      */
     public function all($params = null, $opts = null)
     {
@@ -28,11 +28,11 @@ class TaxCodeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\TaxCode
+     * @return \StripePhp\TaxCode
      */
     public function retrieve($id, $params = null, $opts = null)
     {

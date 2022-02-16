@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Price
+ * @covers \StripePhp\Price
  */
-final class PriceTest extends \Stripe\TestCase
+final class PriceTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class PriceTest extends \Stripe\TestCase
         );
         $resources = Price::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Price::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Price::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class PriceTest extends \Stripe\TestCase
             '/v1/prices/' . self::TEST_RESOURCE_ID
         );
         $resource = Price::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Price::class, $resource);
+        static::assertInstanceOf(\StripePhp\Price::class, $resource);
     }
 
     public function testIsCreatable()
@@ -49,7 +49,7 @@ final class PriceTest extends \Stripe\TestCase
                 'name' => 'Product Name',
             ],
         ]);
-        static::assertInstanceOf(\Stripe\Price::class, $resource);
+        static::assertInstanceOf(\StripePhp\Price::class, $resource);
     }
 
     public function testIsSaveable()
@@ -61,7 +61,7 @@ final class PriceTest extends \Stripe\TestCase
             '/v1/prices/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Price::class, $resource);
+        static::assertInstanceOf(\StripePhp\Price::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -73,6 +73,6 @@ final class PriceTest extends \Stripe\TestCase
         $resource = Price::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Price::class, $resource);
+        static::assertInstanceOf(\StripePhp\Price::class, $resource);
     }
 }

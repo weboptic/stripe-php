@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\TokenService
+ * @covers \StripePhp\Service\TokenService
  */
-final class TokenServiceTest extends \Stripe\TestCase
+final class TokenServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'tok_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var TokenService */
@@ -23,7 +23,7 @@ final class TokenServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new TokenService($this->client);
     }
 
@@ -34,7 +34,7 @@ final class TokenServiceTest extends \Stripe\TestCase
             '/v1/tokens'
         );
         $resource = $this->service->create(['card' => 'tok_visa']);
-        static::assertInstanceOf(\Stripe\Token::class, $resource);
+        static::assertInstanceOf(\StripePhp\Token::class, $resource);
     }
 
     public function testRetrieve()
@@ -44,6 +44,6 @@ final class TokenServiceTest extends \Stripe\TestCase
             '/v1/tokens/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Token::class, $resource);
+        static::assertInstanceOf(\StripePhp\Token::class, $resource);
     }
 }

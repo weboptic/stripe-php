@@ -4,11 +4,11 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\CoreServiceFactory
+ * @covers \StripePhp\Service\CoreServiceFactory
  */
-final class CoreServiceFactoryTest extends \Stripe\TestCase
+final class CoreServiceFactoryTest extends \StripePhp\TestCase
 {
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var CoreServiceFactory */
@@ -19,14 +19,14 @@ final class CoreServiceFactoryTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->serviceFactory = new CoreServiceFactory($this->client);
     }
 
     public function testExposesPropertiesForServices()
     {
         static::assertInstanceOf(CouponService::class, $this->serviceFactory->coupons);
-        static::assertInstanceOf(\Stripe\Service\Issuing\IssuingServiceFactory::class, $this->serviceFactory->issuing);
+        static::assertInstanceOf(\StripePhp\Service\Issuing\IssuingServiceFactory::class, $this->serviceFactory->issuing);
     }
 
     public function testMultipleCallsReturnSameInstance()

@@ -11,7 +11,7 @@ namespace StripePhp\Service\Radar;
  * @property ValueListItemService $valueListItems
  * @property ValueListService $valueLists
  */
-class RadarServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class RadarServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

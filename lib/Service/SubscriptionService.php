@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class SubscriptionService extends \Stripe\Service\AbstractService
+class SubscriptionService extends \StripePhp\Service\AbstractService
 {
     /**
      * By default, returns a list of subscriptions that have not been canceled. In
      * order to list canceled subscriptions, specify <code>status=canceled</code>.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Subscription>
+     * @return \StripePhp\Collection<\StripePhp\Subscription>
      */
     public function all($params = null, $opts = null)
     {
@@ -43,11 +43,11 @@ class SubscriptionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Subscription
+     * @return \StripePhp\Subscription
      */
     public function cancel($id, $params = null, $opts = null)
     {
@@ -59,11 +59,11 @@ class SubscriptionService extends \Stripe\Service\AbstractService
      * 500 active or scheduled subscriptions.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Subscription
+     * @return \StripePhp\Subscription
      */
     public function create($params = null, $opts = null)
     {
@@ -75,11 +75,11 @@ class SubscriptionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Subscription
+     * @return \StripePhp\Subscription
      */
     public function deleteDiscount($id, $params = null, $opts = null)
     {
@@ -91,11 +91,11 @@ class SubscriptionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Subscription
+     * @return \StripePhp\Subscription
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -111,11 +111,11 @@ class SubscriptionService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Subscription
+     * @return \StripePhp\Subscription
      */
     public function update($id, $params = null, $opts = null)
     {

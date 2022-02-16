@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class PriceService extends \Stripe\Service\AbstractService
+class PriceService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your prices.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Price>
+     * @return \StripePhp\Collection<\StripePhp\Price>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class PriceService extends \Stripe\Service\AbstractService
      * one-time.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Price
+     * @return \StripePhp\Price
      */
     public function create($params = null, $opts = null)
     {
@@ -42,11 +42,11 @@ class PriceService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Price
+     * @return \StripePhp\Price
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -59,11 +59,11 @@ class PriceService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Price
+     * @return \StripePhp\Price
      */
     public function update($id, $params = null, $opts = null)
     {

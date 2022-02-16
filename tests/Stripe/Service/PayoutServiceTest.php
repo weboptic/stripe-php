@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\PayoutService
+ * @covers \StripePhp\Service\PayoutService
  */
-final class PayoutServiceTest extends \Stripe\TestCase
+final class PayoutServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'po_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var PayoutService */
@@ -23,7 +23,7 @@ final class PayoutServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new PayoutService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class PayoutServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Payout::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Payout::class, $resources->data[0]);
     }
 
     public function testCancel()
@@ -45,7 +45,7 @@ final class PayoutServiceTest extends \Stripe\TestCase
             '/v1/payouts/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource = $this->service->cancel(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Payout::class, $resource);
+        static::assertInstanceOf(\StripePhp\Payout::class, $resource);
     }
 
     public function testCreate()
@@ -58,7 +58,7 @@ final class PayoutServiceTest extends \Stripe\TestCase
             'amount' => 100,
             'currency' => 'usd',
         ]);
-        static::assertInstanceOf(\Stripe\Payout::class, $resource);
+        static::assertInstanceOf(\StripePhp\Payout::class, $resource);
     }
 
     public function testRetrieve()
@@ -68,7 +68,7 @@ final class PayoutServiceTest extends \Stripe\TestCase
             '/v1/payouts/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Payout::class, $resource);
+        static::assertInstanceOf(\StripePhp\Payout::class, $resource);
     }
 
     public function testReverse()
@@ -78,7 +78,7 @@ final class PayoutServiceTest extends \Stripe\TestCase
             '/v1/payouts/' . self::TEST_RESOURCE_ID . '/reverse'
         );
         $resource = $this->service->reverse(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Payout::class, $resource);
+        static::assertInstanceOf(\StripePhp\Payout::class, $resource);
     }
 
     public function testUpdate()
@@ -90,6 +90,6 @@ final class PayoutServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Payout::class, $resource);
+        static::assertInstanceOf(\StripePhp\Payout::class, $resource);
     }
 }

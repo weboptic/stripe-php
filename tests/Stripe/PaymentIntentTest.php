@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\PaymentIntent
+ * @covers \StripePhp\PaymentIntent
  */
-final class PaymentIntentTest extends \Stripe\TestCase
+final class PaymentIntentTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class PaymentIntentTest extends \Stripe\TestCase
         );
         $resources = PaymentIntent::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class PaymentIntentTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID
         );
         $resource = PaymentIntent::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testIsCreatable()
@@ -44,7 +44,7 @@ final class PaymentIntentTest extends \Stripe\TestCase
             'currency' => 'usd',
             'payment_method_types' => ['card'],
         ]);
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testIsSaveable()
@@ -56,7 +56,7 @@ final class PaymentIntentTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -71,7 +71,7 @@ final class PaymentIntentTest extends \Stripe\TestCase
                 'metadata' => ['key' => 'value'],
             ]
         );
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testIsCancelable()
@@ -82,7 +82,7 @@ final class PaymentIntentTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource->cancel();
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testIsCapturable()
@@ -93,7 +93,7 @@ final class PaymentIntentTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID . '/capture'
         );
         $resource->capture();
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 
     public function testIsConfirmable()
@@ -104,6 +104,6 @@ final class PaymentIntentTest extends \Stripe\TestCase
             '/v1/payment_intents/' . self::TEST_RESOURCE_ID . '/confirm'
         );
         $resource->confirm();
-        static::assertInstanceOf(\Stripe\PaymentIntent::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentIntent::class, $resource);
     }
 }

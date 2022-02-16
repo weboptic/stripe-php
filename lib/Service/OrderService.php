@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class OrderService extends \Stripe\Service\AbstractService
+class OrderService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your orders. The orders are returned sorted by creation date,
      * with the most recently created orders appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Order>
+     * @return \StripePhp\Collection<\StripePhp\Order>
      */
     public function all($params = null, $opts = null)
     {
@@ -26,11 +26,11 @@ class OrderService extends \Stripe\Service\AbstractService
      * Creates a new order object.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Order
+     * @return \StripePhp\Order
      */
     public function create($params = null, $opts = null)
     {
@@ -42,11 +42,11 @@ class OrderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Order
+     * @return \StripePhp\Order
      */
     public function pay($id, $params = null, $opts = null)
     {
@@ -60,11 +60,11 @@ class OrderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Order
+     * @return \StripePhp\Order
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -79,11 +79,11 @@ class OrderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Order
+     * @return \StripePhp\Order
      */
     public function returnOrder($id, $params = null, $opts = null)
     {
@@ -96,11 +96,11 @@ class OrderService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Order
+     * @return \StripePhp\Order
      */
     public function update($id, $params = null, $opts = null)
     {

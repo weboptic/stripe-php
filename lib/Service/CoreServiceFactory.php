@@ -64,7 +64,7 @@ namespace StripePhp\Service;
  * @property TransferService $transfers
  * @property WebhookEndpointService $webhookEndpoints
  */
-class CoreServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class CoreServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

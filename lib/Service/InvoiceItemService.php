@@ -4,18 +4,18 @@
 
 namespace StripePhp\Service;
 
-class InvoiceItemService extends \Stripe\Service\AbstractService
+class InvoiceItemService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your invoice items. Invoice items are returned sorted by
      * creation date, with the most recently created invoice items appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\InvoiceItem>
+     * @return \StripePhp\Collection<\StripePhp\InvoiceItem>
      */
     public function all($params = null, $opts = null)
     {
@@ -28,11 +28,11 @@ class InvoiceItemService extends \Stripe\Service\AbstractService
      * customer specified.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\InvoiceItem
+     * @return \StripePhp\InvoiceItem
      */
     public function create($params = null, $opts = null)
     {
@@ -46,11 +46,11 @@ class InvoiceItemService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\InvoiceItem
+     * @return \StripePhp\InvoiceItem
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -62,11 +62,11 @@ class InvoiceItemService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\InvoiceItem
+     * @return \StripePhp\InvoiceItem
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -80,11 +80,11 @@ class InvoiceItemService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\InvoiceItem
+     * @return \StripePhp\InvoiceItem
      */
     public function update($id, $params = null, $opts = null)
     {

@@ -4,11 +4,11 @@ namespace StripePhp\Radar;
 
 /**
  * @internal
- * @covers \Stripe\Radar\ValueListItem
+ * @covers \StripePhp\Radar\ValueListItem
  */
-final class ValueListItemTest extends \Stripe\TestCase
+final class ValueListItemTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'rsli_123';
 
@@ -22,7 +22,7 @@ final class ValueListItemTest extends \Stripe\TestCase
             'value_list' => 'rsl_123',
         ]);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -32,7 +32,7 @@ final class ValueListItemTest extends \Stripe\TestCase
             '/v1/radar/value_list_items/' . self::TEST_RESOURCE_ID
         );
         $resource = ValueListItem::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resource);
     }
 
     public function testIsCreatable()
@@ -45,7 +45,7 @@ final class ValueListItemTest extends \Stripe\TestCase
             'value_list' => 'rsl_123',
             'value' => 'value',
         ]);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resource);
     }
 
     public function testIsDeletable()
@@ -56,6 +56,6 @@ final class ValueListItemTest extends \Stripe\TestCase
             '/v1/radar/value_list_items/' . self::TEST_RESOURCE_ID
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resource);
     }
 }

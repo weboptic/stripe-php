@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Customer
+ * @covers \StripePhp\Customer
  */
-final class CustomerTest extends \Stripe\TestCase
+final class CustomerTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -23,7 +23,7 @@ final class CustomerTest extends \Stripe\TestCase
         );
         $resources = Customer::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Customer::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Customer::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -33,7 +33,7 @@ final class CustomerTest extends \Stripe\TestCase
             '/v1/customers/' . self::TEST_RESOURCE_ID
         );
         $resource = Customer::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Customer::class, $resource);
+        static::assertInstanceOf(\StripePhp\Customer::class, $resource);
     }
 
     public function testIsCreatable()
@@ -43,7 +43,7 @@ final class CustomerTest extends \Stripe\TestCase
             '/v1/customers'
         );
         $resource = Customer::create();
-        static::assertInstanceOf(\Stripe\Customer::class, $resource);
+        static::assertInstanceOf(\StripePhp\Customer::class, $resource);
     }
 
     public function testIsSaveable()
@@ -55,7 +55,7 @@ final class CustomerTest extends \Stripe\TestCase
             '/v1/customers/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Customer::class, $resource);
+        static::assertInstanceOf(\StripePhp\Customer::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -67,7 +67,7 @@ final class CustomerTest extends \Stripe\TestCase
         $resource = Customer::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Customer::class, $resource);
+        static::assertInstanceOf(\StripePhp\Customer::class, $resource);
     }
 
     public function testIsDeletable()
@@ -78,7 +78,7 @@ final class CustomerTest extends \Stripe\TestCase
             '/v1/customers/' . $resource->id
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\Customer::class, $resource);
+        static::assertInstanceOf(\StripePhp\Customer::class, $resource);
     }
 
     public function testCanDeleteDiscount()
@@ -118,7 +118,7 @@ final class CustomerTest extends \Stripe\TestCase
         );
         $resource = Customer::updateSource(self::TEST_RESOURCE_ID, self::TEST_SOURCE_ID, ['name' => 'name']);
         // stripe-mock returns a Card on this method and not a bank account
-        static::assertInstanceOf(\Stripe\Card::class, $resource);
+        static::assertInstanceOf(\StripePhp\Card::class, $resource);
     }
 
     public function testCanDeleteSource()

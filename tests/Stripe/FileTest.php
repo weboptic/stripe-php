@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\File
+ * @covers \StripePhp\File
  */
-final class FileTest extends \Stripe\TestCase
+final class FileTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class FileTest extends \Stripe\TestCase
         );
         $resources = File::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\File::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\File::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class FileTest extends \Stripe\TestCase
             '/v1/files/' . self::TEST_RESOURCE_ID
         );
         $resource = File::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\File::class, $resource);
+        static::assertInstanceOf(\StripePhp\File::class, $resource);
     }
 
     public function testDeserializesFromFile()
@@ -38,7 +38,7 @@ final class FileTest extends \Stripe\TestCase
         $obj = Util\Util::convertToStripeObject([
             'object' => 'file',
         ], null);
-        static::assertInstanceOf(\Stripe\File::class, $obj);
+        static::assertInstanceOf(\StripePhp\File::class, $obj);
     }
 
     public function testDeserializesFromFileUpload()
@@ -46,6 +46,6 @@ final class FileTest extends \Stripe\TestCase
         $obj = Util\Util::convertToStripeObject([
             'object' => 'file_upload',
         ], null);
-        static::assertInstanceOf(\Stripe\File::class, $obj);
+        static::assertInstanceOf(\StripePhp\File::class, $obj);
     }
 }

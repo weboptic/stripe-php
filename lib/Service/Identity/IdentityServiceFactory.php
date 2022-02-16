@@ -10,7 +10,7 @@ namespace StripePhp\Service\Identity;
  * @property VerificationReportService $verificationReports
  * @property VerificationSessionService $verificationSessions
  */
-class IdentityServiceFactory extends \Stripe\Service\AbstractServiceFactory
+class IdentityServiceFactory extends \StripePhp\Service\AbstractServiceFactory
 {
     /**
      * @var array<string, string>

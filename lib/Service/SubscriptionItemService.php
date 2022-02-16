@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class SubscriptionItemService extends \Stripe\Service\AbstractService
+class SubscriptionItemService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your subscription items for a given subscription.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\SubscriptionItem>
+     * @return \StripePhp\Collection<\StripePhp\SubscriptionItem>
      */
     public function all($params = null, $opts = null)
     {
@@ -35,11 +35,11 @@ class SubscriptionItemService extends \Stripe\Service\AbstractService
      *
      * @param string $parentId
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\UsageRecordSummary>
+     * @return \StripePhp\Collection<\StripePhp\UsageRecordSummary>
      */
     public function allUsageRecordSummaries($parentId, $params = null, $opts = null)
     {
@@ -51,11 +51,11 @@ class SubscriptionItemService extends \Stripe\Service\AbstractService
      * or replaced.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SubscriptionItem
+     * @return \StripePhp\SubscriptionItem
      */
     public function create($params = null, $opts = null)
     {
@@ -89,11 +89,11 @@ class SubscriptionItemService extends \Stripe\Service\AbstractService
      *
      * @param string $parentId
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\UsageRecord
+     * @return \StripePhp\UsageRecord
      */
     public function createUsageRecord($parentId, $params = null, $opts = null)
     {
@@ -106,11 +106,11 @@ class SubscriptionItemService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SubscriptionItem
+     * @return \StripePhp\SubscriptionItem
      */
     public function delete($id, $params = null, $opts = null)
     {
@@ -122,11 +122,11 @@ class SubscriptionItemService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SubscriptionItem
+     * @return \StripePhp\SubscriptionItem
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -138,11 +138,11 @@ class SubscriptionItemService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\SubscriptionItem
+     * @return \StripePhp\SubscriptionItem
      */
     public function update($id, $params = null, $opts = null)
     {

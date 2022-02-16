@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Refund
+ * @covers \StripePhp\Refund
  */
-final class RefundTest extends \Stripe\TestCase
+final class RefundTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class RefundTest extends \Stripe\TestCase
         );
         $resources = Refund::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Refund::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class RefundTest extends \Stripe\TestCase
             '/v1/refunds/' . self::TEST_RESOURCE_ID
         );
         $resource = Refund::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Refund::class, $resource);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resource);
     }
 
     public function testIsCreatable()
@@ -42,7 +42,7 @@ final class RefundTest extends \Stripe\TestCase
         $resource = Refund::create([
             'charge' => 'ch_123',
         ]);
-        static::assertInstanceOf(\Stripe\Refund::class, $resource);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resource);
     }
 
     public function testIsSaveable()
@@ -54,7 +54,7 @@ final class RefundTest extends \Stripe\TestCase
             '/v1/refunds/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Refund::class, $resource);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -66,6 +66,6 @@ final class RefundTest extends \Stripe\TestCase
         $resource = Refund::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Refund::class, $resource);
+        static::assertInstanceOf(\StripePhp\Refund::class, $resource);
     }
 }

@@ -4,13 +4,13 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\BalanceService
+ * @covers \StripePhp\Service\BalanceService
  */
-final class BalanceServiceTest extends \Stripe\TestCase
+final class BalanceServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var BalanceService */
@@ -21,7 +21,7 @@ final class BalanceServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new BalanceService($this->client);
     }
 
@@ -32,6 +32,6 @@ final class BalanceServiceTest extends \Stripe\TestCase
             '/v1/balance'
         );
         $resource = $this->service->retrieve();
-        static::assertInstanceOf(\Stripe\Balance::class, $resource);
+        static::assertInstanceOf(\StripePhp\Balance::class, $resource);
     }
 }

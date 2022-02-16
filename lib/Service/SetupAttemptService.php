@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class SetupAttemptService extends \Stripe\Service\AbstractService
+class SetupAttemptService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of SetupAttempts associated with a provided SetupIntent.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\SetupAttempt>
+     * @return \StripePhp\Collection<\StripePhp\SetupAttempt>
      */
     public function all($params = null, $opts = null)
     {

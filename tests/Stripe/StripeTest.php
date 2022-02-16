@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Stripe
+ * @covers \StripePhp\Stripe
  */
-final class StripeTest extends \Stripe\TestCase
+final class StripeTest extends \StripePhp\TestCase
 {
     use TestHelper;
 

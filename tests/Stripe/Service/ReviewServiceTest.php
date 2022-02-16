@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\ReviewService
+ * @covers \StripePhp\Service\ReviewService
  */
-final class ReviewServiceTest extends \Stripe\TestCase
+final class ReviewServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'prv_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ReviewService */
@@ -23,7 +23,7 @@ final class ReviewServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ReviewService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class ReviewServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Review::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Review::class, $resources->data[0]);
     }
 
     public function testApprove()
@@ -45,7 +45,7 @@ final class ReviewServiceTest extends \Stripe\TestCase
             '/v1/reviews/' . self::TEST_RESOURCE_ID . '/approve'
         );
         $resource = $this->service->approve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Review::class, $resource);
+        static::assertInstanceOf(\StripePhp\Review::class, $resource);
     }
 
     public function testRetrieve()
@@ -55,6 +55,6 @@ final class ReviewServiceTest extends \Stripe\TestCase
             '/v1/reviews/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Review::class, $resource);
+        static::assertInstanceOf(\StripePhp\Review::class, $resource);
     }
 }

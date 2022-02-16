@@ -15,14 +15,14 @@ trait NestedResource
      * @param null|array $params
      * @param null|array|string $options
      *
-     * @return \Stripe\StripeObject
+     * @return \StripePhp\StripeObject
      */
     protected static function _nestedResourceOperation($method, $url, $params = null, $options = null)
     {
         self::_validateParams($params);
 
         list($response, $opts) = static::_staticRequest($method, $url, $params, $options);
-        $obj = \Stripe\Util\Util::convertToStripeObject($response->json, $opts);
+        $obj = \StripePhp\Util\Util::convertToStripeObject($response->json, $opts);
         $obj->setLastResponse($response);
 
         return $obj;
@@ -51,9 +51,9 @@ trait NestedResource
      * @param null|array $params
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\StripeObject
+     * @return \StripePhp\StripeObject
      */
     protected static function _createNestedResource($id, $nestedPath, $params = null, $options = null)
     {
@@ -69,9 +69,9 @@ trait NestedResource
      * @param null|array $params
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\StripeObject
+     * @return \StripePhp\StripeObject
      */
     protected static function _retrieveNestedResource($id, $nestedPath, $nestedId, $params = null, $options = null)
     {
@@ -87,9 +87,9 @@ trait NestedResource
      * @param null|array $params
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\StripeObject
+     * @return \StripePhp\StripeObject
      */
     protected static function _updateNestedResource($id, $nestedPath, $nestedId, $params = null, $options = null)
     {
@@ -105,9 +105,9 @@ trait NestedResource
      * @param null|array $params
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\StripeObject
+     * @return \StripePhp\StripeObject
      */
     protected static function _deleteNestedResource($id, $nestedPath, $nestedId, $params = null, $options = null)
     {
@@ -122,9 +122,9 @@ trait NestedResource
      * @param null|array $params
      * @param null|array|string $options
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\StripeObject
+     * @return \StripePhp\StripeObject
      */
     protected static function _allNestedResources($id, $nestedPath, $params = null, $options = null)
     {

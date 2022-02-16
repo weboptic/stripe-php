@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class ReviewService extends \Stripe\Service\AbstractService
+class ReviewService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of <code>Review</code> objects that have <code>open</code> set to
@@ -12,11 +12,11 @@ class ReviewService extends \Stripe\Service\AbstractService
      * with the most recently created object appearing first.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Review>
+     * @return \StripePhp\Collection<\StripePhp\Review>
      */
     public function all($params = null, $opts = null)
     {
@@ -29,11 +29,11 @@ class ReviewService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Review
+     * @return \StripePhp\Review
      */
     public function approve($id, $params = null, $opts = null)
     {
@@ -45,11 +45,11 @@ class ReviewService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Review
+     * @return \StripePhp\Review
      */
     public function retrieve($id, $params = null, $opts = null)
     {

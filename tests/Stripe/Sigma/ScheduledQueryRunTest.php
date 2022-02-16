@@ -4,11 +4,11 @@ namespace StripePhp\Sigma;
 
 /**
  * @internal
- * @covers \Stripe\Sigma\ScheduledQueryRun
+ * @covers \StripePhp\Sigma\ScheduledQueryRun
  */
-final class ScheduledQueryRunTest extends \Stripe\TestCase
+final class ScheduledQueryRunTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'sqr_123';
 
@@ -16,12 +16,12 @@ final class ScheduledQueryRunTest extends \Stripe\TestCase
     {
         $resources = ScheduledQueryRun::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Sigma\ScheduledQueryRun::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Sigma\ScheduledQueryRun::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
     {
         $resource = ScheduledQueryRun::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Sigma\ScheduledQueryRun::class, $resource);
+        static::assertInstanceOf(\StripePhp\Sigma\ScheduledQueryRun::class, $resource);
     }
 }

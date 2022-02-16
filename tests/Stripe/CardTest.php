@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Card
+ * @covers \StripePhp\Card
  */
-final class CardTest extends \Stripe\TestCase
+final class CardTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -60,7 +60,7 @@ final class CardTest extends \Stripe\TestCase
 
     public function testIsNotDirectlyRetrievable()
     {
-        $this->expectException(\Stripe\Exception\BadMethodCallException::class);
+        $this->expectException(\StripePhp\Exception\BadMethodCallException::class);
 
         Card::retrieve(self::TEST_RESOURCE_ID);
     }
@@ -74,12 +74,12 @@ final class CardTest extends \Stripe\TestCase
             '/v1/customers/cus_123/sources/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertSame(\Stripe\Card::class, \get_class($resource));
+        static::assertSame(\StripePhp\Card::class, \get_class($resource));
     }
 
     public function testIsNotDirectlyUpdatable()
     {
-        $this->expectException(\Stripe\Exception\BadMethodCallException::class);
+        $this->expectException(\StripePhp\Exception\BadMethodCallException::class);
 
         Card::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
@@ -94,6 +94,6 @@ final class CardTest extends \Stripe\TestCase
             '/v1/customers/cus_123/sources/' . self::TEST_RESOURCE_ID
         );
         $resource->delete();
-        static::assertSame(\Stripe\Card::class, \get_class($resource));
+        static::assertSame(\StripePhp\Card::class, \get_class($resource));
     }
 }

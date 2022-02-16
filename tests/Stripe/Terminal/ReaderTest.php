@@ -4,11 +4,11 @@ namespace StripePhp\Terminal;
 
 /**
  * @internal
- * @covers \Stripe\Terminal\Reader
+ * @covers \StripePhp\Terminal\Reader
  */
-final class ReaderTest extends \Stripe\TestCase
+final class ReaderTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'rdr_123';
 
@@ -20,7 +20,7 @@ final class ReaderTest extends \Stripe\TestCase
         );
         $resources = Reader::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class ReaderTest extends \Stripe\TestCase
             '/v1/terminal/readers/' . self::TEST_RESOURCE_ID
         );
         $resource = Reader::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $resource);
     }
 
     public function testIsSaveable()
@@ -43,7 +43,7 @@ final class ReaderTest extends \Stripe\TestCase
             '/v1/terminal/readers/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -56,7 +56,7 @@ final class ReaderTest extends \Stripe\TestCase
         $resource = Reader::update(self::TEST_RESOURCE_ID, [
             'label' => 'new-name',
         ]);
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $resource);
     }
 
     public function testIsCreatable()
@@ -67,7 +67,7 @@ final class ReaderTest extends \Stripe\TestCase
             ['registration_code' => 'a-b-c']
         );
         $resource = Reader::create(['registration_code' => 'a-b-c']);
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $resource);
     }
 
     public function testIsDeletable()
@@ -78,6 +78,6 @@ final class ReaderTest extends \Stripe\TestCase
             '/v1/terminal/readers/' . self::TEST_RESOURCE_ID
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\Terminal\Reader::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Reader::class, $resource);
     }
 }

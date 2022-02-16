@@ -4,13 +4,13 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\SetupAttemptService
+ * @covers \StripePhp\Service\SetupAttemptService
  */
-final class SetupAttemptServiceTest extends \Stripe\TestCase
+final class SetupAttemptServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var SetupAttemptService */
@@ -21,7 +21,7 @@ final class SetupAttemptServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new SetupAttemptService($this->client);
     }
 
@@ -35,6 +35,6 @@ final class SetupAttemptServiceTest extends \Stripe\TestCase
             'setup_intent' => 'si_123',
         ]);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\SetupAttempt::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\SetupAttempt::class, $resources->data[0]);
     }
 }

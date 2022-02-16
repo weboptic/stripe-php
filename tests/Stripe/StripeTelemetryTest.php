@@ -6,7 +6,7 @@ namespace StripePhp;
  * @internal
  * @coversNothing
  */
-final class StripeTelemetryTest extends \Stripe\TestCase
+final class StripeTelemetryTest extends \StripePhp\TestCase
 {
     use TestHelper;
 

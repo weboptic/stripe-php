@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Topup
+ * @covers \StripePhp\Topup
  */
-final class TopupTest extends \Stripe\TestCase
+final class TopupTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class TopupTest extends \Stripe\TestCase
         );
         $resources = Topup::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Topup::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Topup::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class TopupTest extends \Stripe\TestCase
             '/v1/topups/' . self::TEST_RESOURCE_ID
         );
         $resource = Topup::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Topup::class, $resource);
+        static::assertInstanceOf(\StripePhp\Topup::class, $resource);
     }
 
     public function testIsCreatable()
@@ -46,7 +46,7 @@ final class TopupTest extends \Stripe\TestCase
             'description' => 'description',
             'statement_descriptor' => 'statement descriptor',
         ]);
-        static::assertInstanceOf(\Stripe\Topup::class, $resource);
+        static::assertInstanceOf(\StripePhp\Topup::class, $resource);
     }
 
     public function testIsSaveable()
@@ -58,7 +58,7 @@ final class TopupTest extends \Stripe\TestCase
             '/v1/topups/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Topup::class, $resource);
+        static::assertInstanceOf(\StripePhp\Topup::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -70,7 +70,7 @@ final class TopupTest extends \Stripe\TestCase
         $resource = Topup::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Topup::class, $resource);
+        static::assertInstanceOf(\StripePhp\Topup::class, $resource);
     }
 
     public function testIsCancelable()
@@ -81,6 +81,6 @@ final class TopupTest extends \Stripe\TestCase
             '/v1/topups/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource = $resource->cancel();
-        static::assertInstanceOf(\Stripe\Topup::class, $resource);
+        static::assertInstanceOf(\StripePhp\Topup::class, $resource);
     }
 }

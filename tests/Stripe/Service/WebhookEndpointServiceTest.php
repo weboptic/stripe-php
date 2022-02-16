@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\WebhookEndpointService
+ * @covers \StripePhp\Service\WebhookEndpointService
  */
-final class WebhookEndpointServiceTest extends \Stripe\TestCase
+final class WebhookEndpointServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'we_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var WebhookEndpointService */
@@ -23,7 +23,7 @@ final class WebhookEndpointServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new WebhookEndpointService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class WebhookEndpointServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -48,7 +48,7 @@ final class WebhookEndpointServiceTest extends \Stripe\TestCase
             'enabled_events' => ['charge.succeeded'],
             'url' => 'https://stripe.com',
         ]);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $resource);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $resource);
     }
 
     public function testDelete()
@@ -58,7 +58,7 @@ final class WebhookEndpointServiceTest extends \Stripe\TestCase
             '/v1/webhook_endpoints/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $resource);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $resource);
     }
 
     public function testRetrieve()
@@ -68,7 +68,7 @@ final class WebhookEndpointServiceTest extends \Stripe\TestCase
             '/v1/webhook_endpoints/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $resource);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $resource);
     }
 
     public function testUpdate()
@@ -80,6 +80,6 @@ final class WebhookEndpointServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'enabled_events' => ['charge.succeeded'],
         ]);
-        static::assertInstanceOf(\Stripe\WebhookEndpoint::class, $resource);
+        static::assertInstanceOf(\StripePhp\WebhookEndpoint::class, $resource);
     }
 }

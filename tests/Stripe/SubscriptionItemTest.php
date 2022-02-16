@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\SubscriptionItem
+ * @covers \StripePhp\SubscriptionItem
  */
-final class SubscriptionItemTest extends \Stripe\TestCase
+final class SubscriptionItemTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -25,7 +25,7 @@ final class SubscriptionItemTest extends \Stripe\TestCase
             'subscription' => 'sub_123',
         ]);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -35,7 +35,7 @@ final class SubscriptionItemTest extends \Stripe\TestCase
             '/v1/subscription_items/' . self::TEST_RESOURCE_ID
         );
         $resource = SubscriptionItem::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $resource);
     }
 
     public function testIsCreatable()
@@ -48,7 +48,7 @@ final class SubscriptionItemTest extends \Stripe\TestCase
             'price' => 'price_123',
             'subscription' => 'sub_123',
         ]);
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $resource);
     }
 
     public function testIsSaveable()
@@ -60,7 +60,7 @@ final class SubscriptionItemTest extends \Stripe\TestCase
             '/v1/subscription_items/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -72,7 +72,7 @@ final class SubscriptionItemTest extends \Stripe\TestCase
         $resource = SubscriptionItem::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $resource);
     }
 
     public function testIsDeletable()
@@ -83,7 +83,7 @@ final class SubscriptionItemTest extends \Stripe\TestCase
             '/v1/subscription_items/' . $resource->id
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\SubscriptionItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\SubscriptionItem::class, $resource);
     }
 
     public function testCanCreateUsageRecord()
@@ -108,7 +108,7 @@ final class SubscriptionItemTest extends \Stripe\TestCase
         );
         $resources = $resource->usageRecordSummaries();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\UsageRecordSummary::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\UsageRecordSummary::class, $resources->data[0]);
     }
 
     public function testCanListUsageRecordSummaries()
@@ -119,6 +119,6 @@ final class SubscriptionItemTest extends \Stripe\TestCase
         );
         $resources = SubscriptionItem::allUsageRecordSummaries(self::TEST_RESOURCE_ID);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\UsageRecordSummary::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\UsageRecordSummary::class, $resources->data[0]);
     }
 }

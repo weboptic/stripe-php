@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\ThreeDSecure
+ * @covers \StripePhp\ThreeDSecure
  */
-final class ThreeDSecureTest extends \Stripe\TestCase
+final class ThreeDSecureTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -19,7 +19,7 @@ final class ThreeDSecureTest extends \Stripe\TestCase
             '/v1/3d_secure/' . self::TEST_RESOURCE_ID
         );
         $resource = ThreeDSecure::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\ThreeDSecure::class, $resource);
+        static::assertInstanceOf(\StripePhp\ThreeDSecure::class, $resource);
     }
 
     public function testIsCreatable()
@@ -33,6 +33,6 @@ final class ThreeDSecureTest extends \Stripe\TestCase
             'currency' => 'usd',
             'return_url' => 'url',
         ]);
-        static::assertInstanceOf(\Stripe\ThreeDSecure::class, $resource);
+        static::assertInstanceOf(\StripePhp\ThreeDSecure::class, $resource);
     }
 }

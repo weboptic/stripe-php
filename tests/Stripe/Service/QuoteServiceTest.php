@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\QuoteService
+ * @covers \StripePhp\Service\QuoteService
  */
-final class QuoteServiceTest extends \Stripe\TestCase
+final class QuoteServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'qt_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var QuoteService */
@@ -23,7 +23,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL, 'files_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL, 'files_base' => MOCK_URL]);
         $this->service = new QuoteService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Quote::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -47,7 +47,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
         $resource = $this->service->create([
             'customer' => 'cus_123',
         ]);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testRetrieve()
@@ -57,7 +57,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testUpdate()
@@ -69,7 +69,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testFinalizeQuote()
@@ -79,7 +79,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID . '/finalize'
         );
         $resource = $this->service->finalizeQuote(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testCancel()
@@ -89,7 +89,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource = $this->service->cancel(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testAccept()
@@ -99,7 +99,7 @@ final class QuoteServiceTest extends \Stripe\TestCase
             '/v1/quotes/' . self::TEST_RESOURCE_ID . '/cancel'
         );
         $resource = $this->service->cancel(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Quote::class, $resource);
+        static::assertInstanceOf(\StripePhp\Quote::class, $resource);
     }
 
     public function testAllLines()

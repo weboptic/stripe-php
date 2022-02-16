@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Event
+ * @covers \StripePhp\Event
  */
-final class EventTest extends \Stripe\TestCase
+final class EventTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class EventTest extends \Stripe\TestCase
         );
         $resources = Event::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Event::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Event::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,6 +30,6 @@ final class EventTest extends \Stripe\TestCase
             '/v1/events/' . self::TEST_RESOURCE_ID
         );
         $resource = Event::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Event::class, $resource);
+        static::assertInstanceOf(\StripePhp\Event::class, $resource);
     }
 }

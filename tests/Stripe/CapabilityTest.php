@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\Capability
+ * @covers \StripePhp\Capability
  */
-final class CapabilityTest extends \Stripe\TestCase
+final class CapabilityTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -15,7 +15,7 @@ final class CapabilityTest extends \Stripe\TestCase
 
     public function testHasCorrectUrl()
     {
-        $resource = \Stripe\Account::retrieveCapability(self::TEST_ACCOUNT_ID, self::TEST_RESOURCE_ID);
+        $resource = \StripePhp\Account::retrieveCapability(self::TEST_ACCOUNT_ID, self::TEST_RESOURCE_ID);
         static::assertSame(
             '/v1/accounts/' . self::TEST_ACCOUNT_ID . '/capabilities/' . self::TEST_RESOURCE_ID,
             $resource->instanceUrl()
@@ -24,26 +24,26 @@ final class CapabilityTest extends \Stripe\TestCase
 
     public function testIsNotDirectlyRetrievable()
     {
-        $this->expectException(\Stripe\Exception\BadMethodCallException::class);
+        $this->expectException(\StripePhp\Exception\BadMethodCallException::class);
 
         Capability::retrieve(self::TEST_RESOURCE_ID);
     }
 
     public function testIsSaveable()
     {
-        $resource = \Stripe\Account::retrieveCapability(self::TEST_ACCOUNT_ID, self::TEST_RESOURCE_ID);
+        $resource = \StripePhp\Account::retrieveCapability(self::TEST_ACCOUNT_ID, self::TEST_RESOURCE_ID);
         $resource->requested = true;
         $this->expectsRequest(
             'post',
             '/v1/accounts/' . self::TEST_ACCOUNT_ID . '/capabilities/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Capability::class, $resource);
+        static::assertInstanceOf(\StripePhp\Capability::class, $resource);
     }
 
     public function testIsNotDirectlyUpdatable()
     {
-        $this->expectException(\Stripe\Exception\BadMethodCallException::class);
+        $this->expectException(\StripePhp\Exception\BadMethodCallException::class);
 
         Capability::update(self::TEST_RESOURCE_ID, ['requested' => true]);
     }

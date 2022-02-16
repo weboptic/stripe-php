@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class DisputeService extends \Stripe\Service\AbstractService
+class DisputeService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your disputes.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Dispute>
+     * @return \StripePhp\Collection<\StripePhp\Dispute>
      */
     public function all($params = null, $opts = null)
     {
@@ -30,11 +30,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Dispute
+     * @return \StripePhp\Dispute
      */
     public function close($id, $params = null, $opts = null)
     {
@@ -46,11 +46,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Dispute
+     * @return \StripePhp\Dispute
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -70,11 +70,11 @@ class DisputeService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Dispute
+     * @return \StripePhp\Dispute
      */
     public function update($id, $params = null, $opts = null)
     {

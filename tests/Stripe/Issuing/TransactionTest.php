@@ -4,11 +4,11 @@ namespace StripePhp\Issuing;
 
 /**
  * @internal
- * @covers \Stripe\Issuing\Transaction
+ * @covers \StripePhp\Issuing\Transaction
  */
-final class TransactionTest extends \Stripe\TestCase
+final class TransactionTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'ipi_123';
 
@@ -20,7 +20,7 @@ final class TransactionTest extends \Stripe\TestCase
         );
         $resources = Transaction::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Issuing\Transaction::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Issuing\Transaction::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class TransactionTest extends \Stripe\TestCase
             '/v1/issuing/transactions/' . self::TEST_RESOURCE_ID
         );
         $resource = Transaction::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Issuing\Transaction::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Transaction::class, $resource);
     }
 
     public function testIsSaveable()
@@ -43,7 +43,7 @@ final class TransactionTest extends \Stripe\TestCase
             '/v1/issuing/transactions/' . self::TEST_RESOURCE_ID
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\Issuing\Transaction::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Transaction::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -56,6 +56,6 @@ final class TransactionTest extends \Stripe\TestCase
         $resource = Transaction::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Issuing\Transaction::class, $resource);
+        static::assertInstanceOf(\StripePhp\Issuing\Transaction::class, $resource);
     }
 }

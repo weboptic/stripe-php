@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\ApplePayDomain
+ * @covers \StripePhp\ApplePayDomain
  */
-final class ApplePayDomainTest extends \Stripe\TestCase
+final class ApplePayDomainTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -20,7 +20,7 @@ final class ApplePayDomainTest extends \Stripe\TestCase
         );
         $resources = ApplePayDomain::all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\ApplePayDomain::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\ApplePayDomain::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -30,7 +30,7 @@ final class ApplePayDomainTest extends \Stripe\TestCase
             '/v1/apple_pay/domains/' . self::TEST_RESOURCE_ID
         );
         $resource = ApplePayDomain::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\ApplePayDomain::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplePayDomain::class, $resource);
     }
 
     public function testIsCreatable()
@@ -42,7 +42,7 @@ final class ApplePayDomainTest extends \Stripe\TestCase
         $resource = ApplePayDomain::create([
             'domain_name' => 'domain',
         ]);
-        static::assertInstanceOf(\Stripe\ApplePayDomain::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplePayDomain::class, $resource);
     }
 
     public function testIsDeletable()
@@ -53,6 +53,6 @@ final class ApplePayDomainTest extends \Stripe\TestCase
             '/v1/apple_pay/domains/' . $resource->id
         );
         $resource->delete();
-        static::assertInstanceOf(\Stripe\ApplePayDomain::class, $resource);
+        static::assertInstanceOf(\StripePhp\ApplePayDomain::class, $resource);
     }
 }

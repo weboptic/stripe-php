@@ -4,13 +4,13 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\AccountLinkService
+ * @covers \StripePhp\Service\AccountLinkService
  */
-final class AccountLinkServiceTest extends \Stripe\TestCase
+final class AccountLinkServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var AccountLinkService */
@@ -21,7 +21,7 @@ final class AccountLinkServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new AccountLinkService($this->client);
     }
 
@@ -37,6 +37,6 @@ final class AccountLinkServiceTest extends \Stripe\TestCase
             'return_url' => 'https://stripe.com/return_url',
             'type' => 'account_onboarding',
         ]);
-        static::assertInstanceOf(\Stripe\AccountLink::class, $resource);
+        static::assertInstanceOf(\StripePhp\AccountLink::class, $resource);
     }
 }

@@ -4,15 +4,15 @@ namespace StripePhp\Service;
 
 /**
  * @internal
- * @covers \Stripe\Service\OrderReturnService
+ * @covers \StripePhp\Service\OrderReturnService
  */
-final class OrderReturnServiceTest extends \Stripe\TestCase
+final class OrderReturnServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'orret_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var OrderReturnService */
@@ -23,7 +23,7 @@ final class OrderReturnServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new OrderReturnService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class OrderReturnServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\OrderReturn::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\OrderReturn::class, $resources->data[0]);
     }
 
     public function testRetrieve()
@@ -45,6 +45,6 @@ final class OrderReturnServiceTest extends \Stripe\TestCase
             '/v1/order_returns/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\OrderReturn::class, $resource);
+        static::assertInstanceOf(\StripePhp\OrderReturn::class, $resource);
     }
 }

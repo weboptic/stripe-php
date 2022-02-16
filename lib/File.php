@@ -20,7 +20,7 @@ namespace StripePhp;
  * @property int $created Time at which the object was created. Measured in seconds since the Unix epoch.
  * @property null|int $expires_at The time at which the file expires and is no longer available in epoch seconds.
  * @property null|string $filename A filename for the file, suitable for saving to a filesystem.
- * @property null|\Stripe\Collection<\Stripe\FileLink> $links A list of <a href="https://stripe.com/docs/api#file_links">file links</a> that point at this file.
+ * @property null|\StripePhp\Collection<\StripePhp\FileLink> $links A list of <a href="https://stripe.com/docs/api#file_links">file links</a> that point at this file.
  * @property string $purpose The <a href="https://stripe.com/docs/file-upload#uploading-a-file">purpose</a> of the uploaded file.
  * @property int $size The size in bytes of the file object.
  * @property null|string $title A user friendly title for the document.
@@ -68,19 +68,19 @@ class File extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\File the created file
+     * @return \StripePhp\File the created file
      */
     public static function create($params = null, $opts = null)
     {
-        $opts = \Stripe\Util\RequestOptions::parse($opts);
+        $opts = \StripePhp\Util\RequestOptions::parse($opts);
         if (null === $opts->apiBase) {
             $opts->apiBase = Stripe::$apiUploadBase;
         }
         // Manually flatten params, otherwise curl's multipart encoder will
         // choke on nested arrays.
-        $flatParams = \array_column(\Stripe\Util\Util::flattenParams($params), 1, 0);
+        $flatParams = \array_column(\StripePhp\Util\Util::flattenParams($params), 1, 0);
 
         return static::_create($flatParams, $opts);
     }

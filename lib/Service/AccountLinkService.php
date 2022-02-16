@@ -4,7 +4,7 @@
 
 namespace StripePhp\Service;
 
-class AccountLinkService extends \Stripe\Service\AbstractService
+class AccountLinkService extends \StripePhp\Service\AbstractService
 {
     /**
      * Creates an AccountLink object that includes a single-use Stripe URL that the
@@ -12,11 +12,11 @@ class AccountLinkService extends \Stripe\Service\AbstractService
      * Onboarding flow.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\AccountLink
+     * @return \StripePhp\AccountLink
      */
     public function create($params = null, $opts = null)
     {

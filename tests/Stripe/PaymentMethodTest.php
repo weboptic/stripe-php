@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\PaymentMethod
+ * @covers \StripePhp\PaymentMethod
  */
-final class PaymentMethodTest extends \Stripe\TestCase
+final class PaymentMethodTest extends \StripePhp\TestCase
 {
     use TestHelper;
 
@@ -23,7 +23,7 @@ final class PaymentMethodTest extends \Stripe\TestCase
             'type' => 'card',
         ]);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $resources->data[0]);
     }
 
     public function testIsRetrievable()
@@ -33,7 +33,7 @@ final class PaymentMethodTest extends \Stripe\TestCase
             '/v1/payment_methods/' . self::TEST_RESOURCE_ID
         );
         $resource = PaymentMethod::retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $resource);
     }
 
     public function testIsCreatable()
@@ -45,7 +45,7 @@ final class PaymentMethodTest extends \Stripe\TestCase
         $resource = PaymentMethod::create([
             'type' => 'card',
         ]);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $resource);
     }
 
     public function testIsSaveable()
@@ -57,7 +57,7 @@ final class PaymentMethodTest extends \Stripe\TestCase
             '/v1/payment_methods/' . $resource->id
         );
         $resource->save();
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $resource);
     }
 
     public function testIsUpdatable()
@@ -69,7 +69,7 @@ final class PaymentMethodTest extends \Stripe\TestCase
         $resource = PaymentMethod::update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $resource);
     }
 
     public function testCanAttach()
@@ -82,7 +82,7 @@ final class PaymentMethodTest extends \Stripe\TestCase
         $resource = $resource->attach([
             'customer' => 'cus_123',
         ]);
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $resource);
         static::assertSame($resource, $resource);
     }
 
@@ -94,7 +94,7 @@ final class PaymentMethodTest extends \Stripe\TestCase
             '/v1/payment_methods/' . $resource->id . '/detach'
         );
         $resource = $resource->detach();
-        static::assertInstanceOf(\Stripe\PaymentMethod::class, $resource);
+        static::assertInstanceOf(\StripePhp\PaymentMethod::class, $resource);
         static::assertSame($resource, $resource);
     }
 }

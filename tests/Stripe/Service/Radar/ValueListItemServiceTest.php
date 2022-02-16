@@ -4,15 +4,15 @@ namespace StripePhp\Service\Radar;
 
 /**
  * @internal
- * @covers \Stripe\Service\Radar\ValueListItemService
+ * @covers \StripePhp\Service\Radar\ValueListItemService
  */
-final class ValueListItemServiceTest extends \Stripe\TestCase
+final class ValueListItemServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'rsli_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var ValueListItemService */
@@ -23,7 +23,7 @@ final class ValueListItemServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new ValueListItemService($this->client);
     }
 
@@ -37,7 +37,7 @@ final class ValueListItemServiceTest extends \Stripe\TestCase
             'value_list' => 'rsl_123',
         ]);
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -50,7 +50,7 @@ final class ValueListItemServiceTest extends \Stripe\TestCase
             'value_list' => 'rsl_123',
             'value' => 'value',
         ]);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resource);
     }
 
     public function testDelete()
@@ -60,7 +60,7 @@ final class ValueListItemServiceTest extends \Stripe\TestCase
             '/v1/radar/value_list_items/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resource);
         static::assertTrue($resource->isDeleted());
     }
 
@@ -71,6 +71,6 @@ final class ValueListItemServiceTest extends \Stripe\TestCase
             '/v1/radar/value_list_items/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Radar\ValueListItem::class, $resource);
+        static::assertInstanceOf(\StripePhp\Radar\ValueListItem::class, $resource);
     }
 }

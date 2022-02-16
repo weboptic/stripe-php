@@ -4,9 +4,9 @@ namespace StripePhp;
 
 /**
  * @internal
- * @covers \Stripe\ErrorObject
+ * @covers \StripePhp\ErrorObject
  */
-final class ErrorObjectTest extends \Stripe\TestCase
+final class ErrorObjectTest extends \StripePhp\TestCase
 {
     use TestHelper;
 

@@ -4,15 +4,15 @@ namespace StripePhp\Service\Terminal;
 
 /**
  * @internal
- * @covers \Stripe\Service\Terminal\LocationService
+ * @covers \StripePhp\Service\Terminal\LocationService
  */
-final class LocationServiceTest extends \Stripe\TestCase
+final class LocationServiceTest extends \StripePhp\TestCase
 {
-    use \Stripe\TestHelper;
+    use \StripePhp\TestHelper;
 
     const TEST_RESOURCE_ID = 'tml_123';
 
-    /** @var \Stripe\StripeClient */
+    /** @var \StripePhp\StripeClient */
     private $client;
 
     /** @var LocationService */
@@ -23,7 +23,7 @@ final class LocationServiceTest extends \Stripe\TestCase
      */
     protected function setUpService()
     {
-        $this->client = new \Stripe\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
+        $this->client = new \StripePhp\StripeClient(['api_key' => 'sk_test_123', 'api_base' => MOCK_URL]);
         $this->service = new LocationService($this->client);
     }
 
@@ -35,7 +35,7 @@ final class LocationServiceTest extends \Stripe\TestCase
         );
         $resources = $this->service->all();
         static::compatAssertIsArray($resources->data);
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $resources->data[0]);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $resources->data[0]);
     }
 
     public function testCreate()
@@ -66,7 +66,7 @@ final class LocationServiceTest extends \Stripe\TestCase
                 ],
             ]
         );
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $resource);
     }
 
     public function testDelete()
@@ -76,7 +76,7 @@ final class LocationServiceTest extends \Stripe\TestCase
             '/v1/terminal/locations/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->delete(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $resource);
     }
 
     public function testRetrieve()
@@ -86,7 +86,7 @@ final class LocationServiceTest extends \Stripe\TestCase
             '/v1/terminal/locations/' . self::TEST_RESOURCE_ID
         );
         $resource = $this->service->retrieve(self::TEST_RESOURCE_ID);
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $resource);
     }
 
     public function testUpdate()
@@ -98,6 +98,6 @@ final class LocationServiceTest extends \Stripe\TestCase
         $resource = $this->service->update(self::TEST_RESOURCE_ID, [
             'metadata' => ['key' => 'value'],
         ]);
-        static::assertInstanceOf(\Stripe\Terminal\Location::class, $resource);
+        static::assertInstanceOf(\StripePhp\Terminal\Location::class, $resource);
     }
 }

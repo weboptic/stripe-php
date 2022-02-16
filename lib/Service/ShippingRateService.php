@@ -4,17 +4,17 @@
 
 namespace StripePhp\Service;
 
-class ShippingRateService extends \Stripe\Service\AbstractService
+class ShippingRateService extends \StripePhp\Service\AbstractService
 {
     /**
      * Returns a list of your shipping rates.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\ShippingRate>
+     * @return \StripePhp\Collection<\StripePhp\ShippingRate>
      */
     public function all($params = null, $opts = null)
     {
@@ -25,11 +25,11 @@ class ShippingRateService extends \Stripe\Service\AbstractService
      * Creates a new shipping rate object.
      *
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\ShippingRate
+     * @return \StripePhp\ShippingRate
      */
     public function create($params = null, $opts = null)
     {
@@ -41,11 +41,11 @@ class ShippingRateService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\ShippingRate
+     * @return \StripePhp\ShippingRate
      */
     public function retrieve($id, $params = null, $opts = null)
     {
@@ -57,11 +57,11 @@ class ShippingRateService extends \Stripe\Service\AbstractService
      *
      * @param string $id
      * @param null|array $params
-     * @param null|array|\Stripe\Util\RequestOptions $opts
+     * @param null|array|\StripePhp\Util\RequestOptions $opts
      *
-     * @throws \Stripe\Exception\ApiErrorException if the request fails
+     * @throws \StripePhp\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\ShippingRate
+     * @return \StripePhp\ShippingRate
      */
     public function update($id, $params = null, $opts = null)
     {
