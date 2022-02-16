@@ -2,7 +2,7 @@
 
 namespace StripePhp\Util;
 
-use Stripe\StripeObject;
+use StripePhp\StripeObject;
 
 abstract class Util
 {

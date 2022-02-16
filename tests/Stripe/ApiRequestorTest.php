@@ -2,7 +2,7 @@
 
 namespace StripePhp;
 
-use Stripe\HttpClient\CurlClient;
+use StripePhp\HttpClient\CurlClient;
 
 /**
  * @internal

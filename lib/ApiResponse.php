@@ -2,7 +2,7 @@
 
 namespace StripePhp;
 
-use Stripe\Util\CaseInsensitiveArray;
+use StripePhp\Util\CaseInsensitiveArray;
 
 /**
  * Class ApiResponse.

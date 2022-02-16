@@ -2,9 +2,9 @@
 
 namespace StripePhp\HttpClient;
 
-use Stripe\Exception;
-use Stripe\Stripe;
-use Stripe\Util;
+use StripePhp\Exception;
+use StripePhp\Stripe;
+use StripePhp\Util;
 
 // @codingStandardsIgnoreStart
 // PSR2 requires all constants be upper case. Sadly, the CURL_SSLVERSION
